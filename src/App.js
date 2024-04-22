@@ -1,9 +1,8 @@
 import "./App.css";
-import listen from "./assets/listening-to-music.jpg";
-import listen1 from "./assets/listening-to-music1.jpg";
-import listen2 from "./assets/listening-to-music2.jpg";
+
 import wave from "./assets/sound_wave-removebg.png";
 import TopNavBar from "./components/topnavbar";
+import CenterImage from "./components/centerimage";
 
 function App() {
   return (
@@ -34,31 +33,6 @@ const ImageWithText = () => {
             </span>
           </button>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const CenterImage = () => {
-  return (
-    <div className="container">
-      <div className="square">
-        <h3>Band Music</h3>
-      </div>
-      <div className="image-square">
-        <img src={listen} alt="listen music" />
-      </div>
-      <div className="square1">
-        <h3>Band Music</h3>
-      </div>
-      <div className="image-square1">
-        <img src={listen1} alt="listen music" />
-      </div>
-      <div className="square2">
-        <h3>Band Music</h3>
-      </div>
-      <div className="image-square2">
-        <img src={listen2} alt="listen music" />
       </div>
     </div>
   );
