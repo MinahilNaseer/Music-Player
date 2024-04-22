@@ -1,31 +1,18 @@
-import './App.css';
-import logo from './assets/note-removebg.png';
-import wave from './assets/sound_wave-removebg.png';
+import "./App.css";
 
+import wave from "./assets/sound_wave-removebg.png";
+import TopNavBar from "./components/topnavbar";
+import CenterImage from "./components/centerimage";
 
 function App() {
   return (
     <div className="full-screen">
-      <Navbar />
+      <TopNavBar />
       <ImageWithText />
+      <CenterImage />
     </div>
   );
-};
-
-const Navbar = () => {
-  return (
-    <nav className="topnav">
-      <div className="logo-container">
-        <img src={logo} alt="Music" />
-        <h1>Music</h1>
-      </div>
-      <div className="login-container">
-        <button>Sign Up</button>
-        <button>Log In</button>
-      </div>
-    </nav>
-  );
-};
+}
 
 const ImageWithText = () => {
   return (
@@ -33,17 +20,22 @@ const ImageWithText = () => {
       <div className="text-content">
         <div className="line">
           <h2>Music Is Your </h2>
-          <img src={wave} alt='wave' />
+          <img src={wave} alt="wave" />
         </div>
         <div className="line">
-          <img src={wave} alt='wave' />
+          <img src={wave} alt="wave" />
           <h2>Time Machine</h2>
         </div>
-        <button>Start your search</button>
+        <div className="explore">
+          <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              Explore
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
-
-}
+};
 
 export default App;
