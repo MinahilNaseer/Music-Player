@@ -1,0 +1,135 @@
+.container {
+    position: relative;
+    height: 90vh; /* Same height as signup-container */
+    margin-top: 30px;
+  }
+  
+  .signup-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Occupy the entire height of the container */
+    width: 45%; /* Adjust width as needed */
+    background-image: url('D:\React Project\Music-Player\public\assets\cover only.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .circle {
+    position: absolute;
+    left: 250px; /* Adjust position to emerge from the left side */
+    top: 0;
+    width: 600px; /* Adjust width as needed */
+    height: 100%; /* Same height as background image */
+    background-image: linear-gradient(to right, black, grey 2%, white 10%,black 80%, black );
+    border-radius: 50%;
+    animation: emerge 2s linear forwards;
+    z-index: -1;
+  }
+  .small-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Adjust size of the smaller circle */
+    height: 200px; /* Adjust size of the smaller circle */
+    background-color: yellow; /* Color of the smaller circle */
+    border-radius: 50%;
+  }
+  .small-small-circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Adjust size of the smaller circle */
+    height: 130px; /* Adjust size of the smaller circle */
+    background-color: black; /* Color of the smaller circle */
+    border-radius: 50%;
+  }
+  .circular-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle at center, 
+      transparent 0%, 
+      transparent calc(50% - 4px), 
+      grey calc(50% - 4px), 
+      grey calc(50% - 2px),
+      transparent calc(50% - 2px), 
+      transparent calc(50% + 1px),
+      grey calc(50% + 1px),
+      grey calc(50% + 2px),
+      transparent calc(50% + 2px),
+      transparent 100%);
+  }
+  .form-container {
+    position: relative; /* Change to relative */
+    width: 400px; /* Adjust width as needed */
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+  
+  .form-container h1 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .form-container p {
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .form-container input,
+  .form-container button {
+    margin-bottom: 25px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .form-container input {
+    width: calc(100% - 10px);
+  }
+  
+  .form-container .signup-button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 130px;
+  }
+  
+  .form-container .signup-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-container .bottom{
+    text-align: center;
+  }
+  .form-container .login-button {
+    border: none;
+    text-decoration: none;
+  }
+  
+  .form-container .login-button:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  
