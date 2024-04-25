@@ -8,16 +8,12 @@
   flex-direction: column;
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
+  overflow: hidden;
+  z-index: 1;
 }
 
-.full-screen::after {
-  content: ""; /* Create a pseudo-element */
-  position: absolute; /* Position the pseudo-element absolutely within the container */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(238, 238, 238, 0.133); /* Blue color with opacity */
+.blurred {
+  filter: blur(5px);
 }
 
 .image-container { /* Center align the content */ 
@@ -58,8 +54,8 @@
   background-color: darkblue;
    /* Adjust background color as needed */
   position: absolute; /* Position the div absolutely */
-  left: 270px;
-  bottom: 80px;
+  left: 150px;
+  top: 50px;
 }
 .square1,
 .square2 {
@@ -113,18 +109,19 @@
   margin-left: 130px;
 }
 .image-square{
-  top: 480px;
+  top: 60px;
+  left: -15px;
 }
 .image-square1 {
   left: 50%; /* Position at the center of the screen */
   transform: translateX(-105%); /* Center horizontally */
-  top: 510px; /* Align with the bottom of square1 */
+  top: 90px; /* Align with the bottom of square1 */
 }
 
 .image-square2 {
-  right: 140px; /* Position to the right of the screen */
-  top: 40px; /* Align with the bottom of square2 */
-  transform: translateY(220%);
+  right: 40px; /* Position to the right of the screen */
+  top: 0; /* Align with the bottom of square2 */
+  transform: translateY(20%);
 }
 .image-square img,
 .image-square1 img,
@@ -132,4 +129,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.topnav {
+  position: fixed; /* Fixed positioning to keep it on top */
+  top: 0;
+  width: 100%; /* Semi-transparent white background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.logo-container img {
+  max-height: 120px; /* Set the maximum height of the logo */
+  padding: 20px 20px;
+  display: inline-block;
+
+}
+.logo-container h1{
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
 }

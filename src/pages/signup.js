@@ -1,9 +1,15 @@
 import React from "react";
+import "../App.css";
 import "./signup.css";
+import closeIcon from "../assets/close-removebg.png";
 
-const SignUp = () => {
+
+const SignUp = ({ onClose }) => {
   return (
     <div className="container">
+      <div className="close-icon" onClick={onClose}>
+        <img src={closeIcon} alt="Close" />
+      </div>
       <div className="circle">
       <div className="small-circle">
         <div className="small-small-circle"></div>
@@ -13,8 +19,8 @@ const SignUp = () => {
       <div className="signup-container">
         <div className="form-container">
           <h1>Sign Up</h1>
-          <p>Welcome to enjoy Music</p>
-          <p>All the music sheets are right here.</p>
+          <p>Welcome to <span class="vibz">Vibz</span></p>
+          <p className="quote">Feel the rhythm, catch the vibe - Your ultimate destination for musical delight!</p>
           <form>
             <input type="text" id="name" name="name" placeholder="Name" />
             <input
