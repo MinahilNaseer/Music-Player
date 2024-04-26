@@ -1,27 +1,31 @@
 import "./App.css";
-import React,{useState} from "react";
+import"./pages/signup.css";
+import React from "react";
 import wave from "./assets/sound_wave-removebg.png";
 //import TopNavBar from "./components/topnavbar";
 import CenterImage from "./components/centerimage";
 import SignUp from "./pages/signup";
+import { useState } from "react";
 
 function App() {
-  const [isBlurred, setIsBlurred] = useState(false);
   const [isSignUpVisible, setIsSignUpVisible] = useState(false);
 
   const handleSignUpClick = () => {
-    setIsBlurred(true);
     setIsSignUpVisible(true);
   };
+
   const handleSignUpClose = () => {
-    setIsBlurred(false);
     setIsSignUpVisible(false);
   };
   return (
-    <div className={`full-screen ${isBlurred ? "blurred" : ""}`}>
-      <TopNavBar onSignUpClick={handleSignUpClick}/>
-      <ImageWithText />
-      <CenterImage />
+    <div className="full-screen">
+      {!isSignUpVisible && <TopNavBar onSignUpClick={handleSignUpClick} />}
+      {!isSignUpVisible && (
+        <>
+          <ImageWithText />
+          <CenterImage />
+        </>
+      )}
       {isSignUpVisible && <SignUp onClose={handleSignUpClose} />}
     </div>
   );
@@ -54,6 +58,7 @@ const TopNavBar = ({ onSignUpClick }) => {
           </span>
         </button>
       </div>
+      
     </nav>
   );
 };

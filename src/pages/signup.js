@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import "./signup.css";
 import closeIcon from "../assets/close-removebg.png";
 

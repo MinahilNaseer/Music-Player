@@ -3,15 +3,18 @@
   position: absolute;
   top: 50%; /* Adjust the vertical position as needed */
   left: 40%; /* Adjust the horizontal position as needed */
-  transform: translate(-50%, -50%);
-  z-index: 2; /* Ensure the signup form appears above other elements */
+  
+  z-index: 5; /* Ensure the signup form appears above other elements */
+  height: 100%;
+  width: 100%;
 }
 .close-icon {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   cursor: pointer;
-  z-index: 3; /* Ensure the close icon appears above other elements */
+  z-index: 10;
+  /* Ensure the close icon appears above other elements */
 }
 
 .close-icon img {
@@ -20,12 +23,12 @@
 }
   .signup-container {
     position: relative;
-    top: 0;
-    left: 0;
+    top: -370px;
+    left: -600px;
     display: flex;
     align-items: center;
-    height: 70%; /* Occupy the entire height of the container */
-    width: 45%; /* Adjust width as needed */
+    height: 100%; /* Occupy the entire height of the container */
+    width: 50%; /* Adjust width as needed */
     background-image: url('D:\React Project\Music-Player\public\assets\cover only.jpeg');
     background-size: cover;
     background-position: center;
@@ -35,11 +38,10 @@
   
   .circle {
     position: absolute;
-    left: 550px; /* Adjust position to emerge from the left side */
-    top: 50%;
-    width: 650px; /* Adjust width as needed */
-    height: 650px; /* Same height as background image */
-    
+    left: 0px; /* Adjust position to emerge from the left side */
+    top: 0%;
+    width: 700px; /* Adjust width as needed */
+    height: 700px; /* Same height as background image */
     background: /* Gradient from left to right */
     linear-gradient(90deg, rgba(0, 0, 0, 1) 21%, rgba(133, 133, 139, 0.9601891782103467) 61%, rgba(255, 255, 255, 1) 100%);
     border-radius: 50%;
@@ -70,7 +72,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px; /* Adjust size of the smaller circle */
-    height: 130px; /* Adjust size of the smaller circle */
+    height: 150px; /* Adjust size of the smaller circle */
     background-color: black; /* Color of the smaller circle */
     border-radius: 50%;
   }
@@ -112,14 +114,12 @@
 
   .form-container .quote{
     text-align: center;
-    padding: 10px;
-  font-family: fantasy;
+  padding: 10px;
+  font-family: Arial, sans-serif; /* Change the font family */
   font-size: large;
-  background: #121FCF;
-background: linear-gradient(to right, #121FCF 14%, #00FF00 47%, #CF1512 83%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
+  background: linear-gradient(to top, #e6d0fa 0%, #9b59b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent
   }
 
   .form-container h1 {
@@ -149,15 +149,16 @@ background: linear-gradient(to right, #121FCF 14%, #00FF00 47%, #CF1512 83%);
   }
   
   .form-container .signup-button {
-    background-color: black;
-    color: white;
+    background-color: yellow;
+    color: black;
     border: none;
     cursor: pointer;
     margin-left: 130px;
   }
   
   .form-container .signup-button:hover {
-    background-color: #0056b3;
+    background-color: black;
+    color: white;
   }
   
   .form-container .bottom{
