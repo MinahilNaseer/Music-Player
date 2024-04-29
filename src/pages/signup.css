@@ -35,7 +35,14 @@
     background-repeat: no-repeat;
     opacity: 1;
   }
-  
+  .music-toggle {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 60px; /* Adjust the right position as needed */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
   .circle {
     position: absolute;
     left: 0px; /* Adjust position to emerge from the left side */

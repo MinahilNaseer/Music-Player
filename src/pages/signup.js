@@ -1,10 +1,29 @@
 import React from "react";
 import "./signup.css";
 import closeIcon from "../assets/close-removebg.png";
+import speakerIcon from "../assets/speaker-removebg.png";
+import muteIcon from "../assets/muted-icon-removebg.png";
+import { connect } from "react-redux";
+import { toggleMusic,toggleFormVisibility } from "../state/action-creators/actions";
 
-
-const SignUp = ({ onClose }) => {
+const SignUp = ({ onClose,isFormVisible, isMusicPlaying, toggleMusic, toggleFormVisibility }) => {
+  
+  
   return (
+    <>
+    {isFormVisible &&(
+      <>
+      <audio autoPlay loop id="background-music">
+        <source src="/assets/background-music.mp3" type="audio/mpeg" />
+      </audio>
+      <img
+      src={isMusicPlaying ? speakerIcon : muteIcon}
+      alt="Music Toggle"
+      className="music-toggle"
+      onClick={toggleMusic}
+      />
+      </>
+    )}
     <div className="container">
       <div className="close-icon" onClick={onClose}>
         <img src={closeIcon} alt="Close" />
@@ -45,7 +64,18 @@ const SignUp = ({ onClose }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
+const mapStateToProps = state => {
+  return {
+    isFormVisible: state.isFormVisible,
+    isMusicPlaying: state.isMusicPlaying
+  };
+};
 
-export default SignUp;
+const mapDispatchToProps = {
+  toggleMusic,
+  toggleFormVisibility
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
