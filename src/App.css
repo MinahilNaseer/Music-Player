@@ -8,20 +8,12 @@
   flex-direction: column;
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
-}
-
-.full-screen::after {
-  content: ""; /* Create a pseudo-element */
-  position: absolute; /* Position the pseudo-element absolutely within the container */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(238, 238, 238, 0.133); /* Blue color with opacity */
+  overflow: hidden;
+  z-index: 1;
 }
 
 .image-container { /* Center align the content */ 
-  margin-bottom: 140px;/* Adjust margin as needed */
+  margin-bottom: 0px;/* Adjust margin as needed */
 }
 
 .text-content { /* Semi-transparent white background */
@@ -50,28 +42,37 @@
   padding-top: 30px;
 }
 
-.square,
-.square1,
-.square2{
+.center-container{
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+.center-container .square,
+.center-container .square1,
+.center-container .square2{
   width: 200px;
   height: 200px;
   background-color: darkblue;
    /* Adjust background color as needed */
   position: absolute; /* Position the div absolutely */
-  left: 270px;
-  bottom: 80px;
+  top: 50px;
 }
-.square1,
-.square2 {
-  left: 50%; /* Position at the center of the screen */
-  transform: translateX(-40%); /* Center horizontally */
-}
-.square2 {
-  right: 50px; /* Position to the right of the screen */
-  transform: translateX(180%);
+.center-container .square {
+  left: 0;
+  transform: translateX(100%);
 }
 
-.square h3 {
+.center-container .square1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-container .square2 {
+  right: 0;
+  transform: translateX(-100%);
+}
+
+.center-container .square h3 {
   writing-mode: vertical-rl; /* Set text orientation to vertical */
   text-align: center; /* Center align the text */
   top: 50px; /* Align with the top of the square */
@@ -82,7 +83,7 @@
   color: white;
 }
 
-.square1 h3 {
+.center-container .square1 h3 {
   text-align: center; /* Center align the text */
   top: 0; /* Align with the top of the square */
   left: 50px; /* Align with the left side of the square */
@@ -93,7 +94,7 @@
   padding: 10px;
 }
 
-.square2 h3 {
+.center-container .square2 h3 {
   writing-mode: vertical-rl; /* Set text orientation to vertical */
   text-align: center; /* Center align the text */
   top: 50px; /* Align with the top of the square */
@@ -104,27 +105,27 @@
   color: white;
 }
 
-.image-square,
-.image-square1,
-.image-square2{
+.center-container .image-square,
+.center-container .image-square1,
+.center-container .image-square2{
   width: 200px;
   height: 200px;
   position: absolute; /* Position the image square */
-  margin-left: 130px;
 }
-.image-square{
-  top: 480px;
-}
-.image-square1 {
-  left: 50%; /* Position at the center of the screen */
-  transform: translateX(-105%); /* Center horizontally */
-  top: 510px; /* Align with the bottom of square1 */
+.center-container .image-square {
+  top: 70px; /* Adjust as needed */
+  left: 160px; /* Adjust as needed */
 }
 
-.image-square2 {
-  right: 140px; /* Position to the right of the screen */
-  top: 40px; /* Align with the bottom of square2 */
-  transform: translateY(220%);
+.center-container .image-square1 {
+  top: 90px; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%);
+}
+
+.center-container .image-square2 {
+  top: 30px; /* Adjust as needed */
+  right: 160px; /* Adjust as needed */
 }
 .image-square img,
 .image-square1 img,
@@ -132,4 +133,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.topnav {
+  position: fixed; /* Fixed positioning to keep it on top */
+  top: 0;
+  width: 100%; /* Semi-transparent white background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.logo-container img {
+  max-height: 120px; /* Set the maximum height of the logo */
+  padding: 20px 20px;
+  display: inline-block;
+
+}
+.logo-container h1{
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
 }
