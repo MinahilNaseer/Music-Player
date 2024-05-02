@@ -6,9 +6,11 @@ import wave from "./assets/sound_wave-removebg.png";
 import CenterImage from "./components/centerimage";
 import SignUp from "./pages/signup";
 import { useState } from "react";
+import Login from "./pages/login";
 
 function App() {
   const [isSignUpVisible, setIsSignUpVisible] = useState(false);
+  const [isLoginVisible,setIsLoginVisible] = useState(false);
 
   const handleSignUpClick = () => {
     setIsSignUpVisible(true);
@@ -17,21 +19,29 @@ function App() {
   const handleSignUpClose = () => {
     setIsSignUpVisible(false);
   };
+  const handleloginClick = ()=>{
+    setIsLoginVisible(true);
+  };
+  const handleloginClose = ()=>{
+    setIsLoginVisible(false);
+  };
+
   return (
     <div className="full-screen">
-      {!isSignUpVisible && <TopNavBar onSignUpClick={handleSignUpClick} />}
-      {!isSignUpVisible && (
+      {!isSignUpVisible && !isLoginVisible && <TopNavBar onSignUpClick={handleSignUpClick} onLoginClick={handleloginClick}/>}
+      {!isSignUpVisible && !isLoginVisible && (
         <>
           <ImageWithText />
           <CenterImage />
         </>
       )}
       {isSignUpVisible && <SignUp onClose={handleSignUpClose} />}
+      {isLoginVisible && <Login onClose={handleloginClose}/>}
     </div>
   );
 }
 
-const TopNavBar = ({ onSignUpClick }) => {
+const TopNavBar = ({ onSignUpClick, onLoginClick}) => {
   return (
     <nav className="topnav">
       <div className="logo-container">
@@ -49,7 +59,7 @@ const TopNavBar = ({ onSignUpClick }) => {
           </span>
         </button>
 
-        <button
+        <button onClick={onLoginClick}
           type="button"
           className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
         >
