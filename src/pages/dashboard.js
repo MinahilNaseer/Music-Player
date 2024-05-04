@@ -16,6 +16,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import RecommendIcon from "@mui/icons-material/Recommend";
+import SearchIcon from "@mui/icons-material/Search";
 
 const DashBoard = () => {
   const { collapseSidebar } = useProSidebar();
@@ -36,14 +37,14 @@ const DashBoard = () => {
         style={{ height: "100vh" }}
       >
         <Menu
-        renderMenuItemStyles={() => ({
-            '.menu-anchor': {
-            backgroundColor: 'red',
-            '&:hover': {
-            backgroundColor: 'green',
+          renderMenuItemStyles={() => ({
+            ".menu-anchor": {
+              backgroundColor: "red",
+              "&:hover": {
+                backgroundColor: "green",
+              },
             },
-            },
-            })}
+          })}
         >
           <MenuItem
             className="item"
@@ -174,7 +175,19 @@ const DashBoard = () => {
         </button>
       </Sidebar>
       <main>
-        <h1 className="top-heading">Music</h1>
+        <div className="top-heading-container">
+          <h3 className="top-heading">MUSIC</h3>
+          <div className="content">
+            <div className="search-bar">
+              <SearchIcon className="search-icon" />
+              <input type="text" className="textbox" placeholder="Search..." />
+            </div>
+            <div className="account">
+              <AccountCircleIcon />
+              <h4>Account</h4>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
