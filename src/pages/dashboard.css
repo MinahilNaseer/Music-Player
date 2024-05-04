@@ -1,0 +1,33 @@
+
+.dashboard{
+    height: 100vh;
+    background: rgb(8,8,9);
+    margin: 0;
+    display: flex;
+    color: white;
+}
+.item{
+    text-align: center;
+}
+.top-heading{
+    color: white;
+    margin-left: 5rem;
+}
+.logo-container {
+    display: flex; /* Display the items in a flex container */
+    align-items: center;
+    margin-top: 10px; /* Align items vertically */
+  }
+  h2{
+    margin-bottom: 10px;
+    font-size: larger;
+  }
+.logo{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+button{
+    margin-left: 70px;
+    margin-top: 90px;
+}
