@@ -4,7 +4,7 @@ import useSound from "use-sound";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
-import "./dashboard.css";
+import "../pages/dashboard.css";
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);

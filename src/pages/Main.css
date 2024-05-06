@@ -1,0 +1,168 @@
+.full-screen {
+  position: relative;
+  height: 100vh; /* Make the container full screen */
+  background-image: url('D:\React Project\Music-Player\src\assets\main background image.jpg'); /* Add the background image */
+  background-size: cover; /* Cover the entire container with the background image */
+  background-position: center; /* Center the background image */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  overflow: hidden;
+  z-index: 1;
+}
+
+.image-container { /* Center align the content */ 
+  margin-top: -130px;
+  position: relative;
+  margin-bottom: -50px;
+}
+
+.text-content { /* Semi-transparent white background */
+  text-align: center;
+}
+
+.line{
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-content img{
+  max-height: 90px; /* Set the maximum height of the logo */
+  margin-right: 10px;
+  /*background-color: rgba(6, 5, 5, 0.505); /* Add black background color */
+  border-radius: 5px; /* Add border radius */
+  padding: 5px;
+  width: 140px;
+  margin-left: 10px;
+}
+.explore{
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: -70px;
+  margin-left: -80px;
+}
+
+.center-container{
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: 40px;
+}
+.center-container .square,
+.center-container .square1,
+.center-container .square2{
+  width: 200px;
+  height: 200px;
+  background-color: darkblue;
+   /* Adjust background color as needed */
+  position: absolute; /* Position the div absolutely */
+  top: 50px;
+}
+.center-container .square {
+  left: 0;
+  transform: translateX(100%);
+}
+
+.center-container .square1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-container .square2 {
+  right: 0;
+  transform: translateX(-100%);
+}
+.center-container .square h3 ,
+.center-container .square1 h3,
+.center-container .square2 h3{
+  text-align: center;
+  margin: 0; 
+  padding: 5px; 
+  position: absolute;
+  color: white;
+  text-decoration: none;
+}
+.center-container .square h3 {
+  writing-mode: vertical-rl; 
+  top: 50px; 
+  right: 0; 
+}
+
+.center-container .square1 h3 {
+  top: 0; 
+  left: 50px; 
+  padding: 10px;
+}
+
+.center-container .square2 h3 {
+  writing-mode: vertical-rl; 
+  top: 50px; 
+  left: 0; 
+}
+
+.center-container .image-square,
+.center-container .image-square1,
+.center-container .image-square2{
+  width: 200px;
+  height: 200px;
+  position: absolute; 
+}
+.center-container .image-square {
+  top: 30px; 
+  left: 180px; 
+}
+
+.center-container .image-square1 {
+  top: 90px; 
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.center-container .image-square2 {
+  top: 30px; 
+  right: 160px; 
+}
+.image-square img,
+.image-square1 img,
+.image-square2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.topnav {
+  position: fixed; /* Fixed positioning to keep it on top */
+  top: 0;
+  width: 100%; /* Semi-transparent white background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.logo-container img {
+  max-height: 100px; /* Set the maximum height of the logo */
+  padding: 20px 10px;
+  display: inline-block;
+
+}
+.logo-container h1{
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+.buttons-container{
+  display: flex;
+  align-items: center;
+  height: 80px;
+  position: relative;
+  margin-bottom: 60px;
+}
+.buttons-container button {
+  margin-left: 10px;
+}

@@ -1,21 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import SignUp from './pages/signup';
 import { Provider } from 'react-redux';
 import store from '../src/state/index.js';
 import Dashboard from './pages/dashboard.js';
-import { ProSidebarProvider } from "react-pro-sidebar";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <ProSidebarProvider>
-    <Dashboard />
-    </ProSidebarProvider>
+    
+     <Router>
+    <App />
+    </Router>
+    
     </Provider>
   </React.StrictMode>
 );
