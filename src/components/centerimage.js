@@ -1,4 +1,5 @@
 import React from 'react';
+import '../pages/Main.css'
 
 const CenterImage = () => {
   return (

@@ -18,10 +18,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import SearchIcon from "@mui/icons-material/Search";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import MusicPlayer from "./musicplayer";
+import MusicPlayer from "../components/musicplayer";
 //import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const DashBoard = () => {
+const Dashboard = () => {
   const { collapseSidebar } = useProSidebar();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
@@ -282,4 +282,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default Dashboard;
