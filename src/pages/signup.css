@@ -35,6 +35,20 @@
     background-repeat: no-repeat;
     opacity: 1;
   }
+  .login-container{
+    position: relative;
+    top: -370px;
+    right: -200px;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Occupy the entire height of the container */
+    width: 60%; /* Adjust width as needed */
+    background-image: url('D:\React Project\Music-Player\public\assets\cover2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+  }
   .music-toggle {
     position: absolute;
     top: 10px; /* Adjust the top position as needed */
@@ -42,10 +56,24 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
+    z-index: 11;
   }
+  
   .circle {
     position: absolute;
     left: 0px; /* Adjust position to emerge from the left side */
+    top: 0%;
+    width: 700px; /* Adjust width as needed */
+    height: 700px; /* Same height as background image */
+    background: /* Gradient from left to right */
+    linear-gradient(90deg, rgba(0, 0, 0, 1) 21%, rgba(133, 133, 139, 0.9601891782103467) 61%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 50%;
+    animation: rotateCircle 10s linear infinite;
+    z-index: -1;
+  }
+  .login-circle{
+    position: absolute;
+    right: 30%; /* Adjust position to emerge from the left side */
     top: 0%;
     width: 700px; /* Adjust width as needed */
     height: 700px; /* Same height as background image */
@@ -92,7 +120,7 @@
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
 
@@ -167,7 +195,18 @@
     background-color: black;
     color: white;
   }
-  
+  .log-button{
+    background-color: yellow;
+    color: black;
+    border: 10px solid #9b59b6;
+    cursor: pointer;
+    margin-left: 150px;
+    margin-top: 20px;
+  }
+  .log-button:hover{
+    background-color: black;
+    color: white;
+  }
   .form-container .bottom{
     text-align: center;
   }

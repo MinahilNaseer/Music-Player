@@ -1,5 +1,6 @@
 
 import React from "react";
+
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Main from "./pages/Main";
 import DashBoard from "./pages/dashboard";
@@ -18,9 +19,5 @@ function App() {
           </ProSidebarProvider>
           }/>
         </Routes>
-      
-    </div>
-  );
-}
 
 export default App;

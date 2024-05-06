@@ -4,11 +4,20 @@ import closeIcon from "../assets/close-removebg.png";
 import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
 import { connect } from "react-redux";
-import { toggleMusic,toggleFormVisibility } from "../state/action-creators/actions";
+import { toggleFormVisibility,toggleMusic } from "../state/action-creators/actions";
 
-const SignUp = ({ onClose,isFormVisible, isMusicPlaying, toggleMusic, toggleFormVisibility }) => {
-  
-  
+const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFormVisibility }) => {
+  const toggleMusicHandler = () => {
+    toggleMusic(); // Dispatch toggleMusic action
+    const audio = document.getElementById("background-music");
+    if (audio) {
+      if (isMusicPlaying) {
+        audio.pause(); // Pause if music is currently playing
+      } else {
+        audio.play(); // Start playing if music is currently muted
+      }
+    }
+  };
   return (
     <>
     {isFormVisible &&(
@@ -20,7 +29,7 @@ const SignUp = ({ onClose,isFormVisible, isMusicPlaying, toggleMusic, toggleForm
       src={isMusicPlaying ? speakerIcon : muteIcon}
       alt="Music Toggle"
       className="music-toggle"
-      onClick={toggleMusic}
+      onClick={toggleMusicHandler}
       />
       </>
     )}
@@ -67,12 +76,10 @@ const SignUp = ({ onClose,isFormVisible, isMusicPlaying, toggleMusic, toggleForm
     </>
   );
 };
-const mapStateToProps = state => {
-  return {
-    isFormVisible: state.isFormVisible,
-    isMusicPlaying: state.isMusicPlaying
-  };
-};
+const mapStateToProps = state => ({
+  isFormVisible: state.isFormVisible,
+  isMusicPlaying: state.isMusicPlaying
+});
 
 const mapDispatchToProps = {
   toggleMusic,
