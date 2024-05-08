@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from '../src/state/index.js';
 import Dashboard from './pages/dashboard.js';
+//import Topartist from './pages/topartist.js';
+//import { ProSidebarProvider } from "react-pro-sidebar";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -16,7 +18,7 @@ root.render(
     <Provider store={store}>
     
      <Router>
-    <App />
+     <App/>
     </Router>
     
     </Provider>
