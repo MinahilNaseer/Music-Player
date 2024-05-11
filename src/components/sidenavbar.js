@@ -55,7 +55,7 @@ const Sidenavbar = () => {
     <Sidebar
     backgroundColor="rgb(24,24,29)"
     rtl={false}
-    style={{ height: "auto" }}
+    style={{ height: "100vh" }}
   >
     <Menu
       renderMenuItemStyles={() => ({
