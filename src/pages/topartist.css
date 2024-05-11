@@ -4,6 +4,13 @@ main h1{
     text-decoration: underline;
     font-weight: bold;
 }
+.top-artist-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+}
 .top-artist-sec{
     width: 200px;
     height: 200px;
@@ -142,9 +149,18 @@ main h1{
     flex-grow: 1;
     margin: 0 20px;
     width: 100%;
+    color: black;
   }
   
   input[type="range"] {
    
+    color: black;
     background-color: #27ae60;
+  }
+  .volume-timeline{
+    display: flex;
+    flex-direction: row;
+    margin: 200px;
+    float: right;
+    transform: translate(130%,20%);
   }

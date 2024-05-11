@@ -1,6 +1,6 @@
 
 .dashboard{
-    height: 100vh;
+    height: auto;
     background: rgb(8,8,9);
     margin: 0;
     display: flex;
@@ -9,23 +9,25 @@
 .item{
     text-align: center;
 }
+
 .top-heading{
-    color: white;
+  color: rgb(70,91,196);
     margin-left: 5rem;
+    font-size: large;
 }
 .logo-container {
-    display: flex; /* Display the items in a flex container */
+    display: flex; 
     align-items: center;
-    margin-top: 10px; /* Align items vertically */
+    margin-top: 10px; 
   }
   h2{
     margin-bottom: 10px;
     font-size: larger;
   }
 .logo{
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
+    width: 90px;
+    height: 90px;
+    margin-right: 0px;
 }
 button{
     margin-left: 70px;
@@ -38,36 +40,8 @@ button{
     padding: 10px 20px;
     border-bottom: 2px solid #444;
   }
-  
-  .top-heading {
-    color: white;
-    font-size: large;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-    font-size: larger;
-  }
-  
-  .logo {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-  }
-  
-  button {
-    margin-left: 70px;
-    margin-top: 90px;
-  }
-  .top-heading-container{
-    margin-top: 5px;
-  }
+ 
+ 
   .content {
     display: flex;
     flex-direction: row;
@@ -78,10 +52,6 @@ button{
     margin: 0;
     padding-left: 0px;
     text-decoration: underline;
-  }
-
-  .top-heading{
-    color: rgb(70,91,196);
   }
 
   .search-bar,
