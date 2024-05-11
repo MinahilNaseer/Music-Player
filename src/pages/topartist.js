@@ -46,14 +46,13 @@ const Topartist = () => {
       <main>
         <DashboardTopNav />
         <h1>Top Artist</h1>
-        <div className="top-artist-container">
+        <div className="artist-container">
         <section className="top-artist-sec">
           <div className="artist-cover">
             <img src="./assets/Theweek.jpg" alt="artist-img" />
           </div>
           <h2 className="artist-name">The Weekend</h2>
         </section>
-        
         </div>
       </main>
       <BottomPlayer/>
