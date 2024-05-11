@@ -1,10 +1,23 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import "../pages/dashboard.css";
 import MusicPlayer from './musicplayer';
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useNavigate ,useLocation } from 'react-router-dom';
 
 const Trendinghits = () => {
+  const [activePage, setActivePage] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(()=>{
+    console.log("location",location.pathname);
+    setActivePage(location.pathname);
+  },[location]);
+  const handleSeeAllArtsitClick=()=>{
+    setActivePage('/topartist')
+    navigate("/topartist");
+  }
+
   return (
     <>
     <section class="trending">
@@ -35,7 +48,7 @@ const Trendinghits = () => {
         </section>
         <section className="top-artist">
           <h4>Top Artists</h4>
-          <button className="see-all">See All</button>
+          <button onClick={handleSeeAllArtsitClick} className="see-all">See All</button>
           <div className="square">
             <div className="artist-info">
               <img

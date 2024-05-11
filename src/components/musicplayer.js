@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import useSound from "use-sound";
-
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
@@ -8,43 +7,49 @@ import "../pages/dashboard.css";
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [seconds, setSeconds] = useState();
+  const [seconds, setSeconds] = useState(0);
   const [currTime, setCurrTime] = useState({
-    min: "",
-    sec: "",
+    min: "0",
+    sec: "0",
   }); 
-  const [play, { pause, duration, sound }] = useSound(
-    "/assets/background-music.mp3"
-  );
+  const audioRef = useRef(null);
+  const [play] = useSound("/assets/background-music.mp3");
+
   const playingButton = () => {
     if (isPlaying) {
-      pause(); // this will pause the audio
+      audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      play(); // this will play the audio
+      audioRef.current.play(); 
       setIsPlaying(true);
     }
   };
   useEffect(() => {
-    // Calculate current time
-    const sec = seconds % 60;
-    const min = Math.floor(seconds / 60);
-    setCurrTime({ min, sec });
-  }, [seconds]);
-
-  useEffect(() => {
     const interval = setInterval(() => {
-      if (sound) {
-        setSeconds(Math.floor(sound.seek() / 1000));
+      if (audioRef.current) {
+        setSeconds(audioRef.current.currentTime);
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [sound]);
-  
-  // Calculate total duration of the song
-  const totalMin = Math.floor(duration / 60000);
-  const totalSec = Math.floor((duration / 1000) % 60);
+  }, []);
+
+  useEffect(() => {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    setCurrTime({
+      min: min.toString().padStart(2, "0"),
+      sec: sec.toString().padStart(2, "0"),
+    });
+  }, [seconds]);
+
+  useEffect(() => {
+    // Reset time when the song ends
+    if (audioRef.current && seconds >= audioRef.current.duration) {
+      setSeconds(0);
+      setIsPlaying(false);
+    }
+  }, [seconds]);
 
   return (
     <section className="music-player">
@@ -60,18 +65,20 @@ const MusicPlayer = () => {
             {currTime.min}:{currTime.sec}
           </p>
           <p>
-            {totalMin}:{totalSec}
+          {Math.floor(audioRef.current?.duration / 60).toString().padStart(2, "0")}:
+            {Math.floor(audioRef.current?.duration % 60).toString().padStart(2, "0")}
           </p>
         </div>
         <input
           type="range"
           min="0"
-          max={duration / 1000}
+          max={Math.floor(audioRef.current?.duration)}
           default="0"
           value={seconds}
           className="timeline"
           onChange={(e) => {
-            sound.seek([e.target.value]);
+            setSeconds(parseInt(e.target.value, 10));
+            audioRef.current.currentTime = parseInt(e.target.value, 10);
           }}
         />
       </div>
@@ -100,6 +107,7 @@ const MusicPlayer = () => {
           </IconContext.Provider>
         </button>
       </div>
+      <audio ref={audioRef} src="/assets/background-music.mp3"></audio>
     </section>
   );
 };
