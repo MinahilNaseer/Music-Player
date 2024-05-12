@@ -3,8 +3,19 @@ import Sidenavbar from '../components/sidenavbar';
 import DashboardTopNav from '../components/dashboardtopnav';
 import '../pages/dashboard.css';
 import BottomPlayer from '../components/bottomplayer';
+import { useGetTopChartsQuery } from '../state/services/shazamCore';
+import SongCard from '../components/songcardchart';
+import Loader from '../components/loader';
+import Error from '../components/error';
 
 const Topcharts = () => {
+  const {data,isFetching,error} = useGetTopChartsQuery();
+  console.log(data);
+  if(isFetching) return <Loader title="Loading songs..."/>
+  if(error) return <Error/>
+  // Check if data is an array before mapping over it
+  
+
   return (
     <div className="dashboard">
     <Sidenavbar activePage = "/topcharts"/>
@@ -12,21 +23,14 @@ const Topcharts = () => {
     <DashboardTopNav />
     <h1>Top Charts </h1>
         <div className="artist-container">
-          <section className="around-you-sec">
-            <div className="artist-cover">
-              <img src="./assets/Theweek.jpg" alt="artist-img" />
-            </div>
-            <h2 className="artist-name">The Weekend</h2>
-            <h2 className="artist-song">Star Boy</h2>
-            <img
-              className="play-icon"
-              src="./assets/playicon-remove.png"
-              alt="icon"
-            />
-          </section>
+        {data.data.map((song, i) => (
+            <SongCard key={i} song={song} />
+          ))}
+         
         </div>
     </main>
     <BottomPlayer/>
+
   </div>
   )
 }

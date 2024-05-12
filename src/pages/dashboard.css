@@ -183,7 +183,7 @@ button{
   
 }
 
-.see-all{
+.top-artist .see-all,.top-charts .see-all{
   position: absolute;
   top: -80px;
   right: 20px;

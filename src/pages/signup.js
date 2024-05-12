@@ -1,14 +1,14 @@
-import React from "react";
+import React , {useState} from "react";
 import "./signup.css";
 import closeIcon from "../assets/close-removebg.png";
 import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
-import { connect } from "react-redux";
-import { toggleFormVisibility,toggleMusic } from "../state/action-creators/actions";
 
-const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFormVisibility }) => {
+const SignUp = ({ onClose}) => {
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(true);
+
   const toggleMusicHandler = () => {
-    toggleMusic(); // Dispatch toggleMusic action
     const audio = document.getElementById("background-music");
     if (audio) {
       if (isMusicPlaying) {
@@ -16,6 +16,7 @@ const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFor
       } else {
         audio.play(); // Start playing if music is currently muted
       }
+      setIsMusicPlaying(!isMusicPlaying);
     }
   };
   return (
@@ -26,7 +27,7 @@ const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFor
         <source src="/assets/background-music.mp3" type="audio/mpeg" />
       </audio>
       <img
-      src={isMusicPlaying ? speakerIcon : muteIcon}
+      src={isMusicPlaying ? muteIcon : speakerIcon}
       alt="Music Toggle"
       className="music-toggle"
       onClick={toggleMusicHandler}
@@ -44,7 +45,7 @@ const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFor
       <div className="circular-lines"></div>
       </div>
       <div className="signup-container">
-        <div className="form-container">
+        <div className="signup-form-container">
           <h1>Sign Up</h1>
           <p>Welcome to <span class="vibz">Vibz</span></p>
           <p className="quote">Feel the rhythm, catch the vibe - Your ultimate destination for musical delight!</p>
@@ -76,13 +77,5 @@ const SignUp = ({ onClose, isFormVisible, isMusicPlaying, toggleMusic, toggleFor
     </>
   );
 };
-const mapStateToProps = state => ({
-  isFormVisible: state.isFormVisible,
-  isMusicPlaying: state.isMusicPlaying
-});
 
-const mapDispatchToProps = {
-  toggleMusic,
-  toggleFormVisibility
-};
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default SignUp;

@@ -5,9 +5,11 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import ImageWithText from "../components/imagewithtext";
 import "./Main.css";
+import Login from './login';
 
 const Main = () => {
     const [isSignUpVisible, setIsSignUpVisible] = useState(false);
+    const [isLoginVisible, setIsLoginVisible] = useState(false);
     const navigate = useNavigate();
 
   const handleSignUpClick = () => {
@@ -17,23 +19,33 @@ const Main = () => {
   const handleSignUpClose = () => {
     setIsSignUpVisible(false);
   };
-  const handleExploreClick = () => {
-    navigate("/dashboard"); // Navigate to the dashboard when Explore button is clicked
+
+  const handleLoginClick = () => {
+    setIsLoginVisible(true);
   };
+
+  const handleLoginClose = () => {
+    setIsLoginVisible(false);
+  };
+
+  const handleExploreClick = () => {
+    navigate("/dashboard"); 
+    };
   return (
     <div className="full-screen">
-      {!isSignUpVisible && <TopNavBar onSignUpClick={handleSignUpClick} />}
-      {!isSignUpVisible && (
+      {!isSignUpVisible && !isLoginVisible && <TopNavBar onSignUpClick={handleSignUpClick} onLoginClick={handleLoginClick} />}
+      {!isSignUpVisible && !isLoginVisible && (
         <>
           <ImageWithText onExploreClick={handleExploreClick} />
           <CenterImage />
         </>
       )}
       {isSignUpVisible && <SignUp onClose={handleSignUpClose} />}
+      {isLoginVisible && <Login onClose={handleLoginClose} />}
     </div>
   )
 }
-const TopNavBar = ({ onSignUpClick }) => {
+const TopNavBar = ({ onSignUpClick,onLoginClick }) => {
   return (
     <nav className="topnav">
       
@@ -50,7 +62,7 @@ const TopNavBar = ({ onSignUpClick }) => {
               Sign Up
             </span>
           </button>
-          <button
+          <button onClick={onLoginClick}
             type="button"
             className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
           >
