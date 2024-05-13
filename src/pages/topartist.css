@@ -1,22 +1,52 @@
+
+main{
+  height: 100vh;
+}
 main h1{
     margin:40px;
     font-size: x-large;
     text-decoration: underline;
     font-weight: bold;
+    overflow-y: hidden;
+}
+.drop-down-align{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-right: 40px;
+}
+.drop-down-align select{
+  background-color: rgb(24,24,29);
+  width: 70px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+.drop-down-align option{
+  cursor: pointer;
+}
+.scrollable-content {
+  overflow-y: auto;
+  height: calc(100vh - 150px); /* Adjust height accordingly */
+  padding-right: 30px;
 }
 .artist-container{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-  height: auto;
+  width: 100%; /* Compensate for padding */
+  height: auto; /*auto*/
+  overflow: hidden;
 }
 .top-artist-sec,.around-you-sec{
     width: 200px;
-    height: 200px;
+    height: 230px;
     background-color: rgb(32,32,38);
     margin-left: 40px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,9 +74,16 @@ main h1{
     max-width: 100%; 
     max-height: 100%;
 }
-.artist-song{
+.artist-name{
   font-size: medium;
+  font-weight: bold;
+  text-align: center;
   margin: 0;
+}
+.artist-song{
+  font-size: small;
+  margin: 10px;
+  text-align: center;
 }
 .top-artist-sec:hover::after {
     content: 'More Details';
@@ -76,14 +113,12 @@ main h1{
 }
 .around-you-sec:hover{
   width: 200px;
-  height: 200px;
+  height: 230px;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 .around-you-sec:hover .play-icon {
   visibility: visible;
-  
-
 }
 
 .bottom-player{
@@ -96,7 +131,6 @@ main h1{
   padding: 10px;
   display: flex;
   flex-direction: row;
- 
   align-items: center;
   z-index: 99;
 }
@@ -111,22 +145,28 @@ main h1{
   .circular-image {
     width: 100%;
     height: auto;
-    animation: rotate 2s linear infinite; /* Add animation for continuous rotation */
+    animation: rotate 2s linear infinite; 
   }
   .player-details{
+    flex: 1;
     display: flex;
   flex-direction: column;
-  
-  margin-left: 20px;
-    
+  margin-left: 0px;
   }
   .player-details h2{
     font-size: large;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .player-details h3{
-    text-decoration: none;
+    text-overflow: ellipsis;
     font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    margin: 0;
   }
   
   @keyframes rotate {
@@ -139,51 +179,52 @@ main h1{
   }
   
   .buttons-timeline{
+    width: 500px;
+    height: 100px;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    position: relative;
+    margin-top: -20px;
+    margin-right: 50px;
+    flex-grow: 2;
   }
-  .bottom-player-buttons{
-    margin-left: 40px;
-    transform: translate(80%,-5%);
+  .bottom-player-buttons {
+     /* Ensure the buttons are displayed as flex items */
+     margin: 0;
+     height: 50px;
+     justify-content: space-between;
+     margin-bottom: 40px;
+     margin-right: 40px;
   }
   .center-scroller{
-    margin-top: 50px;
-    margin-left:-90px;
+    display: flex;
+    flex: 1;
+    margin-left: 20px;
   }
   
   .player-time{
     
-  width: 150%;
+  width: 190%;
   display: flex;
-  justify-content: space-between;
+  flex: 1;
   color: white;
   font-size: smaller;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   
   padding: 0 20px;
   }
   .player-timeline {
     flex-grow: 1;
     margin: 0 20px;
-    width: 100%;
-    color: black;
+   
   }
   
   input[type="range"] {
-   
     color: black;
     background-color: #27ae60;
   }
   .volume-timeline{
     display: flex;
     flex-direction: row;
-    margin: 200px;
-    float: right;
-    transform: translate(130%,20%);
+    margin-right: 20px;
   }

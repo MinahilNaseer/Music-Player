@@ -2,10 +2,15 @@ import React from "react";
 import '../pages/dashboard.css';
 import '../pages/topartist.css'
 
-const SongCard = ({song,i}) => {
+const SongCard = ({song,onPlay,setCurrentSong}) => {
     const { attributes } = song;
     const { artwork, name, artistName } = attributes;
-    console.log(artwork.url);
+    //console.log(artwork.url);
+    const handlePlay=()=>{
+      onPlay(song);
+      setCurrentSong(song);
+      //console.log(song);
+    }
   return (
     <section className="around-you-sec">
       <div className="artist-cover">
@@ -17,6 +22,7 @@ const SongCard = ({song,i}) => {
         className="play-icon"
         src="./assets/playicon-remove.png"
         alt="icon"
+        onClick={handlePlay}
       />
     </section>
   );
