@@ -1,10 +1,10 @@
 
 .dashboard{
-    height: auto;
     background: rgb(8,8,9);
     margin: 0;
     display: flex;
     color: white;
+    overflow-y: hidden;
 }
 .item{
     text-align: center;
@@ -183,7 +183,7 @@ button{
   
 }
 
-.see-all{
+.top-artist .see-all,.top-charts .see-all{
   position: absolute;
   top: -80px;
   right: 20px;

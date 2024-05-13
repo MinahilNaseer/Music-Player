@@ -1,10 +1,9 @@
-/* Update the signup container to ensure it appears on top */
+
 .container {
   position: absolute;
-  top: 50%; /* Adjust the vertical position as needed */
-  left: 40%; /* Adjust the horizontal position as needed */
-  
-  z-index: 5; /* Ensure the signup form appears above other elements */
+  top: 50%; 
+  left: 40%; 
+  z-index: 5; 
   height: 100%;
   width: 100%;
 }
@@ -14,12 +13,11 @@
   right: 10px;
   cursor: pointer;
   z-index: 10;
-  /* Ensure the close icon appears above other elements */
 }
 
 .close-icon img {
-  width: 30px; /* Adjust the width of the close icon */
-  height: 30px; /* Adjust the height of the close icon */
+  width: 30px; 
+  height: 30px;
 }
   .signup-container {
     position: relative;
@@ -27,8 +25,8 @@
     left: -600px;
     display: flex;
     align-items: center;
-    height: 100%; /* Occupy the entire height of the container */
-    width: 50%; /* Adjust width as needed */
+    height: 100%; 
+    width: 50%; 
     background-image: url('D:\React Project\Music-Player\public\assets\cover only.jpeg');
     background-size: cover;
     background-position: center;
@@ -41,8 +39,8 @@
     right: -200px;
     display: flex;
     align-items: center;
-    height: 100%; /* Occupy the entire height of the container */
-    width: 60%; /* Adjust width as needed */
+    height: 100%; 
+    width: 60%; 
     background-image: url('D:\React Project\Music-Player\public\assets\cover2.jpeg');
     background-size: cover;
     background-position: center;
@@ -51,8 +49,8 @@
   }
   .music-toggle {
     position: absolute;
-    top: 10px; /* Adjust the top position as needed */
-    right: 60px; /* Adjust the right position as needed */
+    top: 10px; 
+    right: 60px; 
     cursor: pointer;
     width: 30px;
     height: 30px;
@@ -61,11 +59,11 @@
   
   .circle {
     position: absolute;
-    left: 0px; /* Adjust position to emerge from the left side */
+    left: 0px; 
     top: 0%;
-    width: 700px; /* Adjust width as needed */
-    height: 700px; /* Same height as background image */
-    background: /* Gradient from left to right */
+    width: 700px; 
+    height: 700px; 
+    background: 
     linear-gradient(90deg, rgba(0, 0, 0, 1) 21%, rgba(133, 133, 139, 0.9601891782103467) 61%, rgba(255, 255, 255, 1) 100%);
     border-radius: 50%;
     animation: rotateCircle 10s linear infinite;
@@ -73,10 +71,10 @@
   }
   .login-circle{
     position: absolute;
-    right: 30%; /* Adjust position to emerge from the left side */
+    right: 30%; 
     top: 0%;
-    width: 700px; /* Adjust width as needed */
-    height: 700px; /* Same height as background image */
+    width: 700px; 
+    height: 700px;
     background: /* Gradient from left to right */
     linear-gradient(90deg, rgba(0, 0, 0, 1) 21%, rgba(133, 133, 139, 0.9601891782103467) 61%, rgba(255, 255, 255, 1) 100%);
     border-radius: 50%;
@@ -112,7 +110,7 @@
     border-radius: 50%;
   }
 
-  .form-container {
+  .signup-form-container,.login-form-container {
     position: relative; /* Change to relative */
     width: 400px; /* Adjust width as needed */
     margin-left: auto;
@@ -124,7 +122,7 @@
     z-index: 2;
   }
 
-  .form-container .vibz{
+  .signup-form-container .vibz,.login-form-container .vibz{
     font-family: Arial, sans-serif; /* Default font family */
     display: inline-block;
     animation: vibrate 0.5s infinite alternate;
@@ -143,11 +141,11 @@
     }
   }
 
-  .form-container .vibz span {
+  .signup-form-container .vibz span ,.login-form-container .vibz span{
     font-family: 'Roboto', sans-serif; /* Custom font family */
   }
 
-  .form-container .quote{
+  .signup-form-container .quote, .login-form-container .quote{
     text-align: center;
   padding: 10px;
   font-family: Arial, sans-serif; /* Change the font family */
@@ -157,7 +155,7 @@
   -webkit-text-fill-color: transparent
   }
 
-  .form-container h1 {
+  .signup-form-container h1 ,.login-form-container h1{
     margin-bottom: 20px;
     color: white;
     font-size: xx-large;
@@ -165,25 +163,28 @@
     text-align: center;
   }
   
-  .form-container p {
+  .signup-form-container p , .login-form-container p{
     margin-bottom: 10px;
     color: white;
   }
   
-  .form-container input,
-  .form-container button {
-    margin-bottom: 20px;
+  .signup-form-container input,
+  .signup-form-container button,
+  .login-form-container input,
+  .login-form-container button {
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    margin-bottom: 20px;
   }
   
-  .form-container input {
+  .signup-form-container input ,.login-form-container input{
     width: calc(100% - 10px);
+    justify-content: space-evenly;
   }
   
-  .form-container .signup-button {
+  .signup-form-container .signup-button {
     background-color: yellow;
     color: black;
     border: none;
@@ -191,9 +192,21 @@
     margin-left: 130px;
   }
   
-  .form-container .signup-button:hover {
+  .signup-form-container .signup-button:hover {
     background-color: black;
     color: white;
+  }
+  .signup-form-container .bottom{
+    text-align: center;
+  }
+  .signup-form-container .login-button {
+    border: none;
+    text-decoration: none;
+  }
+  
+  .signup-form-container .login-button:hover {
+    color: red;
+    text-decoration: underline;
   }
   .log-button{
     background-color: yellow;
@@ -207,16 +220,5 @@
     background-color: black;
     color: white;
   }
-  .form-container .bottom{
-    text-align: center;
-  }
-  .form-container .login-button {
-    border: none;
-    text-decoration: none;
-  }
-  
-  .form-container .login-button:hover {
-    color: red;
-    text-decoration: underline;
-  }
+ 
   
