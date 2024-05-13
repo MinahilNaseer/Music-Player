@@ -193,13 +193,15 @@ main h1{
      margin: 0;
      height: 0px;
      justify-content: space-between;
-     margin-top: 70px;
-     margin-right: 40px;
+     margin-top: 0px;
+     margin-right: 130px;
+     z-index: 100;
   }
   .center-scroller{
     display: flex;
     flex: 1;
-    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 60px;
   }
   
   .player-time{

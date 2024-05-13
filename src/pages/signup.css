@@ -27,7 +27,7 @@
     align-items: center;
     height: 100%; 
     width: 50%; 
-    background-image: url('D:\React Project\Music-Player\public\assets\cover only.jpeg');
+    background-image: url('D:\React Project\Music-Player\public\assets\The Smith cover.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@
     align-items: center;
     height: 100%; 
     width: 60%; 
-    background-image: url('D:\React Project\Music-Player\public\assets\cover2.jpeg');
+    background-image: url('D:\React Project\Music-Player\public\assets\Cover 2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -123,6 +123,7 @@
   }
   .signup-form-container{
     height: 70%;
+    background-color: rgba(49, 44, 44, 0.7);
   }
 
   .signup-form-container .vibz,.login-form-container .vibz{

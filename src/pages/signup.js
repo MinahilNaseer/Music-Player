@@ -3,10 +3,10 @@ import "./signup.css";
 import closeIcon from "../assets/close-removebg.png";
 import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
-import { useNavigate } from "react-router-dom";
+
 
 const SignUp = ({ onClose}) => {
-  const navigate = useNavigate();
+  
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
 
@@ -14,23 +14,21 @@ const SignUp = ({ onClose}) => {
     const audio = document.getElementById("background-music");
     if (audio) {
       if (isMusicPlaying) {
-        audio.pause(); // Pause if music is currently playing
+        audio.play(); 
       } else {
-        audio.play(); // Start playing if music is currently muted
+        audio.pause(); 
       }
       setIsMusicPlaying(!isMusicPlaying);
     }
   };
-  const handleLoginButtonClick=()=>{
-    navigate("/login");
-  }
+  
 
   return (
     <>
     {isFormVisible &&(
       <>
       <audio autoPlay loop id="background-music">
-        <source src="/assets/background-music.mp3" type="audio/mpeg" />
+        <source src="/assets/TheSmiths.mp3" type="audio/mpeg" />
       </audio>
       <img
       src={isMusicPlaying ? muteIcon : speakerIcon}

@@ -31,7 +31,7 @@ const Login = ({ onClose }) => {
       {isFormVisible && (
         <>
           <audio autoPlay loop id="background-music">
-            <source src="/assets/background-music.mp3" type="audio/mpeg" />
+            <source src="/assets/vinyl song.mp3" type="audio/mpeg" />
           </audio>
           <img
             src={isMusicPlaying ? speakerIcon : muteIcon}
