@@ -121,6 +121,9 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+  .signup-form-container{
+    height: 70%;
+  }
 
   .signup-form-container .vibz,.login-form-container .vibz{
     font-family: Arial, sans-serif; /* Default font family */
@@ -178,7 +181,10 @@
     border-radius: 10px;
     margin-bottom: 20px;
   }
-  
+  .signup-form-container button{
+    align-items: center;
+    margin-top: 10px;
+  }
   .signup-form-container input ,.login-form-container input{
     width: calc(100% - 10px);
     justify-content: space-evenly;

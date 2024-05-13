@@ -3,8 +3,11 @@ import closeIcon from "../assets/close-removebg.png";
 import "./signup.css";
 import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ onClose }) => {
+  const navigate = useNavigate();
+
   const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   const [isFormVisible, setIsFormVisible] = useState(true);
 
@@ -20,6 +23,9 @@ const Login = ({ onClose }) => {
     }
   };
 
+  const handleLoginClick = ()=>{
+    navigate("/dashboard");
+  }
   return (
     <>
       {isFormVisible && (
@@ -63,7 +69,7 @@ const Login = ({ onClose }) => {
                 name="password"
                 placeholder="Password"
               />
-              <button className="log-button" type="submit">
+              <button onClick={handleLoginClick} className="log-button" type="submit">
                 Login
               </button>
             </form>

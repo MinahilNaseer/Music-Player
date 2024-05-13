@@ -8,12 +8,19 @@ import DashboardRoute from "./pages/dashboardroute";
 import Topartist from './pages/topartist';
 import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
+import Login from "./pages/login";
 
 function App() {
   return (
     <div className="whole">
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route
+          path="/login"
+          element={
+              <Login />
+          }
+        />
         <Route
           path="/dashboard"
           element={

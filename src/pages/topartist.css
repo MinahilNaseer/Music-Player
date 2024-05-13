@@ -180,21 +180,20 @@ main h1{
   
   .buttons-timeline{
     width: 500px;
-    height: 100px;
+    height: 80px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -20px;
+    margin-top: 0px;
     margin-right: 50px;
     flex-grow: 2;
   }
   .bottom-player-buttons {
-     /* Ensure the buttons are displayed as flex items */
      margin: 0;
-     height: 50px;
+     height: 0px;
      justify-content: space-between;
-     margin-bottom: 40px;
+     margin-top: 70px;
      margin-right: 40px;
   }
   .center-scroller{
