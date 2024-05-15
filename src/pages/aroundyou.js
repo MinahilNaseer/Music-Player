@@ -18,7 +18,7 @@ const Aroundyou = () => {
   const handlePlay = (song) => {
     setCurrentSong(song);
   }
-
+console.log(countryCode)
   useEffect(() => {
     axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_La6063OPycuWt8G65MGGRAit94Ej5')
       .then((res) => {
@@ -45,20 +45,6 @@ const Aroundyou = () => {
       <main>
         <DashboardTopNav />
         <h1>Around You In <span className="font-black">{countryCode}</span></h1>
-        <div className="artist-container">
-          <section className="around-you-sec">
-            <div className="artist-cover">
-              <img src="./assets/Theweek.jpg" alt="artist-img" />
-            </div>
-            <h2 className="artist-name">The Weekend</h2>
-            <h2 className="artist-song">Star Boy</h2>
-            <img
-              className="play-icon"
-              src="./assets/playicon-remove.png"
-              alt="icon"
-            />
-          </section>
-        </div>
         <div className='scrollable-content'>
           <div className="artist-container">
             {data.map((song, i) => (
