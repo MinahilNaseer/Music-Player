@@ -11,7 +11,7 @@ main h1{
 }
 .drop-down-align{
   display:flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items:center;
   margin-right: 40px;
 }
@@ -23,9 +23,20 @@ main h1{
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
+  
 }
 .drop-down-align option{
   cursor: pointer;
+}
+.art-option{
+  display: flex;
+  margin-right: 10px;
+}
+.gen-drop-down{
+  margin-right: 20px;
+}
+.gen-drop-down  select{
+  width: 90px;
 }
 .scrollable-content {
   overflow-y: auto;
@@ -70,9 +81,26 @@ main h1{
     align-items: center;
     border: 1px solid white;
 }
+
+
 .artist-cover img {
     max-width: 100%; 
     max-height: 100%;
+}
+.top-artist-cover{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 100px;
+}
+.top-artist-cover img{
+  max-width: 100%; 
+    max-height: 100%;
+    border-radius: 100px;
 }
 .artist-name{
   font-size: medium;

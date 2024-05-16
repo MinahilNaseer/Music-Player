@@ -9,9 +9,10 @@ import Loader from '../components/loader';
 import Error from '../components/error';
 
 const Topcharts = () => {
-  const {data,isFetching,error,refetch} = useGetTopChartsQuery('US');
+  
   const [currentSong,setCurrentSong]=useState(null);
   const [selectedOption, setSelectedOption] = useState('US');
+  const {data,isFetching,error} = useGetTopChartsQuery(selectedOption);
 
   const handlePlay = (song)=>{
     setCurrentSong(song);
@@ -19,7 +20,7 @@ const Topcharts = () => {
   const handleOptionChange = (e) => {
     const countryCode = e.target.value;
     setSelectedOption(countryCode);
-    refetch({countryCode});
+    
   };
   
   
@@ -42,6 +43,7 @@ const Topcharts = () => {
         <option value="AU">AU</option>
         <option value="CO">CO</option>
         <option value="ZA">ZA</option>
+        <option value="JP">JP</option>
       </select>
     </div>
     </div>
