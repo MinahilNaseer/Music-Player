@@ -9,7 +9,7 @@ import Topartist from './pages/topartist';
 import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
-
+import ArtistDetails from "./pages/ArtistDetails";
 function App() {
   return (
     <div className="whole">
@@ -50,6 +50,14 @@ function App() {
             <Topcharts/>
             </ProSidebarProvider>
           }
+        />
+        <Route 
+        path="/artist/:artistId" 
+        element={
+          <ProSidebarProvider>
+            <ArtistDetails />
+            </ProSidebarProvider>
+        } 
         />
       </Routes>
     </div>

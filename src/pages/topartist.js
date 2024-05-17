@@ -11,17 +11,11 @@ import { useGetTopArtistQuery } from "../state/services/shazamCore";
 const Topartist = () => {
   const [selectedGenreOption, setSelectedGenreOption] = useState("POP");
   const [countryCode, setCountryCode] = useState("US");
-  const { data, error, isFetching } = useGetTopArtistQuery(
-    selectedGenreOption,
-    countryCode
-  );
+  const { data, error, isFetching } = useGetTopArtistQuery(selectedGenreOption, countryCode);
 
-  console.log();
   if (isFetching) return <Loader title="Loading Artist..." />;
 
   if (error) return <Error />;
-
-  console.log(data);
 
   const handleGenreOptionChange = (e) => {
     const genreCode = e.target.value;
@@ -42,10 +36,7 @@ const Topartist = () => {
           <h1>Top Artist </h1>
           <div className="art-option">
             <div className="gen-drop-down">
-              <select
-                value={selectedGenreOption}
-                onChange={handleGenreOptionChange}
-              >
+              <select value={selectedGenreOption} onChange={handleGenreOptionChange}>
                 <option value="POP">POP</option>
                 <option value="HIP_HOP_RAP">HIP_HOP_RAP</option>
                 <option value="DANCE">DANCE</option>
@@ -57,10 +48,7 @@ const Topartist = () => {
               </select>
             </div>
             <div className="drop-down">
-              <select
-                value={countryCode}
-                onChange={handleCountryOptionChange}
-              >
+              <select value={countryCode} onChange={handleCountryOptionChange}>
                 <option value="US">US</option>
                 <option value="IN">IN</option>
                 <option value="DZ">SDZ</option>
@@ -78,6 +66,7 @@ const Topartist = () => {
             {data?.map((track) => (
               <ArtistCard
                 key={track.id}
+                artistId={track.id}
                 artistName={track.attributes.artistName}
                 artistImage={track.attributes.artwork.url}
               />
