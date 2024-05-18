@@ -9,6 +9,7 @@ import Topartist from './pages/topartist';
 import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
+import TrackDetails from "./pages/trackdetails";
 
 function App() {
   return (
@@ -48,6 +49,14 @@ function App() {
           element={
             <ProSidebarProvider>
             <Topcharts/>
+            </ProSidebarProvider>
+          }
+        />
+        <Route
+          path="/topcharts/trackdetails/:trackId"
+          element={
+            <ProSidebarProvider>
+            <TrackDetails/>
             </ProSidebarProvider>
           }
         />

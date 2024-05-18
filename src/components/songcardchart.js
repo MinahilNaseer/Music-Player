@@ -1,15 +1,23 @@
 import React from "react";
 import '../pages/dashboard.css';
-import '../pages/topartist.css'
+import '../pages/topartist.css';
+import { useNavigate } from "react-router-dom";
+
 
 const SongCard = ({song,onPlay,setCurrentSong}) => {
+  const navigate = useNavigate();
     const { attributes } = song;
     const { artwork, name, artistName } = attributes;
-    //console.log(artwork.url);
+    
+
+    const handleTrackDetailsClick=()=>{
+      navigate(`/topcharts/trackdetails/${song.id}`);
+    }
+
     const handlePlay=()=>{
       onPlay(song);
       setCurrentSong(song);
-      //console.log(song);
+      
     }
   return (
     <section className="around-you-sec">
@@ -24,6 +32,7 @@ const SongCard = ({song,onPlay,setCurrentSong}) => {
         alt="icon"
         onClick={handlePlay}
       />
+      <h2 onClick={handleTrackDetailsClick} className="linktolyrics">Track Details</h2>
     </section>
   );
 };
