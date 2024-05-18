@@ -9,6 +9,7 @@ import Topartist from './pages/topartist';
 import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
+import SongDetails from "./pages/SongDetails";
 
 function App() {
   return (
@@ -50,6 +51,14 @@ function App() {
             <Topcharts/>
             </ProSidebarProvider>
           }
+        />
+        <Route
+        path="/songs/:songid"
+        element={
+          <ProSidebarProvider>
+          <SongDetails/>
+          </ProSidebarProvider>
+        }
         />
       </Routes>
     </div>
