@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect}from "react";
 import DashboardTopNav from "../components/dashboardtopnav";
 import Sidenavbar from "../components/sidenavbar";
 import "../pages/dashboard.css";
@@ -8,53 +8,70 @@ import Error from "../components/error";
 import { useParams } from "react-router-dom";
 
 const TrackDetails = () => {
-    const {trackId} = useParams();
-    const { data, isFetching,error } = useGetTrackDetailsQuery(trackId);
-    
+    const { trackId } = useParams();
+    const { data, isFetching, error } = useGetTrackDetailsQuery(trackId);
 
-    if(isFetching) return <Loader title="Loading Track Details.."/>
-
-    if(error) return <Error/>
     console.log(data)
-    const songAttributes = data?.resources?.['shazam-songs']?.[trackId]?.attributes;
-  const albumId = data?.resources?.['shazam-songs']?.[trackId]?.relationships?.albums?.data?.[0]?.id;
-  const albumAttributes = data?.resources?.albums?.[albumId]?.attributes;
-  const lyricsId = data?.resources?.['shazam-songs']?.[trackId]?.relationships?.lyrics?.data?.[0]?.id;
-  const lyrics = data?.resources?.lyrics?.[lyricsId]?.attributes?.text;
+    const [shazamSongsId, setShazamSongsId] = useState(null);
 
-  const artworkUrl = songAttributes?.artwork?.url;
-  const artistName = albumAttributes?.artistName;
-  const songName = songAttributes?.title;
-  const genre = songAttributes?.genres?.primary;
+    useEffect(() => {
+        if (data && data.resources && data.resources["shazam-songs"]) {
+            // Retrieve the shazam-songs ID
+            const shazamSongsKeys = Object.keys(data.resources["shazam-songs"]);
+            if (shazamSongsKeys.length > 0) {
+                setShazamSongsId(shazamSongsKeys[0]);
+            }
+        }
+    }, [data]);
+    if (isFetching) return <Loader title="Loading Track Details.." />;
+    if (error) return <Error />;
 
-  // Additional logging to check if values are undefined
-  console.log("Artwork URL:", artworkUrl);
-  console.log("Artist Name:", artistName);
-  console.log("Song Name:", songName);
-  console.log("Genre:", genre);
-  console.log("Lyrics:", lyrics);
-  
-  return (
-    <div className="dashboard">
-      <Sidenavbar activePage="/topcharts" />
-      <main>
-        <DashboardTopNav />
-        <h1>Track Details</h1>
-        <section className="track-details-sec">
-          <div className="artist-cover">
-            <img src={artworkUrl} alt="artist-img" />
-          </div>
-          <div className="track-details">
-          <h2 className="artist-song">{songName}</h2>
-          <h2 className="artist-name">{artistName}</h2>
-          <h2 className="artist-genre">{genre}</h2>
-          </div>
-        </section>
-        <h1 className="Lyrics-head">Lyrics</h1>
-        <p className="track-lyrics">{lyrics}</p>
-      </main>
-    </div>
-  );
+    const { resources } = data;
+    const song = shazamSongsId ? resources["shazam-songs"][shazamSongsId] : null;
+
+    if (!song) {
+        return <Error />;
+    }
+
+
+    // Accessing lyrics details
+    const lyricsId = Object.keys(resources.lyrics)[0];
+    const lyrics = resources.lyrics[lyricsId].attributes.text;
+    const title = song.attributes.title;
+    const artist = song.attributes.artist;
+    const genre = song.attributes.genres.primary;
+    const cover = song.attributes.images.coverArt;
+
+    return (
+        <div className="dashboard">
+            <Sidenavbar activePage="/topcharts" />
+            <main>
+                <DashboardTopNav />
+                <h1>Track Details</h1>
+                <section className="track-details-sec">
+                    <div className="artist-cover">
+                        <img src={cover} alt="artist-img" />
+                    </div>
+                    <div className="track-details">
+                        <h2 className="artist-song">{title}</h2>
+                        <h2 className="artist-name">{artist}</h2>
+                        <h2 className="artist-genre">{genre}</h2>
+                    </div>
+                </section>
+                <h1 className="Lyrics-head">Lyrics</h1>
+                <div className="scrollable-content">
+                <p className="track-lyrics">
+                    {lyrics.map((line, index) => (
+                        <span key={index}>
+                            {line}
+                            <br />
+                        </span>
+                    ))}
+                </p>
+                </div>
+            </main>
+        </div>
+    );
 };
 
 export default TrackDetails;

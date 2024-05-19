@@ -317,3 +317,7 @@ main h1{
   .Lyrics-head{
     margin-top: 60px;
   }
+  .track-lyrics{
+  text-align: center;
+  margin:40px
+  }
