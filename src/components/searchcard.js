@@ -1,5 +1,6 @@
 import React from 'react';
-
+import '../pages/dashboard.css';
+import '../pages/topartist.css'
 const SearchCard = ({ song, onPlay, setCurrentSong }) => {
   // Check if the data is about a song or an artist
   const isSong = song && song.type === 'MUSIC';
@@ -14,18 +15,19 @@ const SearchCard = ({ song, onPlay, setCurrentSong }) => {
   };
 
   return (
-    <div className="song-card">
-      <div className="song-cover">
+    <section className="around-you-sec">
+      <div className="artist-cover">
         <img src={artwork} alt="Song Cover" />
       </div>
-      <div className="song-details">
-        <h2 className="song-name">{name}</h2>
-        {artistName && <h3 className="artist-name">{artistName}</h3>}
-      </div>
-      <button className="play-button" onClick={handlePlay}>
-        Play
-      </button>
-    </div>
+      <h2 className="artist-name">{artistName}</h2>
+      <h2 className="artist-song">{name}</h2>
+      <img
+        className="play-icon"
+        src="./assets/playicon-remove.png"
+        alt="icon"
+        onClick={handlePlay}
+      />
+    </section>
   );
 };
 
