@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import Error from '../components/error';
 import SearchCard from '../components/searchcard'; // Import the SongCard component
 import Loader from '../components/loader';
-import BottomPlayer from '../components/bottomplayer';
-import Searchbar from '../components/SearchBar';
+import BottomPlayerSearch from '../components/bottomsearch';
+import DashboardTopNav from '../components/dashboardtopnav';
+import Sidenavbar from '../components/sidenavbar';
 import { useGetSongsBySearchQuery } from '../state/services/shazamCore';
 
 const Search = () => {
@@ -23,8 +24,10 @@ console.log(songs)
 
   return (
     <div className="dashboard">
-      <Searchbar />
-      <h1>Results for "{searchTerm}"</h1>
+      <Sidenavbar/>
+      <main>
+      <DashboardTopNav />
+      <h1>Results for <span className="font-black"></span>"{searchTerm}"</h1>
       <div className='scrollable-content'>
         <div className="artist-container">
           {songs.map((song, i) => (
@@ -33,7 +36,8 @@ console.log(songs)
           ))}
         </div>
       </div>
-      <BottomPlayer song={currentSong} />
+      </main>
+      <BottomPlayerSearch song={currentSong} />
     </div>
   );
 };
