@@ -1,6 +1,8 @@
 import React from 'react';
 import '../pages/dashboard.css';
-import '../pages/topartist.css'
+import '../pages/topartist.css';
+import icon from "../assets/playicon-remove.png";
+
 const SearchCard = ({ song, onPlay, setCurrentSong }) => {
   // Check if the data is about a song or an artist
   const isSong = song && song.type === 'MUSIC';
@@ -23,7 +25,7 @@ const SearchCard = ({ song, onPlay, setCurrentSong }) => {
       <h2 className="artist-song">{name}</h2>
       <img
         className="play-icon"
-        src="./assets/playicon-remove.png"
+        src={icon}
         alt="icon"
         onClick={handlePlay}
       />
