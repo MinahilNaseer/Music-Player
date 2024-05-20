@@ -2,13 +2,13 @@ import React from "react";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
-//import DashBoard from "./pages/dashboard";
-//import { ProSidebarProvider } from "react-pro-sidebar";
 import DashboardRoute from "./pages/dashboardroute";
 import Topartist from './pages/topartist';
 import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
+import Search from "./pages/Search";
+
 import TrackDetails from "./pages/trackdetails";
 
 function App() {
@@ -60,9 +60,8 @@ function App() {
             </ProSidebarProvider>
           }
         />
+             <Route path="/search/:searchTerm" element={<Search />} />
       </Routes>
     </div>
-  );
-}
 
 export default App;
