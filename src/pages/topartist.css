@@ -72,6 +72,14 @@ main h1{
   position: absolute;
   visibility: hidden;
 }
+.linktolyrics{
+  top: 0%;
+  left: 20%;
+  width: 100%;
+  position: absolute;
+  visibility: hidden;
+}
+
 .artist-cover{
     width: 100px;
     height: 100px;
@@ -143,10 +151,21 @@ main h1{
   width: 200px;
   height: 230px;
   background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+  
 }
 .around-you-sec:hover .play-icon {
   visibility: visible;
+}
+.around-you-sec:hover .linktolyrics{
+  visibility: visible;
+}
+.play-icon:hover{
+  cursor: pointer;
+}
+.linktolyrics:hover{
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .bottom-player{
@@ -256,4 +275,49 @@ main h1{
     display: flex;
     flex-direction: row;
     margin-right: 20px;
+  }
+
+  .track-details-sec{
+    width: 500px;
+    height: 150px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
+  .track-details-sec .artist-cover{
+    width: 180px;
+    height: 180px;
+    margin-top: 40px ;
+  }
+
+  .track-details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    text-align: center;
+  }
+
+  .track-details .artist-song{
+    font-size: xx-large;
+    font-weight: bold;
+    top: 0;
+    margin: 10px;
+  }
+  .track-details .artist-name{
+    font-weight: normal;
+    font-size: large;
+    
+  }
+  .track-details .artist-genre{
+    font-weight: normal;
+    font-size: large;
+  }
+  .Lyrics-head{
+    margin-top: 60px;
+  }
+  .track-lyrics{
+  text-align: center;
+  margin:40px
   }
