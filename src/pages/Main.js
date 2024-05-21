@@ -6,6 +6,9 @@ import {useNavigate} from "react-router-dom";
 import ImageWithText from "../components/imagewithtext";
 import "./Main.css";
 import Login from './login';
+import guitar from "../assets/guitar.png";
+import drum from "../assets/drum.png";
+
 
 const Main = () => {
     const [isSignUpVisible, setIsSignUpVisible] = useState(false);
@@ -38,6 +41,8 @@ const Main = () => {
         <>
           <ImageWithText onExploreClick={handleExploreClick} />
           <CenterImage />
+          <img className= "ill-guitar" src={guitar} alt='gui'/>
+          <img className= "ill-drum" src={drum} alt='drum'/>
         </>
       )}
       {isSignUpVisible && <SignUp onClose={handleSignUpClose} />}

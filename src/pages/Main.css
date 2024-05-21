@@ -1,41 +1,45 @@
 .full-screen {
   position: relative;
-  height: 100vh; /* Make the container full screen */
+  height: 100vh; 
   background-image: url('D:\React Project\Music-Player\src\assets\main background image.jpg'); /* Add the background image */
-  background-size: cover; /* Cover the entire container with the background image */
-  background-position: center; /* Center the background image */
+  background-size: cover; 
+  background-position: center; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center; 
+  align-items: center; 
   overflow: hidden;
   z-index: 1;
 }
 
-.image-container { /* Center align the content */ 
+.image-container { 
   margin-top: -130px;
   position: relative;
   margin-bottom: -70px;
 }
 
-.text-content { /* Semi-transparent white background */
+.text-content { 
   text-align: center;
 }
 
-.line{
-  font-size: 50px;
+.line h2{
+  font-size:70px;
   font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.line .line-note{
+  font-style: italic;
+  font-family:'Lucida Handwriting', cursive;
+}
 
 .text-content img{
-  max-height: 90px; /* Set the maximum height of the logo */
+  max-height: 90px; 
   margin-right: 10px;
-  /*background-color: rgba(6, 5, 5, 0.505); /* Add black background color */
-  border-radius: 5px; /* Add border radius */
+  border-radius: 5px; 
   padding: 5px;
   width: 140px;
   margin-left: 10px;
@@ -59,8 +63,7 @@
   width: 200px;
   height: 200px;
   background-color: darkblue;
-   /* Adjust background color as needed */
-  position: absolute; /* Position the div absolutely */
+  position: absolute; 
   top: 50px;
 }
 .center-container .square {
@@ -135,9 +138,9 @@
   object-fit: cover;
 }
 .topnav {
-  position: fixed; /* Fixed positioning to keep it on top */
+  position: fixed; 
   top: 0;
-  width: 100%; /* Semi-transparent white background */
+  width: 100%; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -145,7 +148,7 @@
 }
 
 .logo-container img {
-  max-height: 100px; /* Set the maximum height of the logo */
+  max-height: 100px; 
   padding: 20px 10px;
   display: inline-block;
 
@@ -166,4 +169,119 @@
 .buttons-container button {
   margin-left: 10px;
   margin-top: 30px;
+}
+.ill-guitar{
+  position: absolute;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  margin-right: -40px;
+  z-index: -1;
+}
+.ill-drum{
+  position: absolute;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  margin-left: -30px;
+  z-index: -1;
+}
+
+@media (max-width: 500px) {
+  .full-screen{
+    height: 180vh;
+  }
+  .image-container { 
+    margin-top: -790px;
+    position: relative;
+    z-index: -1;
+  }
+  .line h2{
+    margin-top: 30px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topnav {
+    flex-direction: row;
+    padding: 10px 0;
+  }
+
+  .logo-container h1 {
+    font-size: 25px;
+  }
+
+  .buttons-container {
+    flex-direction: row;
+    margin-top: 10px;
+  }
+
+  .buttons-container button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .explore{
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: -50px;
+    margin-left: -50px;
+  }
+
+  .center-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+  }
+
+  .center-container .square,
+  .center-container .square1,
+  .center-container .square2 {
+    width: 250px;
+    height: 250px;
+  }
+  .center-container .square {
+    left: 20%;
+    transform: translateY(30%);
+  }
+  
+  .center-container .square1 {
+    left: 15%;
+    transform: translateY(160%);
+  }
+  
+  .center-container .square2 {
+    right: 25%;
+    transform: translateY(300%);
+  }
+
+  .center-container .image-square,
+  .center-container .image-square1,
+  .center-container .image-square2 {
+    width: 250px;
+    height: 250px;
+  }
+  .center-container .image-square {
+    top: 150%; 
+    left: 15%; 
+  }
+  
+  .center-container .image-square1 {
+    top: 90px; 
+    left: 20%; 
+    transform: translateY(160%);
+  }
+  
+  .center-container .image-square2 {
+    top: 820%; 
+    right: 60px; 
+  }
+  .ill-guitar, .ill-drum {
+    display: none;
+    
+  }
 }
