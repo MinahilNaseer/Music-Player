@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import ImageWithText from "../components/imagewithtext";
 import "./Main.css";
 import Login from './login';
-import guitar from "../assets/color-guitar.png";
+import guitar from "../assets/guitar.png";
 import drum from "../assets/drum.png";
 
 
