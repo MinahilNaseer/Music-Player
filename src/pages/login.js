@@ -15,9 +15,9 @@ const Login = ({ onClose }) => {
     const audio = document.getElementById("background-music");
     if (audio) {
       if (isMusicPlaying) {
-        audio.pause(); // Pause if music is currently playing
+        audio.pause(); 
       } else {
-        audio.play(); // Start playing if music is currently muted
+        audio.play(); 
       }
       setIsMusicPlaying(!isMusicPlaying);
     }
@@ -49,7 +49,6 @@ const Login = ({ onClose }) => {
           <div className="small-circle">
             <div className="small-small-circle"></div>
           </div>
-          <div className="circular-lines"></div>
         </div>
         <div className="login-container">
           <div className="login-form-container">

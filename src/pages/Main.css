@@ -191,7 +191,7 @@
 
 @media (max-width: 500px) {
   .full-screen{
-    height: 210vh;
+    height: 180vh;
   }
   .image-container { 
     margin-top: -790px;
@@ -199,6 +199,7 @@
     z-index: -1;
   }
   .line h2{
+    margin-top: 30px;
     font-size: 40px;
     display: flex;
     flex-direction: column;
@@ -210,7 +211,7 @@
   }
 
   .logo-container h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .buttons-container {
@@ -244,17 +245,17 @@
     height: 250px;
   }
   .center-container .square {
-    left: 30%;
+    left: 20%;
     transform: translateY(30%);
   }
   
   .center-container .square1 {
-    left: 25%;
+    left: 15%;
     transform: translateY(160%);
   }
   
   .center-container .square2 {
-    right: 30%;
+    right: 25%;
     transform: translateY(300%);
   }
 
@@ -266,20 +267,21 @@
   }
   .center-container .image-square {
     top: 150%; 
-    left: 25%; 
+    left: 15%; 
   }
   
   .center-container .image-square1 {
     top: 90px; 
-    left: 30%; 
+    left: 20%; 
     transform: translateY(160%);
   }
   
   .center-container .image-square2 {
-    top: 800%; 
-    right: 100px; 
+    top: 820%; 
+    right: 60px; 
   }
   .ill-guitar, .ill-drum {
     display: none;
+    
   }
 }
