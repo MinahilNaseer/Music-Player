@@ -12,7 +12,6 @@
 
 .top-heading{
   color: rgb(70,91,196);
-    margin-left: 5rem;
     font-size: large;
 }
 .logo-container {
@@ -37,7 +36,7 @@ button{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 150px;
     border-bottom: 2px solid #444;
   }
  
@@ -46,7 +45,10 @@ button{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 90px;
   }
+
+  
   
   h3{
     margin: 0;
@@ -54,40 +56,14 @@ button{
     text-decoration: underline;
   }
 
-  .search-bar,
   .account {
     display: flex;
     align-items: center;
     height: 40px;
     border-radius: 5px;
     border: 2px solid white;
-  }
-  
-  .search-bar {
-    flex: 1;
-    margin-right: 10px;
-    margin-left: 300px;
-  }
-  
-  .account {
     margin-left: 380px;
     padding: 10px;
-  }
-  
-  input {
-    border: none;
-    background-color: transparent;
-    padding: 8px;
-    outline: none;
-    color: white;
-  }
-  
-  .search-icon {
-    padding-left: 8px;
-  }
-  
-  .textbox {
-    margin-left: 10px;
   }
   
   h4 {
@@ -101,7 +77,6 @@ button{
     align-items: center;
     height: 300px;
     width: 100%;
-    
     margin-top: 10px;
     position: relative;
   }
@@ -109,15 +84,13 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: calc(100% - 20px); /* Adjusted width to consider margin-left and margin-right */
-  margin-left: 10px; 
-
+    width: calc(100% - 20px); 
+    margin-left: 10px; 
   }
 
   .trending-info{
     width: 50%;
     margin-left: 10px;
-   
     z-index: 1;
   }
   
@@ -129,10 +102,9 @@ button{
 }
 .trending-info h5,
 .trending-info p{
-  
   text-align: center;
-  
 }
+
 .trending-info h5{
   margin-top: 10px;
   font-size:60px;
@@ -165,22 +137,26 @@ button{
   font-weight: bold;
 }
 .trending-content img {
-  max-height: calc(170% - 60px); /* Adjusted max-height to consider margin-bottom */
-  position: absolute; /* Added position absolute */
-  right: 10px; /* Positioned to the right */
+  max-height: calc(170% - 60px); 
+  position: absolute; 
+  right: 10px; 
   bottom: 0;
   top: 10px;
 }
 
 .top-artist{
   width: 50%;
-  height: 170px;
+  height: 155px;
   margin-left: 20px;
   background-color:rgb(32,32,38);
   margin-top: -50px;
   border-radius: 5px;
   position: absolute;
+  justify-content:left;
+  display:flex;
+  justify-content: space-between;
   
+
 }
 
 .top-artist .see-all,.top-charts .see-all{
@@ -201,17 +177,25 @@ button{
 .music-player h4{
   padding-top: 10px;
   padding-left: 15px;
+  font-weight: bold;
+}
+.top-artist h4{
+  height: 30px;
 }
 .square {
-  display: flex;
+  float: left;
   height: 100%;
-  margin-left: 15px;
+  margin-top: 30px;
+  align-items: center;
+  position: relative;
+  transform: translateX(-100%);
+  justify-content: space-between;
 }
 
 .artist-image {
-  width: 70px; /* Adjust size as needed */
-  height: 70px; /* Adjust size as needed */
-  border-radius: 10%; /* Makes the image round */
+  width: 80px; 
+  height: 80px; 
+  border-radius: 10%; 
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -219,13 +203,12 @@ button{
 .artist-info h5 {
   font-size: small;
   font-weight: bold;
-  margin: 0;
-}
-
-.artist-info p {
-  font-size: x-small; /* Adjust font size as needed */
-  margin: 0;
-  color: lightgray;
+  text-align: center;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0; 
 }
 
 .top-charts{
@@ -233,23 +216,18 @@ button{
   height: auto;
   margin-left: 20px;
   background-color:rgb(32,32,38);
-  margin-top: 130px;
+  margin-top: 120px;
   border-radius: 5px;
   position: absolute;
 }
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+}
 .chart-item {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 10px;
-}
-.left-chart,
-.right-chart {
-  flex: 1;
-}
-.divider {
-  width: 1px; /* Width of the divider */
-  height: 100%; /* Height of the divider */
-  background-color: rgba(255, 255, 255, 0.5); /* Light color with opacity */
 }
 .chart-info {
   display: flex;
@@ -263,9 +241,9 @@ button{
   margin: 10px;
 }
 .chart-image{
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Adjust size as needed */
-  border-radius: 5px; /* Rounded corners for the image */
+  width: 40px; 
+  height: 40px; 
+  border-radius: 5px; 
   margin-right: 10px;
   margin-left: 30px;
 }
@@ -277,23 +255,28 @@ button{
   margin: 0;
   font-weight: bold;
   font-size: small;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0; 
 }
 .song-details p {
   margin: 0;
-  font-size: smaller; /* Adjust font size as needed */
+  font-size: smaller; 
   color: lightgray;
   
 }
 .music-player{
-  width: 27%; /* Set the width to 20% of the viewport */
+  width: 27%;
   height: auto;
-  margin-left: auto; /* Align to the right by setting left margin to auto */
-  margin-right: 20px; /* Add right margin for spacing */
+  margin-left: auto; 
+  margin-right: 20px; 
   background-color: rgb(32, 32, 38);
-  margin-top: -50px; /* Adjust margin-top as needed */
+  margin-top: -50px; 
   border-radius: 5px;
   position: absolute;
-  top: 50%; /* Position it at the middle of the screen */
+  top: 50%; 
   right: 20px;
   overflow-y: hidden;
 }
