@@ -31,42 +31,34 @@ const BottomPlayerSearch = ({ song }) => {
   const artwork = images?.coverarthq || defaultSong.images.coverarthq;
   const name = title || defaultSong.title;
   const artistName = subtitle || defaultSong.subtitle;
-  const previewUrl = hub?.actions[0]?.uri || defaultSong.hub.actions[0].uri;
+  const previewUrl = hub?.actions.find(action => action.type === 'uri')?.uri || defaultSong.hub.actions[0].uri;
 
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [currTime, setCurrTime] = useState({
-    min: "0",
-    sec: "0",
+    min: "00",
+    sec: "00",
   });
   const audioRef = useRef(null);
-  const [play] = useSound(previewUrl);
 
   useEffect(() => {
-    const playAudio = () => {
-      if (isPlaying && audioRef.current && audioRef.current.readyState >= 3) {
-        audioRef.current.play();
-      }
-    };
-
-    playAudio();
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, [isPlaying, song]);
+    if (audioRef.current) {
+      audioRef.current.src = previewUrl;
+      audioRef.current.load();
+    }
+  }, [previewUrl]);
 
   useEffect(() => {
     const updateTime = () => {
-      setSeconds(audioRef.current.currentTime);
-      const min = Math.floor(audioRef.current.currentTime / 60);
-      const sec = Math.floor(audioRef.current.currentTime % 60);
-      setCurrTime({
-        min: min.toString().padStart(2, "0"),
-        sec: sec.toString().padStart(2, "0"),
-      });
+      if (audioRef.current) {
+        setSeconds(audioRef.current.currentTime);
+        const min = Math.floor(audioRef.current.currentTime / 60);
+        const sec = Math.floor(audioRef.current.currentTime % 60);
+        setCurrTime({
+          min: min.toString().padStart(2, "0"),
+          sec: sec.toString().padStart(2, "0"),
+        });
+      }
     };
 
     if (audioRef.current) {
@@ -80,23 +72,21 @@ const BottomPlayerSearch = ({ song }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      audioRef.current.currentTime = 0;
-      audioRef.current.src = previewUrl;
-      audioRef.current.load(); // Load the new source
-      audioRef.current.pause();
-    }
-  }, [song]);
-
   const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-    //audioRef.current.pause();
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
   };
 
   const handleVolumeChange = (e) => {
-    audioRef.current.volume = parseFloat(e.target.value);
+    if (audioRef.current) {
+      audioRef.current.volume = parseFloat(e.target.value);
+    }
   };
 
   return (
@@ -147,23 +137,19 @@ const BottomPlayerSearch = ({ song }) => {
             <input
               type="range"
               min="0"
-              max={Math.floor(audioRef.current?.duration)}
-              default="0"
+              max={Math.floor(audioRef.current?.duration) || 0}
               value={seconds}
               className="player-timeline"
               onChange={(e) => {
-                setSeconds(parseInt(e.target.value, 10));
-                audioRef.current.currentTime = parseInt(e.target.value, 10);
+                if (audioRef.current) {
+                  setSeconds(parseInt(e.target.value, 10));
+                  audioRef.current.currentTime = parseInt(e.target.value, 10);
+                }
               }}
             />
             <p>
-              {Math.floor(audioRef.current?.duration / 60)
-                .toString()
-                .padStart(2, "0")}
-              :
-              {Math.floor(audioRef.current?.duration % 60)
-                .toString()
-                .padStart(2, "0")}
+              {Math.floor(audioRef.current?.duration / 60).toString().padStart(2, "0") || "00"}:
+              {Math.floor(audioRef.current?.duration % 60).toString().padStart(2, "0") || "00"}
             </p>
           </div>
         </div>
