@@ -73,7 +73,7 @@ const BottomPlayer = ({ song }) => {
       audioRef.current.play();
       audioRef.current.currentTime = 0;
       audioRef.current.src = previews[0]?.url || defaultSong.attributes.previews[0].url;
-      audioRef.current.load(); // Load the new source
+      audioRef.current.load(); 
       audioRef.current.pause();
     }
   }, [song]);

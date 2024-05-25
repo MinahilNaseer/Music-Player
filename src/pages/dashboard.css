@@ -149,7 +149,7 @@ button{
   height: 155px;
   margin-left: 20px;
   background-color:rgb(32,32,38);
-  margin-top: -50px;
+  margin-top: -60px;
   border-radius: 5px;
   position: absolute;
   justify-content:left;
@@ -216,7 +216,7 @@ button{
   height: auto;
   margin-left: 20px;
   background-color:rgb(32,32,38);
-  margin-top: 120px;
+  margin-top: 110px;
   border-radius: 5px;
   position: absolute;
 }
@@ -273,7 +273,7 @@ button{
   margin-left: auto; 
   margin-right: 20px; 
   background-color: rgb(32, 32, 38);
-  margin-top: -50px; 
+  margin-top: -40px; 
   border-radius: 5px;
   position: absolute;
   top: 50%; 
