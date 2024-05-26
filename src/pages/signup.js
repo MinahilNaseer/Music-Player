@@ -7,9 +7,12 @@ import muteIcon from "../assets/muted-icon-removebg.png";
 const SignUp = ({ onClose }) => {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
-  const [username, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [dialogMessage, setDialogMessage] = useState("");
 
   const toggleMusicHandler = () => {
     const audio = document.getElementById("background-music");
@@ -23,17 +26,58 @@ const SignUp = ({ onClose }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const validateForm = () => {
+    // Validate username
+    if (!username.trim()) {
+      setUsernameError("Please enter a username.");
+      return false;
+    } else {
+      setUsernameError("");
+    }
+    // Validate email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.trim())) {
+      setDialogMessage("Please enter a valid email address.");
+      return false;
+    }
+    // Validate password
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters long.");
+      return false;
+    } else {
+      setPasswordError("");
+    }
+    return true;
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Send data to backend server
-    fetch("/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    if (!validateForm()) {
+      // If form validation fails, return early
+      return;
+    }
+    try {
+      const response = await fetch("http://localhost:3001/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Registration failed: " + (await response.text()));
+      }
+
+      // Registration successful
+      setDialogMessage("Registration successful!");
+    } catch (error) {
+      console.error("Registration error:", error);
+      // Display error message to user
+      setDialogMessage("Registration failed. Please try again later.");
+    }
+  };
+
+  const handleDialogClose = () => {
+    setDialogMessage("");
   };
 
   return (
@@ -64,19 +108,22 @@ const SignUp = ({ onClose }) => {
         <div className="signup-container">
           <div className="signup-form-container">
             <h1>Sign Up</h1>
-            <p>Welcome to <span class="vibz">Vibz</span></p>
+            <p>
+              Welcome to <span className="vibz">Vibz</span>
+            </p>
             <p className="quote">
               Feel the rhythm, catch the vibe - Your ultimate destination for musical delight!
             </p>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                id="name"
+                id="username"
                 name="username"
-                placeholder="Name"
+                placeholder="Username"
                 value={username}
-                onChange={(event) => setName(event.target.value)}
+                onChange={(event) => setUsername(event.target.value)}
               />
+              {usernameError && <p className="error-message">{usernameError}</p>}
               <input
                 type="email"
                 id="email"
@@ -93,9 +140,20 @@ const SignUp = ({ onClose }) => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <button className="signup-button" type="submit">
-                Sign Up
-              </button>
+              {passwordError && <p className="error-message">{passwordError}</p>}
+              <div className="signup-button-container">
+                <button className="signup-button" type="submit">
+                  Sign Up
+                </button>
+                {dialogMessage && (
+                  <div className="dialog">
+                    <div className="dialog-content">
+                      <p>{dialogMessage}</p>
+                      <button onClick={handleDialogClose}>Close</button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </form>
           </div>
         </div>

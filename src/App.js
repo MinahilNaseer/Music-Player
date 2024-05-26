@@ -63,5 +63,6 @@ function App() {
              <Route path="/search/:searchTerm" element={<Search />} />
       </Routes>
     </div>
+  )}
 
 export default App;

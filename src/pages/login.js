@@ -10,6 +10,9 @@ const Login = ({ onClose }) => {
 
   const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   const [isFormVisible, setIsFormVisible] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const toggleMusicHandler = () => {
     const audio = document.getElementById("background-music");
@@ -23,9 +26,29 @@ const Login = ({ onClose }) => {
     }
   };
 
-  const handleLoginClick = ()=>{
-    navigate("/dashboard");
-  }
+  const handleLoginClick = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3001/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      // Login successful, redirect to dashboard
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      // Display error message to user
+      setErrorMessage("Invalid email or password. Please try again.");
+    }
+  };
+
   return (
     <>
       {isFormVisible && (
@@ -61,17 +84,27 @@ const Login = ({ onClose }) => {
               Feel the rhythm, catch the vibe - Your ultimate destination for
               musical delight!
             </p>
-            <form>
-              <input type="text" id="name" name="name" placeholder="Name" />
+            <form onSubmit={handleLoginClick}>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <input
                 type="password"
                 id="password"
                 name="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={handleLoginClick} className="log-button" type="submit">
+              <button className="log-button" type="submit">
                 Login
               </button>
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
             </form>
           </div>
         </div>
