@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Sidenavbar from '../components/sidenavbar';
 import DashboardTopNav from '../components/dashboardtopnav';
 import '../pages/dashboard.css';
@@ -13,6 +13,12 @@ const Topcharts = () => {
   const [currentSong,setCurrentSong]=useState(null);
   const [selectedOption, setSelectedOption] = useState('US');
   const {data,isFetching,error} = useGetTopChartsQuery(selectedOption);
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      setCurrentSong(data[0]);
+    }
+  }, [data]);
 
   const handlePlay = (song)=>{
     setCurrentSong(song);
@@ -50,7 +56,7 @@ const Topcharts = () => {
     <div className='scrollable-content'>
         <div className="artist-container">
         {data.map((song, i) => (
-            <SongCard key={i} song={song} onPlay={handlePlay} setCurrentSong={setCurrentSong}/>
+            <SongCard key={i} song={song} onPlay={() => handlePlay(song)}/>
           ))}
          
         </div>

@@ -14,14 +14,14 @@ export const shazamCoreApi = createApi({
   }),
   endpoints: (builder) => ({
     getTopCharts: builder.query({
-      query: (countryCode) => `v1/charts/country?country_code=${countryCode}`,
+      query: (countryCode='US') => `v1/charts/country?country_code=${countryCode}`,
     }),
     getSongsByCountry: builder.query({ 
       query: (countryCode) => `v1/charts/country?country_code=${countryCode}`,
     }),
     getTopArtist: builder.query({
 
-      query:(genreCode,countryCode='IN') =>`v1/charts/genre-world?genre_code=${genreCode}&country_code=${countryCode}`,
+      query:(genreCode='POP',countryCode='US') =>`v1/charts/genre-world?genre_code=${genreCode}&country_code=${countryCode}`,
     }),
     getTrackDetails: builder.query({
       query:(trackId)=>`v2/tracks/details?track_id=${trackId}`

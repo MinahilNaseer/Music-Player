@@ -4,7 +4,6 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import '../pages/topartist.css';
-import useSound from "use-sound";
 
 const BottomPlayer = ({ song }) => {
   const defaultSong = {
@@ -18,49 +17,41 @@ const BottomPlayer = ({ song }) => {
 
   const { attributes } = song || defaultSong;
   const { artwork, name, artistName, previews } = attributes;
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [currTime, setCurrTime] = useState({
     min: "0",
     sec: "0",
   });
   const audioRef = useRef(null);
-  const [play] = useSound(previews[0]?.url || defaultSong.attributes.previews[0].url);
-
 
   useEffect(() => {
-    const playAudio = () => {
-      if (isPlaying && audioRef.current && audioRef.current.readyState >= 3) {
-        audioRef.current.play();
-      }
-    };
-  
-    playAudio();
-  
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, [isPlaying, song]);
-
-  
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current.src = previews[0]?.url || defaultSong.attributes.previews[0].url;
+      audioRef.current.load();
+    }
+    setIsPlaying(false);
+  }, [song]);
 
   useEffect(() => {
     const updateTime = () => {
-      setSeconds(audioRef.current.currentTime);
-      const min = Math.floor(audioRef.current.currentTime / 60);
-      const sec = Math.floor(audioRef.current.currentTime % 60);
-      setCurrTime({
-        min: min.toString().padStart(2, "0"),
-        sec: sec.toString().padStart(2, "0"),
-      });
+      if (audioRef.current) {
+        setSeconds(audioRef.current.currentTime);
+        const min = Math.floor(audioRef.current.currentTime / 60);
+        const sec = Math.floor(audioRef.current.currentTime % 60);
+        setCurrTime({
+          min: min.toString().padStart(2, "0"),
+          sec: sec.toString().padStart(2, "0"),
+        });
+      }
     };
-  
+
     if (audioRef.current) {
       audioRef.current.addEventListener('timeupdate', updateTime);
     }
-  
+
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener('timeupdate', updateTime);
@@ -68,23 +59,19 @@ const BottomPlayer = ({ song }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      audioRef.current.currentTime = 0;
-      audioRef.current.src = previews[0]?.url || defaultSong.attributes.previews[0].url;
-      audioRef.current.load(); // Load the new source
-      audioRef.current.pause();
-    }
-  }, [song]);
-
   const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
     setIsPlaying(!isPlaying);
-    //audioRef.current.pause();
   };
 
   const handleVolumeChange = (e) => {
-    audioRef.current.volume = parseFloat(e.target.value);
+    if (audioRef.current) {
+      audioRef.current.volume = parseFloat(e.target.value);
+    }
   };
 
   return (
@@ -110,14 +97,13 @@ const BottomPlayer = ({ song }) => {
           {!isPlaying ? (
             <button className="playButton" onClick={togglePlay}>
               <IconContext.Provider value={{ size: "3em", color: "white" }}>
-              
-              <AiFillPlayCircle />
+                <AiFillPlayCircle />
               </IconContext.Provider>
             </button>
-          ) :  (
+          ) : (
             <button className="playButton" onClick={togglePlay}>
               <IconContext.Provider value={{ size: "3em", color: "white" }}>
-              <AiFillPauseCircle />
+                <AiFillPauseCircle />
               </IconContext.Provider>
             </button>
           )}
@@ -137,12 +123,14 @@ const BottomPlayer = ({ song }) => {
               type="range"
               min="0"
               max={Math.floor(audioRef.current?.duration)}
-              default="0"
               value={seconds}
               className="player-timeline"
               onChange={(e) => {
-                setSeconds(parseInt(e.target.value, 10));
-                audioRef.current.currentTime = parseInt(e.target.value, 10);
+                const newTime = parseInt(e.target.value, 10);
+                setSeconds(newTime);
+                if (audioRef.current) {
+                  audioRef.current.currentTime = newTime;
+                }
               }}
             />
             <p>
