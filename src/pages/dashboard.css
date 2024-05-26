@@ -110,14 +110,14 @@ button{
   font-size:60px;
   font-weight: bold;
   text-align: center;
-  margin-left: -90px;
+  margin-left: 40px;
 }
 
 .trending-info p{
-  font-size: small;
+  font-size: medium;
   font-weight: bold;
   text-align: center;
-  margin-left: -310px;
+  margin-left: -380px;
 }
 
 .trending-info button{
@@ -222,7 +222,7 @@ button{
 }
 .chart-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-columns: repeat(2, 1fr); 
 }
 .chart-item {
   display: flex;
@@ -259,7 +259,6 @@ button{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0; 
 }
 .song-details p {
   margin: 0;

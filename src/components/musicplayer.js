@@ -4,7 +4,7 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import "../pages/dashboard.css";
 
-const MusicPlayer = ({ currentSong }) => {
+const MusicPlayer = ({ currentSong, onNextSong, onPreviousSong }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [currTime, setCurrTime] = useState({
@@ -16,18 +16,21 @@ const MusicPlayer = ({ currentSong }) => {
     sec: "00",
   });
 
-  const songUrl = currentSong?.attributes?.previews[0]?.url || "";
+  const songUrl = currentSong?.audio || currentSong?.attributes?.previews[0]?.url || "";
+  const coverImage = currentSong?.cover || currentSong?.attributes?.artwork?.url || "";
+  const title = currentSong?.title || currentSong?.attributes?.name || "";
+  const artist = currentSong?.artist || currentSong?.attributes?.artistName || "";
   const audioRef = useRef(null);
 
   useEffect(() => {
-    setIsPlaying(false); // Set isPlaying to false when a new song is loaded
+    setIsPlaying(false); 
 
     const handleLoadedMetadata = () => {
       if (audioRef.current) {
         const durationSec = audioRef.current.duration;
         const min = Math.floor(durationSec / 60);
         const sec = Math.floor(durationSec % 60);
-        console.log("Duration loaded:", min, sec); // Log the loaded duration
+        console.log("Duration loaded:", min, sec); 
         setDuration({
           min: min.toString().padStart(2, "0"),
           sec: sec.toString().padStart(2, "0"),
@@ -40,7 +43,7 @@ const MusicPlayer = ({ currentSong }) => {
     }
 
     return () => {
-      const currentAudioRef = audioRef.current; // Store audioRef.current in a variable
+      const currentAudioRef = audioRef.current; 
       if (currentAudioRef) {
         currentAudioRef.removeEventListener("loadedmetadata", handleLoadedMetadata);
       }
@@ -48,7 +51,7 @@ const MusicPlayer = ({ currentSong }) => {
   }, [songUrl]);
 
   useEffect(() => {
-    const currentAudioRef = audioRef.current; // Store audioRef.current in a variable
+    const currentAudioRef = audioRef.current; 
     if (currentAudioRef) {
       if (isPlaying) {
         currentAudioRef.play();
@@ -60,7 +63,7 @@ const MusicPlayer = ({ currentSong }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const currentAudioRef = audioRef.current; // Store audioRef.current in a variable
+      const currentAudioRef = audioRef.current; 
       if (currentAudioRef) {
         const currentTime = currentAudioRef.currentTime;
         setSeconds(currentTime);
@@ -85,12 +88,12 @@ const MusicPlayer = ({ currentSong }) => {
       <h4>Player</h4>
       <img
         className="musicCover"
-        src={currentSong?.attributes?.artwork?.url}
+        src={coverImage}
         alt="Album Art"
       />
       <div className="player-details">
-        <h3 className="title">{currentSong?.attributes?.name}</h3>
-        <p className="subTitle">{currentSong?.attributes?.artistName}</p>
+        <h3 className="title">{title}</h3>
+        <p className="subTitle">{artist}</p>
       </div>
       <audio ref={audioRef} src={songUrl}></audio>
       <div>
@@ -118,7 +121,7 @@ const MusicPlayer = ({ currentSong }) => {
         />
       </div>
       <div className="player-buttons">
-        <button className="playButton">
+        <button className="playButton" onClick={onPreviousSong}>
           <IconContext.Provider value={{ size: "3em", color: "white" }}>
             <BiSkipPrevious />
           </IconContext.Provider>
@@ -136,7 +139,7 @@ const MusicPlayer = ({ currentSong }) => {
             </IconContext.Provider>
           </button>
         )}
-        <button className="playButton">
+        <button className="playButton" onClick={onNextSong}>
           <IconContext.Provider value={{ size: "3em", color: "white" }}>
             <BiSkipNext />
           </IconContext.Provider>

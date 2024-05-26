@@ -10,26 +10,36 @@ import { useGetTopArtistQuery } from "../state/services/shazamCore";
 import { useGetTopChartsQuery } from "../state/services/shazamCore";
 import DiscoverLoader from "./discoverloader";
 
+
 const Trendinghits = () => {
   const [activePage, setActivePage] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const [currentSong, setCurrentSong] = useState(null);
-  const { data: songChart, isFetching: chartFetch } =
-    useGetTopChartsQuery("US");
+  const [songIndex, setSongIndex] = useState(0);
+  const [trendingHits,setTRendingHits]=useState([
+    {
+      title:"Never Be The Same",
+      artist :"Camila Cabello",
+      audio:"./assets/NeverBeTheSame.mp3",
+      cover:"./assets/NBTS-Cover.jpg"
+    }
+  ]);
+
+  const { data: songChart, isFetching: chartFetch } =useGetTopChartsQuery("US");
   const { data: songArt, isFetching: artistFetch } = useGetTopArtistQuery(
     "POP",
     "US"
   );
 
   useEffect(() => {
-    console.log("location", location.pathname);
     setActivePage(location.pathname);
   }, [location]);
 
   useEffect(() => {
     if (songChart) {
       setCurrentSong(songChart[0]); 
+      setSongIndex(0);
     }
   }, [songChart]);
 
@@ -38,8 +48,26 @@ const Trendinghits = () => {
     navigate("/topartist");
   };
 
-  const handleSongClick = (song) => {
+  const handleSongClick = (song,index) => {
     setCurrentSong(song);
+    setSongIndex(index)
+  };
+
+  const handleTrendingHitPlay=()=>{
+    setCurrentSong(trendingHits[0]);
+  }
+  const handleNextSong = () => {
+    if (songIndex < songChart.length - 1) {
+      setSongIndex(songIndex + 1);
+      setCurrentSong(songChart[songIndex + 1]);
+    }
+  };
+
+  const handlePreviousSong = () => {
+    if (songIndex > 0) {
+      setSongIndex(songIndex - 1);
+      setCurrentSong(songChart[songIndex - 1]);
+    }
   };
 
   return (
@@ -48,9 +76,9 @@ const Trendinghits = () => {
         <div className="trending-content">
           <div className="trending-info">
             <h4>Trending New Hits</h4>
-            <h5>In My Feelings</h5>
-            <p>Camila Cabello 63million Plays</p>
-            <button>Listen Now</button>
+            <h5>{trendingHits[0].title}</h5>
+            <p>{trendingHits[0].artist}</p>
+            <button onClick={handleTrendingHitPlay}>Listen Now</button>
             <FavoriteIcon
               style={{
                 marginLeft: "40px",
@@ -72,7 +100,7 @@ const Trendinghits = () => {
           See All
         </button>
         {artistFetch ? (
-          <DiscoverLoader title="loading.."/> // Show loader while fetching artists
+          <DiscoverLoader title="loading.."/> 
         ) : (
           songArt
             ?.slice(0, 7)
@@ -103,7 +131,7 @@ const Trendinghits = () => {
           )}
         </div>
       </section>
-      <MusicPlayer currentSong={currentSong} />
+      <MusicPlayer currentSong={currentSong} onNextSong={handleNextSong} onPreviousSong={handlePreviousSong}/>
     </>
   );
 };

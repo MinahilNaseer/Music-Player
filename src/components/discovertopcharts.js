@@ -14,7 +14,6 @@ const DiscoverTopCharts = ({ song, index,onSongClick }) => {
             <h6>{name}</h6>
             <p>{artistName}</p>
           </div>
-          <p>3:45</p>
           <PlayCircleIcon
             style={{ color: "rgb(91,118,255)", cursor: "pointer" }}
             onMouseEnter={(e) => (e.target.style.color = "red")}
