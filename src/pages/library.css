@@ -1,0 +1,66 @@
+.account-sec {
+  width: 70%;
+  height: 60%;
+  background-color: rgb(32, 32, 38);
+  border-radius: 10px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.user-img {
+  width: 250px;
+  height: 250px;
+  margin-right: 90px; /* space between image and form */
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+  width: 300px; /* Adjust the width as needed */
+}
+
+.account-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.form-actions p, .form-actions span {
+  color: white;
+}
+
+.account-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  width: 80px;
+  font-weight: bold;
+}
+
+.account-button:hover {
+  background-color: red;
+}
