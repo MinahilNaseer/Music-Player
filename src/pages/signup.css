@@ -27,7 +27,7 @@
     align-items: center;
     height: 100%; 
     width: 50%; 
-    background-image: url('C:\Users\MSI\OneDrive\Desktop\Music Player\music\Music-Player\public\assets\The Smith cover.png');
+    background-image: url('D:\React Project\Music-Player\public\assets\The-smith-cover.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -75,7 +75,7 @@
     top: 0%;
     width: 700px; 
     height: 700px;
-    background: /* Gradient from left to right */
+    background: 
     linear-gradient(90deg, rgba(0, 0, 0, 1) 21%, rgba(133, 133, 139, 0.9601891782103467) 61%, rgba(255, 255, 255, 1) 100%);
     border-radius: 50%;
     animation: rotateCircle 10s linear infinite;
@@ -94,9 +94,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px; /* Adjust size of the smaller circle */
-    height: 200px; /* Adjust size of the smaller circle */
-    background-color: yellow; /* Color of the smaller circle */
+    width: 200px; 
+    height: 200px; 
+    background-color: yellow; 
     border-radius: 50%;
   }
   .small-small-circle{
@@ -104,17 +104,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px; /* Adjust size of the smaller circle */
-    height: 150px; /* Adjust size of the smaller circle */
-    background-color: black; /* Color of the smaller circle */
+    width: 150px; 
+    height: 150px; 
+    background-color: black; 
     border-radius: 50%;
   }
 
   .signup-form-container,.login-form-container {
-    position: relative; /* Change to relative */
-    width: 400px; /* Adjust width as needed */
+    position: relative; 
+    width: 400px; 
     margin-left: auto;
-    margin-right: auto; /* Center horizontally */
+    margin-right: auto; 
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
@@ -127,7 +127,7 @@
   }
 
   .signup-form-container .vibz,.login-form-container .vibz{
-    font-family: Arial, sans-serif; /* Default font family */
+    font-family: Arial, sans-serif; 
     display: inline-block;
     animation: vibrate 0.5s infinite alternate;
     font-style: italic;
@@ -138,7 +138,7 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(10px); /* Adjust the distance of the vibration */
+      transform: translateX(10px); 
     }
     100% {
       transform: translateX(0);
@@ -146,13 +146,13 @@
   }
 
   .signup-form-container .vibz span ,.login-form-container .vibz span{
-    font-family: 'Roboto', sans-serif; /* Custom font family */
+    font-family: 'Roboto', sans-serif; 
   }
 
   .signup-form-container .quote, .login-form-container .quote{
     text-align: center;
   padding: 10px;
-  font-family: Arial, sans-serif; /* Change the font family */
+  font-family: Arial, sans-serif; 
   font-size: large;
   background: linear-gradient(to top, #e6d0fa 0%, #9b59b6 100%);
   -webkit-background-clip: text;
@@ -293,4 +293,68 @@
   border-color: red;
 }
 
+
+  @media (max-width: 500px){
+    .container {
+      top: 5%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+    }
+    .signup-container {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background-size: cover;
+    }
+    .login-container {
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 40%;
+      background-size: cover;
+    }
+  
+    .circle, .login-circle {
+      display:none;
+    }
+  .signup-form-container {
+    width: 90%;
+    padding: 10px;
+    height: 85%;
+  }
+  .login-form-container{
+    width: 90%;
+    padding: 10px;
+    height: 75%;
+  }
+
+  .signup-form-container h1,
+  .login-form-container h1 {
+    font-size:x-large;
+    font-weight: bold;
+  }
+
+  .signup-form-container p,
+  .login-form-container p {
+    font-size: larger;
+  }
+  .signup-form-container input,
+  .signup-form-container button,
+  .login-form-container input,
+  .login-form-container button {
+    width: calc(100% - 20px);
+    font-size: small;
+  }
+
+  .signup-form-container .signup-button,
+  .login-form-container .log-button {
+    margin-left: 100px;
+    width: 40%;
+    font-size: medium;
+    font-weight: bold;
+  }
+  }
+ 
   

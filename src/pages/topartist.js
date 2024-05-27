@@ -16,12 +16,12 @@ const Topartist = () => {
     countryCode
   );
 
-  console.log();
+  //console.log();
   if (isFetching) return <Loader title="Loading Artist..." />;
 
   if (error) return <Error />;
 
-  console.log(data);
+  //console.log(data);
 
   const handleGenreOptionChange = (e) => {
     const genreCode = e.target.value;

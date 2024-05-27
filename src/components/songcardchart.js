@@ -4,7 +4,7 @@ import '../pages/topartist.css';
 import { useNavigate } from "react-router-dom";
 
 
-const SongCard = ({song,onPlay,setCurrentSong}) => {
+const SongCard = ({song,onPlay}) => {
   const navigate = useNavigate();
     const { attributes } = song;
     const { artwork, name, artistName } = attributes;
@@ -16,7 +16,7 @@ const SongCard = ({song,onPlay,setCurrentSong}) => {
 
     const handlePlay=()=>{
       onPlay(song);
-      setCurrentSong(song);
+      
       
     }
   return (

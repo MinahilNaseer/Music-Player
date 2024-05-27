@@ -26,6 +26,7 @@ const SignUp = ({ onClose }) => {
     }
   };
 
+
   const validateForm = () => {
     // Validate username
     if (!username.trim()) {
@@ -53,7 +54,7 @@ const SignUp = ({ onClose }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) {
-      // If form validation fails, return early
+      
       return;
     }
     try {
@@ -67,11 +68,11 @@ const SignUp = ({ onClose }) => {
         throw new Error("Registration failed: " + (await response.text()));
       }
 
-      // Registration successful
+      
       setDialogMessage("Registration successful!");
     } catch (error) {
       console.error("Registration error:", error);
-      // Display error message to user
+      
       setDialogMessage("Registration failed. Please try again later.");
     }
   };
@@ -103,12 +104,12 @@ const SignUp = ({ onClose }) => {
           <div className="small-circle">
             <div className="small-small-circle"></div>
           </div>
-          <div className="circular-lines"></div>
         </div>
         <div className="signup-container">
           <div className="signup-form-container">
             <h1>Sign Up</h1>
             <p>
+
               Welcome to <span className="vibz">Vibz</span>
             </p>
             <p className="quote">
@@ -124,19 +125,32 @@ const SignUp = ({ onClose }) => {
                 onChange={(event) => setUsername(event.target.value)}
               />
               {usernameError && <p className="error-message">{usernameError}</p>}
+
+              Welcome to <span class="vibz">Vibz</span>
+            </p>
+            <p className="quote">
+              Feel the rhythm, catch the vibe - Your ultimate destination for
+              musical delight!
+            </p>
+            <form>
+              <input type="text" id="name" name="name" placeholder="Name" />
+
               <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Email Address"
+
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
+
               />
               <input
                 type="password"
                 id="password"
                 name="password"
                 placeholder="Password"
+
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
@@ -154,6 +168,12 @@ const SignUp = ({ onClose }) => {
                   </div>
                 )}
               </div>
+
+              />
+              <button className="signup-button" type="submit">
+                Sign Up
+              </button>
+
             </form>
           </div>
         </div>

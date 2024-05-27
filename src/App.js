@@ -60,9 +60,10 @@ function App() {
             </ProSidebarProvider>
           }
         />
-             <Route path="/search/:searchTerm" element={<Search />} />
+             <Route path="/search/:searchTerm" element={<ProSidebarProvider><Search/></ProSidebarProvider>} />
       </Routes>
     </div>
-  )}
 
+  )}
+  
 export default App;
