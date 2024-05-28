@@ -3,6 +3,7 @@ import DashboardTopNav from "../components/dashboardtopnav";
 import Sidenavbar from "../components/sidenavbar";
 import UserImage from "../assets/user-image.png";
 import "./library.css";
+import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 
 const Account = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ const Account = () => {
       <Sidenavbar activePage="/account" />
       <main>
         <DashboardTopNav />
-        <h1>Account </h1>
+        <h1>My Account </h1>
         <section className="account-sec">
           <img src={UserImage} alt="user-img" className="user-img" />
           <div className="form-inputs">
@@ -39,12 +40,19 @@ const Account = () => {
                 placeholder="Password"
                 value={password}
               />
+              <p>To Save Changes</p>
               <div className="form-actions">
-                <p>To Update User Details</p>
-                <span>Click Here!</span>
-                <button className="account-button" type="submit">
-                  Update
-                </button>
+                
+                <span>
+                  Click The button!
+                  <PanToolAltIcon
+                    style={{ transform: "rotate(90deg)" }}
+                    className="moving-icon"
+                  />
+                  <button className="account-button" type="submit">
+                    Update
+                  </button>
+                </span>
               </div>
             </form>
           </div>

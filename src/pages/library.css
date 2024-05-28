@@ -1,21 +1,25 @@
 .account-sec {
-  width: 70%;
+  width: 80%;
   height: 60%;
-  background-color: rgb(32, 32, 38);
+  background-color: rgb(23, 23, 27);
+  border: 1px solid grey;
   border-radius: 10px;
-  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20%;
+  margin-left: 10%;
   padding: 20px;
   box-sizing: border-box;
+  background-image: url('../assets/abstract_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .user-img {
-  width: 250px;
-  height: 250px;
-  margin-right: 90px; /* space between image and form */
+  width: 300px;
+  height: 300px;
+  margin-right: 180px; /* space between image and form */
 }
 
 .form-inputs {
@@ -40,16 +44,38 @@
 
 .form-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
-
-.form-actions p, .form-actions span {
+.account-form p{
+  text-align: center;
+  font-size: large;
+}
+.form-actions span {
   color: white;
+  font-size: large;
 }
-
+.moving-icon{
+  position: relative;
+  margin-left: 10px;
+  animation: moveIcon 4s infinite;
+}
+@keyframes moveIcon {
+  0% {
+    left: 0;
+    color: red;
+  }
+  50% {
+    left: 20px;
+    color: blue;
+  }
+  100% {
+    left: 0;
+    color: red;
+  }
+}
 .account-button {
   padding: 10px;
   border-radius: 5px;
@@ -59,6 +85,8 @@
   cursor: pointer;
   width: 80px;
   font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .account-button:hover {
