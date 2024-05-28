@@ -8,7 +8,11 @@ import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
 import Search from "./pages/Search";
+
+import Recommendation from "./pages/recommendation";
+
 import Account from "./pages/account";
+
 
 import TrackDetails from "./pages/trackdetails";
 
@@ -27,7 +31,7 @@ function App() {
             </ProSidebarProvider>
           }
         />
-        <Route
+                <Route
           path="/topartist"
           element={
             <ProSidebarProvider>
@@ -48,6 +52,14 @@ function App() {
           element={
             <ProSidebarProvider>
               <Account />
+            </ProSidebarProvider>
+          }
+        />
+            <Route
+          path="/recommendation"
+          element={
+            <ProSidebarProvider>
+              <Recommendation />
             </ProSidebarProvider>
           }
         />

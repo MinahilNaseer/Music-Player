@@ -40,6 +40,10 @@ const Sidenavbar = () => {
     setActivePage('/topcharts');
     navigate("/topcharts");
   }
+  const handleRecommendationClick=()=>{
+    setActivePage('/recommendation');
+    navigate("/recommendation");
+  }
 
   const { collapseSidebar } = useProSidebar();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -176,11 +180,12 @@ const Sidenavbar = () => {
         </MenuItem>
         <MenuItem
           style={{
-            backgroundColor: isSubMenuOpen ? "white" : "rgb(24,24,29)",
-            color: isSubMenuOpen ? "black" : "white",
+            backgroundColor: activePage  === '/recommendation' ? "lightgray" : "rgb(24,24,29)",
+            color: activePage  === '/recommendation'  ? "rgb(24,24,29)" : "white",
           }}
           icon={<RecommendIcon />}
           className="submenu-item"
+          onClick={handleRecommendationClick}
         >
           Recommendation
         </MenuItem>
