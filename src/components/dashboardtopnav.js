@@ -7,16 +7,18 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardTopNav = () => {
   const navigate = useNavigate();
-  const handleAccountClick=()=>{
+  const handleAccountClick = () => {
     navigate("/account");
-  }
-  
+  };
+
   return (
-    <div className="top-heading-container">
-      <h3 className="top-heading">MUSIC</h3>
+    <div className="discover-top-heading-container">
+      <h3 className="discover-top-heading">MUSIC</h3>
       <div className="content">
-      <Searchbar/>
-        <div className="account" onClick={handleAccountClick}>
+        <div className="searchbar-container">
+          <Searchbar />
+        </div>
+        <div className="discover-account" onClick={handleAccountClick}>
           <AccountCircleIcon />
           <h4>Account</h4>
         </div>

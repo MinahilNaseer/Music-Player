@@ -12,10 +12,10 @@ main{
 .item{
     text-align: center;
 }
-
-.top-heading{
+.discover-top-heading{
   color: rgb(70,91,196);
     font-size: large;
+    margin-left: 60px;
 }
 .logo-container {
     display: flex; 
@@ -35,6 +35,7 @@ button{
     margin-left: 70px;
     margin-top: 90px;
 }
+
 .top-heading-container {
   display: flex;
   align-items: center;
@@ -46,6 +47,28 @@ button{
   position: relative;
   left: 0;
   right: 0;
+}
+.discover-top-heading-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #444;
+  width: 100%;
+  height: 10%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+.content{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.searchbar-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; 
+  height: 10%;
 }
 
 .spinning-text {
@@ -63,7 +86,7 @@ button{
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 0.15em solid rgba(211,77,188,255); /* Cursor effect */
+  border-right: 0.15em solid rgba(211,77,188,255); 
   animation: blink-caret 0.75s step-end infinite;
 }
   @keyframes blink-caret {
@@ -80,8 +103,7 @@ button{
     padding-left: 0px;
     text-decoration: underline;
   }
-
-  .account {
+  .account ,.discover-account{
     display: flex;
     align-items: center;
     height: 40px;
@@ -90,11 +112,12 @@ button{
     padding: 10px;
     margin-right: 50px;
   }
+  .discover-account:hover{
+    cursor: pointer;
+  }
   .account:hover{
     cursor: pointer;
-    
   }
-  
   h4 {
     margin: 0;
     padding-left: 10px;

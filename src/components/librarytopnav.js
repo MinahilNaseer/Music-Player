@@ -26,7 +26,7 @@ const LibraryTopNav = () => {
       }
 
       if (!isDeleting && charIndex === currentFullMessage.length) {
-        setTimeout(() => setIsDeleting(true), 2000); // Pause before starting to delete
+        setTimeout(() => setIsDeleting(true), 2000); 
       } else if (isDeleting && currentMessage === "") {
         setIsDeleting(false);
         setMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
