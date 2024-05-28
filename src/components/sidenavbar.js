@@ -7,7 +7,7 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import MicIcon from "@mui/icons-material/Mic";
 import AlbumIcon from "@mui/icons-material/Album";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
+//import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import RecommendIcon from "@mui/icons-material/Recommend";
 import "../pages/dashboard.css";
@@ -55,6 +55,10 @@ const Sidenavbar = () => {
   const handleSubMenuClose = () => {
     setIsSubMenuOpen(false);
   };
+  const handleAccountClick=()=>{
+    setActivePage('/account');
+    navigate("/account");
+  }
   return (
     <Sidebar
     backgroundColor="rgb(24,24,29)"
@@ -165,21 +169,12 @@ const Sidenavbar = () => {
         </MenuItem>
         <MenuItem
           style={{
-            backgroundColor: isSubMenuOpen ? "white" : "rgb(24,24,29)",
-            color: isSubMenuOpen ? "black" : "white",
-          }}
-          icon={<FeaturedPlayListIcon />}
-          className="submenu-item"
-        >
-          Playlist
-        </MenuItem>
-        <MenuItem
-          style={{
-            backgroundColor: isSubMenuOpen ? "white" : "rgb(24,24,29)",
-            color: isSubMenuOpen ? "black" : "white",
+            backgroundColor: activePage === '/account' ? "lightgray" : "rgb(24,24,29)",
+            color: activePage === '/account' ? "rgb(24,24,29)" : "white",
           }}
           icon={<AccountCircleIcon />}
           className="submenu-item"
+          onClick={handleAccountClick}
         >
           Account
         </MenuItem>
