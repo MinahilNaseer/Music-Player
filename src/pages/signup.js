@@ -125,16 +125,6 @@ const SignUp = ({ onClose }) => {
                 onChange={(event) => setUsername(event.target.value)}
               />
               {usernameError && <p className="error-message">{usernameError}</p>}
-
-              Welcome to <span class="vibz">Vibz</span>
-            </p>
-            <p className="quote">
-              Feel the rhythm, catch the vibe - Your ultimate destination for
-              musical delight!
-            </p>
-            <form>
-              <input type="text" id="name" name="name" placeholder="Name" />
-
               <input
                 type="email"
                 id="email"
@@ -168,8 +158,6 @@ const SignUp = ({ onClose }) => {
                   </div>
                 )}
               </div>
-
-              />
               <button className="signup-button" type="submit">
                 Sign Up
               </button>
