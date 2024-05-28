@@ -3,14 +3,15 @@ import DashboardTopNav from "../components/dashboardtopnav";
 import Sidenavbar from "../components/sidenavbar";
 import note from "../assets/colorful-music.png";
 import "./library.css";
+import LibraryTopNav from "../components/librarytopnav";
 
 const Recommendation = () => {
   return (
     <div className="dashboard">
       <Sidenavbar activePage="/recommendation" />
       <main>
-        <DashboardTopNav />
-        <h1>Recommendation</h1>
+        <LibraryTopNav />
+        <h1>My Recommendation</h1>
         <section className="recomm-start">
           <div className="recomm-info">
             <h2>Welcome </h2>

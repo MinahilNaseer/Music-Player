@@ -8,13 +8,10 @@ import Aroundyou from "./pages/aroundyou";
 import Topcharts from "./pages/topcharts";
 import Login from "./pages/login";
 import Search from "./pages/Search";
-
 import Recommendation from "./pages/recommendation";
-
 import Account from "./pages/account";
-
-
 import TrackDetails from "./pages/trackdetails";
+import Favorite from "./pages/favorite";
 
 function App() {
   return (
@@ -31,7 +28,7 @@ function App() {
             </ProSidebarProvider>
           }
         />
-                <Route
+        <Route
           path="/topartist"
           element={
             <ProSidebarProvider>
@@ -55,11 +52,19 @@ function App() {
             </ProSidebarProvider>
           }
         />
-            <Route
+        <Route
           path="/recommendation"
           element={
             <ProSidebarProvider>
               <Recommendation />
+            </ProSidebarProvider>
+          }
+        />
+        <Route
+          path="/favorite"
+          element={
+            <ProSidebarProvider>
+              <Favorite />
             </ProSidebarProvider>
           }
         />
@@ -79,7 +84,6 @@ function App() {
             </ProSidebarProvider>
           }
         />
-
       </Routes>
     </div>
   );

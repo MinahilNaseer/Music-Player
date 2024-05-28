@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import DashboardTopNav from "../components/dashboardtopnav";
+//import DashboardTopNav from "../components/dashboardtopnav";
 import Sidenavbar from "../components/sidenavbar";
 import UserImage from "../assets/user-image.png";
 import "./library.css";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
+import LibraryTopNav from "../components/librarytopnav";
+
 
 const Account = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +15,7 @@ const Account = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/account" />
       <main>
-        <DashboardTopNav />
+        <LibraryTopNav />
         <h1>My Account </h1>
         <section className="account-sec">
           <img src={UserImage} alt="user-img" className="user-img" />
