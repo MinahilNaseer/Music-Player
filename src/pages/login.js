@@ -5,6 +5,7 @@ import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
 import { useNavigate } from "react-router-dom";
 
+
 const Login = ({ onClose }) => {
   const navigate = useNavigate();
 
@@ -18,19 +19,32 @@ const Login = ({ onClose }) => {
     const audio = document.getElementById("background-music");
     if (audio) {
       if (isMusicPlaying) {
-        audio.pause(); 
+        audio.pause();
       } else {
-        audio.play(); 
+        audio.play();
       }
       setIsMusicPlaying(!isMusicPlaying);
     }
+  };
+
+  const getUserInfo = async () => {
+    const response = await fetch("http://localhost:3000/getUserInfo", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch user info");
+    }
+
+    return response.json();
   };
 
   const handleLoginClick = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/login", {
+      const response = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -39,6 +53,13 @@ const Login = ({ onClose }) => {
       if (!response.ok) {
         throw new Error("Invalid credentials");
       }
+
+      // Fetch user information after successful login
+      const userInfo = await getUserInfo();
+      localStorage.setItem("username", userInfo.username);
+      localStorage.setItem("email", userInfo.email);
+      // Store user information in local storage or state
+      localStorage.setItem("user", JSON.stringify(userInfo));
 
       // Login successful, redirect to dashboard
       navigate("/dashboard");
@@ -77,7 +98,7 @@ const Login = ({ onClose }) => {
           <div className="login-form-container">
             <h1>Login</h1>
             <p>
-              Welcome to <span class="vibz">Vibz</span>
+              Welcome to <span className="vibz">Vibz</span>
             </p>
             <p className="quote">
               Feel the rhythm, catch the vibe - Your ultimate destination for

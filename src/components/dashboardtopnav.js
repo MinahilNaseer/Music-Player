@@ -1,12 +1,12 @@
 import React from "react";
 import "../pages/dashboard.css";
-//import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Searchbar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 
-const DashboardTopNav = () => {
+const DashboardTopNav = ({ username }) => {
   const navigate = useNavigate();
+
   const handleAccountClick = () => {
     navigate("/account");
   };
@@ -20,7 +20,7 @@ const DashboardTopNav = () => {
         </div>
         <div className="discover-account" onClick={handleAccountClick}>
           <AccountCircleIcon />
-          <h4>Account</h4>
+          <h4>{username ? username : "Account"}</h4> {/* Display username if available */}
         </div>
       </div>
     </div>
