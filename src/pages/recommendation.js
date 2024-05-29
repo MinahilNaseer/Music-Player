@@ -4,14 +4,23 @@ import Sidenavbar from "../components/sidenavbar";
 import note from "../assets/colorful-music.png";
 import "./library.css";
 import LibraryTopNav from "../components/librarytopnav";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useNavigate } from "react-router-dom";
 
 const Recommendation = () => {
+  const navigate = useNavigate();
+  const handleBackClick=()=>{
+    navigate("/dashboard")
+  }
   return (
     <div className="dashboard">
       <Sidenavbar activePage="/recommendation" />
       <main>
         <LibraryTopNav />
-        <h1>My Recommendation</h1>
+        <div className="back-title">
+          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
+          <h1 className="heading-track-det">Your Recommendation</h1>
+        </div>
         <section className="recomm-start">
           <div className="recomm-info">
             <h2>Welcome </h2>

@@ -8,14 +8,23 @@ import music3 from "../assets/music-3.jpg";
 //import music4 from "../assets/music-4.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PlayCircle from "@mui/icons-material/PlayCircle";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useNavigate } from "react-router-dom";
 
 const Favorite = () => {
+  const navigate=useNavigate();
+  const handleBackClick=()=>{
+    navigate("/dashboard");
+  }
   return (
     <div className="dashboard">
       <Sidenavbar activePage="/favorite" />
       <main>
         <LibraryTopNav />
-        <h1>Your Favorite Songs</h1>
+        <div className="back-title">
+          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
+          <h1 className="heading-track-det">Your Favorite Songs</h1>
+        </div>
         <div className="circle-container-bottom">
           <img src={kpopfav} alt="fav-img" className="circle-img" />
           <img src={musicnote} alt="fav-img" className="circle1-img" />

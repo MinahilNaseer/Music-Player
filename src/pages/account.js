@@ -5,18 +5,28 @@ import UserImage from "../assets/user-image.png";
 import "./library.css";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
 import LibraryTopNav from "../components/librarytopnav";
-
+import { useNavigate } from "react-router-dom";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Account = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
+
+
+  const handleBackClick = () => {
+    navigate("/topcharts");
+  };
   return (
     <div className="dashboard">
       <Sidenavbar activePage="/account" />
       <main>
         <LibraryTopNav />
-        <h1>My Account </h1>
+        <div className="back-title">
+          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
+          <h1 className="heading-track-det">My Account</h1>
+        </div>
         <section className="account-sec">
           <img src={UserImage} alt="user-img" className="user-img" />
           <div className="form-inputs">

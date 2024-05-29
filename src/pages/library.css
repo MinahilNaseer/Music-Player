@@ -204,7 +204,7 @@
   width: 75%;
   height: 70%;
   margin-left: 30px;
-  padding: 10px; /* Added padding for better spacing */
+  padding: 10px; 
   box-sizing: border-box;
 }
 .fav-card{
@@ -213,7 +213,7 @@
   align-items: center;
   background-color: rgb(32, 32, 38);
   width: 100%;
-  padding: 10px; /* Added padding for better spacing */
+  padding: 10px; 
   box-sizing: border-box;
   border-radius: 8px
 
@@ -226,7 +226,7 @@
 .fav-card img{
   width: 8%;
   height: 8%;
-  border-radius: 50%; /* Optional: make the image circular */
+  border-radius: 50%; 
   margin-left: 30px;
 }
 .fav-info{
@@ -242,7 +242,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Spacing between icons */
+  gap: 30px; 
 }
 .fav-icons .fav-icon:hover{
   color: white;

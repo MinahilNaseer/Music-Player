@@ -8,8 +8,11 @@ import BottomPlayer from "../components/bottomplayer";
 import Loader from "../components/loader";
 import SongCard from "../components/songcardchart";
 import { useGetSongsByCountryQuery } from '../state/services/shazamCore';
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Aroundyou = () => {
+  const navigate =useNavigate();
   const [countryCode, setCountry] = useState('');
   const [loading, setLoading] = useState(true);
   const [currentSong, setCurrentSong] = useState(null);
@@ -18,7 +21,7 @@ const Aroundyou = () => {
   const handlePlay = (song) => {
     setCurrentSong(song);
   }
-console.log(countryCode)
+//console.log(countryCode)
   useEffect(() => {
     axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_La6063OPycuWt8G65MGGRAit94Ej5')
       .then((res) => {
@@ -32,11 +35,12 @@ console.log(countryCode)
       });
   }, []);
 
+  const handleBackClick=()=>{
+    navigate('/dashboard');
+  }
+
   if (isFetching || loading) return <Loader title='Loading songs around you' />;
-
   if (error) return <div>Error fetching songs: {error.message}</div>;
-
-  // Handle cases where data is not available
   if (!data) return null;
 
   return (
@@ -44,7 +48,11 @@ console.log(countryCode)
       <Sidenavbar activePage="/aroundyou" />
       <main>
         <DashboardTopNav />
-        <h1>Around You In <span className="font-black">{countryCode}</span></h1>
+        <div className="back-title">
+          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
+          <h1 className="heading-track-det">Around You In <span className="font-black">{countryCode}</span></h1>
+        </div>
+        
         <div className='scrollable-content'>
           <div className="artist-container">
             {data.map((song, i) => (
