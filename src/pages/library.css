@@ -1,146 +1,59 @@
-
-.recomm-start {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60vh;
-    background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    max-width: 800px;
-    border: 1px solid white
-  }
-  .recomm-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .recomm-info h2 {
-    color: white;
-    top: 0%;
-    margin: 0 auto;
-    font-style: italic;
-    font-weight: bold;
-    font-size: xx-large;
-  }
-  .recomm-info p{
-    margin-top: 20px;
-    margin-left: 20px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  .recomm-info button{
-    margin-right: 70px;
-    
-  }
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .recomm-start img {
-    height: 70vh;
-    width: 50%;
-    margin-right: -40px;
-    margin-top: 20px;
-    
-  }
-
-.account-sec {
-  width: 80%;
-  height: 60%;
-  background-color: rgb(23, 23, 27);
-  border: 1px solid grey;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10%;
-  padding: 20px;
-  box-sizing: border-box;
-  background-image: url('../assets/abstract_background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.user-img {
-  width: 300px;
-  height: 300px;
-  margin-right: 180px; /* space between image and form */
-}
-
-.form-inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.account-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  gap: 20px;
-  width: 300px; /* Adjust the width as needed */
-}
-
-.account-form input {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-}
-
-.form-actions {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  margin-top: 10px;
-}
-.account-form p{
+.recommendation {
   text-align: center;
-  font-size: large;
+  margin: 50px auto;
+  max-width: 600px;
 }
-.form-actions span {
-  color: white;
-  font-size: large;
+
+form {
+  margin-bottom: 20px;
 }
-.moving-icon{
-  position: relative;
-  margin-left: 10px;
-  animation: moveIcon 4s infinite;
-}
-@keyframes moveIcon {
-  0% {
-    left: 0;
-    color: red;
-  }
-  50% {
-    left: 20px;
-    color: blue;
-  }
-  100% {
-    left: 0;
-    color: red;
-  }
-}
-.account-button {
+
+input {
   padding: 10px;
-  border-radius: 5px;
-  border: none;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  width: 80px;
-  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.recommendation-list {
+  text-align: left;
+}
+
+.recommendation-item {
   margin-bottom: 20px;
-  margin-top: 10px;
 }
 
-.account-button:hover {
-  background-color: red;
+.recommendation-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
 }
 
+.recommendation-item p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.recommendation-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.recommendation-item a:hover {
+  text-decoration: underline;
+}
