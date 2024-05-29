@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Sidenavbar from "../components/sidenavbar";
 import DashboardTopNav from "../components/dashboardtopnav";
 import "../pages/dashboard.css";
@@ -22,6 +22,15 @@ const Topartist = () => {
   const handleBackClick=()=>{
     navigate("/dashboard");
   }
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userInfo = JSON.parse(storedUser);
+      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+    }
+  }, []);
 
   //console.log();
   if (isFetching) return <Loader title="Loading Artist..." />;
@@ -44,7 +53,7 @@ const Topartist = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/topartist" />
       <main>
-        <DashboardTopNav />
+        <DashboardTopNav username={username}/>
         <div className="drop-down-align">
         <div className="back-title">
             <ArrowBackIosNewIcon

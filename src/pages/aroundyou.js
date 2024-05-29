@@ -38,6 +38,15 @@ const Aroundyou = () => {
   const handleBackClick=()=>{
     navigate('/dashboard');
   }
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userInfo = JSON.parse(storedUser);
+      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+    }
+  }, []);
 
   if (isFetching || loading) return <Loader title='Loading songs around you' />;
   if (error) return <div>Error fetching songs: {error.message}</div>;
@@ -47,7 +56,7 @@ const Aroundyou = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/aroundyou" />
       <main>
-        <DashboardTopNav />
+        <DashboardTopNav username={username}/>
         <div className="back-title">
           <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
           <h1 className="heading-track-det">Around You In <span className="font-black">{countryCode}</span></h1>

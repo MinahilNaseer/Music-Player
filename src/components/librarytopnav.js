@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
 import "../pages/dashboard.css";
+import NameAccount from "./nameaccount";
 
 const LibraryTopNav = () => {
   const navigate = useNavigate();
@@ -49,6 +50,15 @@ const LibraryTopNav = () => {
     typingSpeed,
     currentMessage,
   ]);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userInfo = JSON.parse(storedUser);
+      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+    }
+  }, []);
 
   const handleAccountClick = () => {
     navigate("/account");
@@ -57,10 +67,7 @@ const LibraryTopNav = () => {
   return (
     <div className="top-heading-container">
       <h3 className="spinning-text">{currentMessage}</h3>
-      <div className="account" onClick={handleAccountClick}>
-        <AccountCircleIcon />
-        <h4>Account</h4>
-      </div>
+      <NameAccount username={username}/>
     </div>
   );
 };

@@ -33,6 +33,15 @@ const Topcharts = () => {
   const handleBackClick = () => {
     navigate("/dashboard");
   };
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userInfo = JSON.parse(storedUser);
+      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+    }
+  }, []);
 
   if (isFetching) return <Loader title="Loading songs..." />;
   if (error) return <Error />;
@@ -41,7 +50,7 @@ const Topcharts = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/topcharts" />
       <main>
-        <DashboardTopNav />
+        <DashboardTopNav username={username}/>
         <div className="drop-down-align">
           <div className="back-title">
             <ArrowBackIosNewIcon
