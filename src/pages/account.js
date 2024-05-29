@@ -4,13 +4,23 @@ import Sidenavbar from "../components/sidenavbar";
 import UserImage from "../assets/user-image.png";
 import "./library.css";
 import PanToolAltIcon from "@mui/icons-material/PanToolAlt";
+import LibraryTopNav from "../components/librarytopnav";
+import { useNavigate } from "react-router-dom";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IconButton } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+
 
 const Account = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
+
+
+  const handleBackClick = () => {
+    navigate("/topcharts");
+  };
   const [showPassword, setShowPassword] = useState(false);
 
   // Fetch user information
@@ -73,8 +83,11 @@ const Account = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/account" />
       <main>
-        <DashboardTopNav />
-        <h1>My Account</h1>
+        <LibraryTopNav />
+        <div className="back-title">
+          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
+          <h1 className="heading-track-det">My Account</h1>
+        </div>
         <section className="account-sec">
           <img src={UserImage} alt="user-img" className="user-img" />
           <div className="form-inputs">

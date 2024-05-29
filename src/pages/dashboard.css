@@ -6,13 +6,16 @@
     color: white;
     overflow-y: hidden;
 }
+main{
+  width: 100%;
+}
 .item{
     text-align: center;
 }
-
-.top-heading{
+.discover-top-heading{
   color: rgb(70,91,196);
     font-size: large;
+    margin-left: 60px;
 }
 .logo-container {
     display: flex; 
@@ -32,44 +35,89 @@ button{
     margin-left: 70px;
     margin-top: 90px;
 }
-.top-heading-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 150px;
-    border-bottom: 2px solid #444;
-  }
- 
- 
-  .content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-left: 90px;
-  }
 
+.top-heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #444;
+  width: 100%;
+  height: 10%;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+}
+.discover-top-heading-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #444;
+  width: 100%;
+  height: 10%;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+.content{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.searchbar-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; 
+  height: 10%;
+}
+
+.spinning-text {
   
+  color: #9c27b0; 
+  background-image: -webkit-linear-gradient(0deg, #9c27b0 30%, #bd6693 85%); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  font-style: oblique;
+  text-decoration: none;
+  left: 60px;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid rgba(211,77,188,255); 
+  animation: blink-caret 0.75s step-end infinite;
+}
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: rgba(183,82,225,255);
+    }
+  }
   
   h3{
     margin: 0;
     padding-left: 0px;
     text-decoration: underline;
   }
-
-  .account {
+  .account ,.discover-account{
     display: flex;
     align-items: center;
     height: 40px;
     border-radius: 5px;
     border: 2px solid white;
-    margin-left: 380px;
     padding: 10px;
+    margin-right: 50px;
+  }
+  .discover-account:hover{
+    cursor: pointer;
   }
   .account:hover{
     cursor: pointer;
-    
   }
-  
   h4 {
     margin: 0;
     padding-left: 10px;
@@ -159,8 +207,6 @@ button{
   justify-content:left;
   display:flex;
   justify-content: space-between;
-  
-
 }
 
 .top-artist .see-all,.top-charts .see-all{

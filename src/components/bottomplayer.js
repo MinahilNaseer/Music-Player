@@ -5,7 +5,7 @@ import { IconContext } from "react-icons";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import '../pages/topartist.css';
 
-const BottomPlayer = ({ song }) => {
+const BottomPlayer = ({ song,songs, currentSongIndex, setCurrentSongIndex }) => {
   const defaultSong = {
     attributes: {
       artwork: { url: '' },
@@ -73,6 +73,15 @@ const BottomPlayer = ({ song }) => {
       audioRef.current.volume = parseFloat(e.target.value);
     }
   };
+  const handleSkipNext = () => {
+    const nextIndex = (currentSongIndex + 1) % songs.length;
+    setCurrentSongIndex(nextIndex);
+  };
+
+  const handleSkipPrevious = () => {
+    const prevIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+    setCurrentSongIndex(prevIndex);
+  };
 
   return (
     <section className="bottom-player">
@@ -89,7 +98,7 @@ const BottomPlayer = ({ song }) => {
       </div>
       <div className="buttons-timeline">
         <div className="bottom-player-buttons">
-          <button className="playButton">
+          <button className="playButton" onClick={handleSkipPrevious}>
             <IconContext.Provider value={{ size: "3em", color: "white" }}>
               <BiSkipPrevious />
             </IconContext.Provider>
@@ -107,7 +116,7 @@ const BottomPlayer = ({ song }) => {
               </IconContext.Provider>
             </button>
           )}
-          <button className="playButton">
+          <button className="playButton"onClick={handleSkipNext}>
             <IconContext.Provider value={{ size: "3em", color: "white" }}>
               <BiSkipNext />
             </IconContext.Provider>

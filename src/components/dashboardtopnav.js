@@ -12,11 +12,13 @@ const DashboardTopNav = ({ username }) => {
   };
 
   return (
-    <div className="top-heading-container">
-      <h3 className="top-heading">MUSIC</h3>
+    <div className="discover-top-heading-container">
+      <h3 className="discover-top-heading">MUSIC</h3>
       <div className="content">
-        <Searchbar />
-        <div className="account" onClick={handleAccountClick}>
+        <div className="searchbar-container">
+          <Searchbar />
+        </div>
+        <div className="discover-account" onClick={handleAccountClick}>
           <AccountCircleIcon />
           <h4>{username ? username : "Account"}</h4> {/* Display username if available */}
         </div>

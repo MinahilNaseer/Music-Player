@@ -44,6 +44,10 @@ const Sidenavbar = () => {
     setActivePage('/recommendation');
     navigate("/recommendation");
   }
+  const handleFavoriteClick=()=>{
+    setActivePage('/favorite');
+    navigate("/favorite");
+  }
 
   const { collapseSidebar } = useProSidebar();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -159,11 +163,12 @@ const Sidenavbar = () => {
       >
         <MenuItem
           style={{
-            backgroundColor: isSubMenuOpen ? "white" : "rgb(24,24,29)",
-            color: isSubMenuOpen ? "black" : "white",
+            backgroundColor: activePage  === '/favorite' ? "lightgray" : "rgb(24,24,29)",
+            color: activePage  === '/favorite'  ? "rgb(24,24,29)" : "white",
           }}
           icon={<FavoriteIcon />}
           className="submenu-item"
+          onClick={handleFavoriteClick}
         >
           Favorites
         </MenuItem>

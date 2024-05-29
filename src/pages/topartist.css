@@ -40,7 +40,7 @@ main h1{
 }
 .scrollable-content {
   overflow-y: auto;
-  height: calc(100vh - 150px); /* Adjust height accordingly */
+  height: calc(100vh - 150px); 
   padding-right: 30px;
 }
 .artist-container{
@@ -48,8 +48,8 @@ main h1{
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%; /* Compensate for padding */
-  height: auto; /*auto*/
+  width: 100%; 
+  height: auto; 
   overflow: hidden;
 }
 .top-artist-sec,.around-you-sec{
@@ -73,11 +73,10 @@ main h1{
   visibility: hidden;
 }
 .linktolyrics{
-  top: 0%;
-  left: 20%;
   width: 100%;
-  position: absolute;
-  visibility: hidden;
+  position: relative;
+  font-size: medium;
+  color: rgb(70,91,196);
 }
 
 .artist-cover{
@@ -115,37 +114,48 @@ main h1{
   font-weight: bold;
   text-align: center;
   margin: 0;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .artist-song{
   font-size: small;
   margin: 10px;
   text-align: center;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.top-artist-sec:hover::after {
-    content: 'More Details';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: underline;
-    color: white;
+.artist-name-det{
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
 }
+.artist-song-det{
+  font-size: x-large;
+  margin: 10px;
+  text-align: center;
 
-.top-artist-sec:hover::after button {
-    color: white;
-    background-color: rgb(70,91,196);
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 88;
+}
+.back-title{
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+.heading-track-det{
+  color: #9c27b0; 
+  background-image: -webkit-linear-gradient(0deg, #9c27b0 30%, #bd6693 85%); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  font-style: oblique;
+}
+.arrow-icon{
+  cursor: pointer;
+  color: rgb(70,91,196);
 }
 .around-you-sec:hover{
   width: 200px;
@@ -156,9 +166,7 @@ main h1{
 .around-you-sec:hover .play-icon {
   visibility: visible;
 }
-.around-you-sec:hover .linktolyrics{
-  visibility: visible;
-}
+
 .play-icon:hover{
   cursor: pointer;
 }
@@ -166,6 +174,15 @@ main h1{
   color: red;
   text-decoration: underline;
   cursor: pointer;
+}
+.bottom-links-sec{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.fav-icon-hov:hover{
+  cursor: pointer;
+  color: red;
 }
 
 .bottom-player{
@@ -316,8 +333,16 @@ main h1{
   }
   .Lyrics-head{
     margin-top: 60px;
+    color: #9c27b0; 
+  background-image: -webkit-linear-gradient(0deg, #9c27b0 30%, #bd6693 85%); 
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  font-style: oblique;
   }
   .track-lyrics{
   text-align: center;
-  margin:40px
+  margin-left: 40px;
+  padding: 10px;
+  border: 1px solid white;
   }
