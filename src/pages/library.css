@@ -1,3 +1,24 @@
+/* Ensure input text is visible */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: black; 
+  background-color: white; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+
+input::placeholder {
+  color: #888; 
+}
+
+input:focus {
+  border-color: #0056b3; 
+  outline: none; 
+}
 
 .recomm-start {
     display: flex;
@@ -70,7 +91,7 @@
 .user-img {
   width: 300px;
   height: 300px;
-  margin-right: 180px; /* space between image and form */
+  margin-right: 20px; /* Reduce the margin */
 }
 
 .form-inputs {
@@ -94,8 +115,9 @@
 }
 
 .form-actions {
+  
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
@@ -103,6 +125,7 @@
 .account-form p{
   text-align: center;
   font-size: large;
+  
 }
 .form-actions span {
   color: white;
@@ -144,3 +167,18 @@
   background-color: red;
 }
 
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input input {
+  padding-right: 40px; /* Ensure space for the icon */
+}
+
+.password-input .MuiIconButton-root {
+  position: absolute;
+  right: 10px;
+  bottom: 50%;
+  transform: translateY(50%);
+}

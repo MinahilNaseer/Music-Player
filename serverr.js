@@ -11,6 +11,7 @@ app.use(cors({
   origin: 'http://localhost:3000', 
   credentials: true,
 }));
+
 const config = {
   user: "ayeshamp",
   password: "music**20",
@@ -91,12 +92,53 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// Add the /getUserInfo endpoint
 app.get("/getUserInfo", (req, res) => {
   if (req.session.user) {
     res.status(200).json(req.session.user);
   } else {
     res.status(401).json({ error: "Unauthorized" });
+  }
+});
+
+app.put("/updateUser", async (req, res) => {
+  if (!req.session.user) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+
+  const { username, email, password } = req.body;
+
+  try {
+    const query = `
+      UPDATE users 
+      SET 
+        name = @username,
+        email = @email,
+        password = @password
+      WHERE 
+        id = @userId
+    `;
+    const request = new sql.Request();
+    request.input("username", sql.VarChar, username);
+    request.input("email", sql.VarChar, email);
+    request.input("password", sql.VarChar, password);
+    request.input("userId", sql.Int, req.session.user.id); // Assuming you have an "id" field for each user
+
+    const result = await request.query(query);
+
+    if (result.rowsAffected && result.rowsAffected[0] === 1) {
+      // Update the session user object with the new information
+      req.session.user.name = username;
+      req.session.user.email = email;
+      // Note: It's not recommended to store the password in the session, so it's better not to update req.session.user.password here.
+
+      res.status(200).json({ message: "User information updated successfully" });
+    } else {
+      res.status(500).json({ error: "Failed to update user information" });
+    }
+  } catch (error) {
+    console.error("Update user information error:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
