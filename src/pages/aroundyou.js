@@ -16,10 +16,12 @@ const Aroundyou = () => {
   const [countryCode, setCountry] = useState('');
   const [loading, setLoading] = useState(true);
   const [currentSong, setCurrentSong] = useState(null);
+  const [currentSongIndex,setCurrentSongIndex]= useState(0);
   const { data, isFetching, error } = useGetSongsByCountryQuery(countryCode);
 
-  const handlePlay = (song) => {
+  const handlePlay = (song,index) => {
     setCurrentSong(song);
+    setCurrentSongIndex(index);
   }
 //console.log(countryCode)
   useEffect(() => {
@@ -35,6 +37,12 @@ const Aroundyou = () => {
       });
   }, []);
 
+  useEffect(()=>{
+    if(data && data.length >0){
+      setCurrentSong(data[0]);
+    }
+  })
+
   const handleBackClick=()=>{
     navigate('/dashboard');
   }
@@ -44,7 +52,7 @@ const Aroundyou = () => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const userInfo = JSON.parse(storedUser);
-      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+      setUsername(userInfo.name); 
     }
   }, []);
 
@@ -65,12 +73,12 @@ const Aroundyou = () => {
         <div className='scrollable-content'>
           <div className="artist-container">
             {data.map((song, i) => (
-              <SongCard key={i} song={song} onPlay={handlePlay} setCurrentSong={setCurrentSong} />
+              <SongCard key={i} song={song} onPlay={()=>handlePlay(song , i)} />
             ))}
           </div>
         </div>
       </main>
-      <BottomPlayer song={currentSong} />
+      <BottomPlayer song={data[currentSongIndex]} songs={data} currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex}/>
     </div>
   );
 };
