@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './library.css';
+import SongCard from '../components/recommendcard'; // Import the SongCard component
+import RecommendationSearchBar from '../components/recommendsearcbar'; // Import the RecommendationSearchBar component
+import './library.css'; // Create and import your main CSS file for the dashboard
+import DashboardTopNav from '../components/dashboardtopnav';
+import Sidenavbar from '../components/sidenavbar';
 
 const Recommendation = () => {
-  const [song, setSong] = useState('');
   const [recommendations, setRecommendations] = useState([]);
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
+  const handleSearch = async (song) => {
     try {
       const response = await axios.get(`http://127.0.0.1:5000/recommend/${song}`);
       setRecommendations(response.data);
@@ -17,27 +19,28 @@ const Recommendation = () => {
   };
 
   return (
-    <div className="recommendation">
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={song}
-          onChange={(e) => setSong(e.target.value)}
-          placeholder="Enter a song name"
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div className="recommendation-list">
-        {recommendations.map((rec, index) => (
-          <div key={index} className="recommendation-item">
-            <h3>{rec.song}</h3>
-            <p>{rec.artist}</p>
-            <a href={rec.link} target="_blank" rel="noopener noreferrer">{rec.text}</a>
+    <div className="dashboard">
+      <Sidenavbar />
+      <main>
+      <RecommendationSearchBar onSearch={handleSearch} />
+        <div className="content">
+          <div className="recommendation-list">
+            {recommendations.map((rec, index) => (
+              <SongCard 
+                key={index} 
+                song={rec.song} 
+                artist={rec.artist} 
+                link={rec.link} 
+                text={rec.text} 
+              />
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </main>
     </div>
   );
 };
+
+
 
 export default Recommendation;
