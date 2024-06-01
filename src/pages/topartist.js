@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Sidenavbar from "../components/sidenavbar";
 import DashboardTopNav from "../components/dashboardtopnav";
 import "../pages/dashboard.css";
@@ -7,6 +7,8 @@ import ArtistCard from "../components/artistcard";
 import Loader from "../components/loader";
 import Error from "../components/error";
 import { useGetTopArtistQuery } from "../state/services/shazamCore";
+import { useNavigate} from "react-router-dom";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Topartist = () => {
   const [selectedGenreOption, setSelectedGenreOption] = useState("POP");
@@ -15,6 +17,20 @@ const Topartist = () => {
     selectedGenreOption,
     countryCode
   );
+  const navigate=useNavigate();
+
+  const handleBackClick=()=>{
+    navigate("/dashboard");
+  }
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userInfo = JSON.parse(storedUser);
+      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+    }
+  }, []);
 
   //console.log();
   if (isFetching) return <Loader title="Loading Artist..." />;
@@ -37,9 +53,15 @@ const Topartist = () => {
     <div className="dashboard">
       <Sidenavbar activePage="/topartist" />
       <main>
-        <DashboardTopNav />
+        <DashboardTopNav username={username}/>
         <div className="drop-down-align">
-          <h1>Top Artist </h1>
+        <div className="back-title">
+            <ArrowBackIosNewIcon
+              className="arrow-icon"
+              onClick={handleBackClick}
+            />
+            <h1 className="heading-track-det">Top Artist</h1>
+          </div>
           <div className="art-option">
             <div className="gen-drop-down">
               <select
@@ -54,21 +76,6 @@ const Topartist = () => {
                 <option value="LATIN">LATIN</option>
                 <option value="ROCK">ROCK</option>
                 <option value="ELECTRONIC">ELECTRONIC</option>
-              </select>
-            </div>
-            <div className="drop-down">
-              <select
-                value={countryCode}
-                onChange={handleCountryOptionChange}
-              >
-                <option value="US">US</option>
-                <option value="IN">IN</option>
-                <option value="DZ">SDZ</option>
-                <option value="BY">BY</option>
-                <option value="AU">AU</option>
-                <option value="CO">CO</option>
-                <option value="ZA">ZA</option>
-                <option value="JP">JP</option>
               </select>
             </div>
           </div>

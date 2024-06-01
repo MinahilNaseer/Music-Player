@@ -158,10 +158,6 @@ const SignUp = ({ onClose }) => {
                   </div>
                 )}
               </div>
-              <button className="signup-button" type="submit">
-                Sign Up
-              </button>
-
             </form>
           </div>
         </div>

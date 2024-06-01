@@ -25,7 +25,6 @@ const Recommendation = () => {
       <Sidenavbar />
       <main>
         <RecommendationSearchBar onSearch={handleSearch} />
-        {!searchInitiated && (
           <section className="recomm-start">
             <div className="recomm-info">
               <h2>Welcome</h2>

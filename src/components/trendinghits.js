@@ -43,6 +43,11 @@ const Trendinghits = () => {
     }
   }, [songChart]);
 
+  const handleSeeAllTopChartsClick=()=>{
+    setActivePage("/topcharts");
+    navigate("/topcharts");
+  }
+
   const handleSeeAllArtsitClick = () => {
     setActivePage("/topartist");
     navigate("/topartist");
@@ -115,7 +120,7 @@ const Trendinghits = () => {
       </section>
       <section className="top-charts">
         <h4>Top Charts</h4>
-        <button className="see-all">See All</button>
+        <button onClick={handleSeeAllTopChartsClick} className="see-all">See All</button>
         <div className="chart-grid">
         {chartFetch ? (
             <DiscoverLoader title="loading.."/> 

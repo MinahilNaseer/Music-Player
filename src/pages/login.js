@@ -5,6 +5,7 @@ import speakerIcon from "../assets/speaker-removebg.png";
 import muteIcon from "../assets/muted-icon-removebg.png";
 import { useNavigate } from "react-router-dom";
 
+
 const Login = ({ onClose }) => {
   const navigate = useNavigate();
 
@@ -55,7 +56,8 @@ const Login = ({ onClose }) => {
 
       // Fetch user information after successful login
       const userInfo = await getUserInfo();
-
+      localStorage.setItem("username", userInfo.username);
+      localStorage.setItem("email", userInfo.email);
       // Store user information in local storage or state
       localStorage.setItem("user", JSON.stringify(userInfo));
 
