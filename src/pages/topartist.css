@@ -349,43 +349,102 @@ main h1{
   @media only screen and (max-width: 480px) {
     .artist-container {
       display: flex;
-      flex-wrap: wrap; /* Allow items to wrap to the next line */
-      justify-content: space-between; /* Add space between items */
-      width: 90%; /* Set width to 90% */
-      margin-left: 1%; /* Add margin to the left */
+      flex-wrap: wrap; 
+      justify-content: space-between; 
+      width: 90%; 
+      margin-left: 1%; 
     }
   
     .top-artist-sec {
-      width: 40%; /* Occupy full width */
-      margin: 10px auto; /* Center-align the cards */
+      width: 40%; 
+      margin: 10px auto; 
     }
     .top-artist-cover {
-      width: 100px; /* Adjust the width as needed */
-      height: 100px; /* Maintain the aspect ratio */
+      width: 100px; 
+      height: 100px; 
     }
     .drop-down-align {
       display: flex;
-      align-items: center; /* Align items vertically */
-      margin-right: 70px; /* Add margin to the left */
+      align-items: center; 
+      margin-right: 80px; 
+    }
+    .around-you-sec {
+      width: 40%; 
+      margin: 10px auto; 
     }
     
-    
     .art-option {
-      margin-top: 20px; /* Add some top margin */
+      margin-top: 20px; 
     }
     
     .back-title {
-      margin-left: 0; /* Adjust margin */
+      margin-left: 0; 
     }
     
     .heading-track-det {
-      margin-left: 10px; /* Adjust margin */
-      font-size: large; /* Adjust font size */
+      margin-left: 10px; 
+      font-size: large; 
     }
     
     .gen-drop-down select {
-      width: auto; /* Let the width be automatic */
-      margin-top: 0; /* Remove top margin */
-      margin-left: -20px; /* Adjust left margin to move it to the left */
+      width: auto; 
+      margin-top: 0; 
+      margin-left: -20px; 
+    }
+    .track-details-sec {
+      width: 90%; 
+      margin: 10px auto; 
+    }
+  
+    .track-details-sec .artist-cover {
+      width: 100px; 
+      height: 100px; 
+      margin-top: 20px; 
+    }
+  
+    .track-details {
+      margin-left: 0; 
+      text-align: center; 
+    }
+    .track-details .artist-song {
+      font-size: medium; 
+      margin: 10px; 
+    }
+  
+    .track-details .artist-name {
+      font-size: small; 
+    }
+  
+    .track-details .artist-genre {
+      font-size: x-small; 
+    }
+  
+    .Lyrics-head {
+      margin-top: 20px; 
+    }
+  
+    .track-lyrics {
+      margin-right:70px;
+      padding: 0px; 
+      font-size: medium; 
+    }
+    .player-details {
+      margin-left: -20px; 
+    }
+  
+    .player-details h2,
+    .player-details h3 {
+      text-align: left;
+    }
+    .bottom-player-buttons {
+      margin-left:-15px;
+      margin-top: -20px; 
+    }
+    .player-timeline {
+      margin-left:25px;
+      margin-top: 10px; 
+    }
+    .player-time {
+      margin-top: 20px;
     }
   }
