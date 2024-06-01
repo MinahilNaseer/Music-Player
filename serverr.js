@@ -7,6 +7,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Middleware and configurations
 app.use(cors({
   origin: 'http://localhost:3000', 
   credentials: true,
@@ -41,6 +42,7 @@ app.use(
 
 app.use(bodyParser.json());
 
+// User registration route
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   console.log("Received registration data:", { username, email, password });
@@ -66,6 +68,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// User login route
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -92,6 +95,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Get user info route
 app.get("/getUserInfo", (req, res) => {
   if (req.session.user) {
     res.status(200).json(req.session.user);
@@ -100,6 +104,7 @@ app.get("/getUserInfo", (req, res) => {
   }
 });
 
+// Update user info route
 app.put("/updateUser", async (req, res) => {
   if (!req.session.user) {
     res.status(401).json({ error: "Unauthorized" });
@@ -122,16 +127,13 @@ app.put("/updateUser", async (req, res) => {
     request.input("username", sql.VarChar, username);
     request.input("email", sql.VarChar, email);
     request.input("password", sql.VarChar, password);
-    request.input("userId", sql.Int, req.session.user.id); // Assuming you have an "id" field for each user
+    request.input("userId", sql.Int, req.session.user.id); 
 
     const result = await request.query(query);
 
     if (result.rowsAffected && result.rowsAffected[0] === 1) {
-      // Update the session user object with the new information
       req.session.user.name = username;
       req.session.user.email = email;
-      // Note: It's not recommended to store the password in the session, so it's better not to update req.session.user.password here.
-
       res.status(200).json({ message: "User information updated successfully" });
     } else {
       res.status(500).json({ error: "Failed to update user information" });
@@ -142,6 +144,39 @@ app.put("/updateUser", async (req, res) => {
   }
 });
 
+// Favorite songs routes
+app.post('/api/favorites', async (req, res) => {
+  try {
+    const { title, artist, imageUrl, audioUrl, userId } = req.body;
+    const request = new sql.Request();
+    const query = `
+      INSERT INTO LikedSongs (title, artist, imageUrl, audioUrl, userId)
+      VALUES (@title, @artist, @imageUrl, @audioUrl, @userId)
+    `;
+    request.input('title', sql.NVarChar, title);
+    request.input('artist', sql.NVarChar, artist);
+    request.input('imageUrl', sql.NVarChar, imageUrl);
+    request.input('audioUrl', sql.NVarChar, audioUrl);
+    request.input('userId', sql.Int, userId);
+    const result = await request.query(query);
+    res.status(201).send(result);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
+app.get('/api/favorites', async (req, res) => {
+  try {
+    const request = new sql.Request();
+    const result = await request.query('SELECT * FROM LikedSongs');
+    res.send(result.recordset);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app; 
