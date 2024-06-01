@@ -40,7 +40,7 @@ const TrackDetails = () => {
   const cover = song.attributes.images.coverArt;
 
   const handleBackClick = () => {
-    navigate("/topcharts");
+    navigate(-1);
   };
 
   return (

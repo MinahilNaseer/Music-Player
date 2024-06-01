@@ -11,7 +11,7 @@ const Dashboard = () => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const userInfo = JSON.parse(storedUser);
-      setUsername(userInfo.name); // Adjust this based on your actual user info structure
+      setUsername(userInfo.name); 
     }
   }, []);
 
