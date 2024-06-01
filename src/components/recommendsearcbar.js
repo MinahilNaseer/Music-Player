@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-
-import './recommendationsearchbar.css'; 
+import './recommendationsearchbar.css'
 
 
 const RecommendationSearchBar = ({ onSearch }) => {

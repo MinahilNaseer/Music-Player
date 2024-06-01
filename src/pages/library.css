@@ -26,6 +26,7 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: auto;
 }
 
 /* Ensure input text is visible */
