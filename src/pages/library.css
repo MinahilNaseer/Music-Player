@@ -62,7 +62,8 @@ input:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 800px;
-    border: 1px solid white
+    border: 1px solid white;
+    margin-top: 60px;
   }
   .recomm-info {
     display: flex;
