@@ -261,6 +261,7 @@ input:focus {
   margin-left: 30px;
   padding: 10px; 
   box-sizing: border-box;
+  overflow-y: auto;
 }
 .fav-card{
   display: flex;
@@ -321,4 +322,11 @@ input:focus {
   right: 10px;
   bottom: 50%;
   transform: translateY(50%);
+}
+.fav-scrollable-content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  gap: 10px;
 }
