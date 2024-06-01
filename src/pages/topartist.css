@@ -346,3 +346,46 @@ main h1{
   padding: 10px;
   border: 1px solid white;
   }
+  @media only screen and (max-width: 480px) {
+    .artist-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+      justify-content: space-between; /* Add space between items */
+      width: 90%; /* Set width to 90% */
+      margin-left: 1%; /* Add margin to the left */
+    }
+  
+    .top-artist-sec {
+      width: 40%; /* Occupy full width */
+      margin: 10px auto; /* Center-align the cards */
+    }
+    .top-artist-cover {
+      width: 100px; /* Adjust the width as needed */
+      height: 100px; /* Maintain the aspect ratio */
+    }
+    .drop-down-align {
+      display: flex;
+      align-items: center; /* Align items vertically */
+      margin-right: 70px; /* Add margin to the left */
+    }
+    
+    
+    .art-option {
+      margin-top: 20px; /* Add some top margin */
+    }
+    
+    .back-title {
+      margin-left: 0; /* Adjust margin */
+    }
+    
+    .heading-track-det {
+      margin-left: 10px; /* Adjust margin */
+      font-size: large; /* Adjust font size */
+    }
+    
+    .gen-drop-down select {
+      width: auto; /* Let the width be automatic */
+      margin-top: 0; /* Remove top margin */
+      margin-left: -20px; /* Adjust left margin to move it to the left */
+    }
+  }
