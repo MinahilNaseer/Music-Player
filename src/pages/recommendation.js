@@ -38,6 +38,7 @@ const Recommendation = () => {
           </section>
         )}
         <div className={`content ${!searchInitiated && 'hidden'}`}>
+        <div className="scrollable-content">
           <div className="recommendation-list">
             {recommendations.map((rec, index) => (
               <SongCard 
@@ -48,6 +49,7 @@ const Recommendation = () => {
                 text={rec.text} 
               />
             ))}
+          </div>
           </div>
         </div>
       </main>
