@@ -21,8 +21,8 @@ const SearchCard = ({ song, onPlay, setCurrentSong }) => {
       <div className="artist-cover">
         <img src={artwork} alt="Song Cover" />
       </div>
-      <h2 className="artist-name">{artistName}</h2>
       <h2 className="artist-song">{name}</h2>
+      <h2 className="artist-name">{artistName}</h2>
       <img
         className="play-icon"
         src={icon}
