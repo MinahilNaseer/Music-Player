@@ -38,3 +38,22 @@
   .search-button:hover {
     background-color: #0056b3;
   }
+  
+  @media only screen and (max-width: 480px) {
+    .recommendation-searchbar {
+      flex-direction: column; 
+      align-items: center; 
+      margin: 10px auto; 
+    }
+  
+    .search-input {
+      width: calc(100% - 20px); 
+      margin-bottom: 10px; 
+    }
+  
+    .search-button {
+      width: calc(40% - 20px); 
+      margin-top: 20px;;
+      margin-left: 0; 
+    }
+  }
