@@ -13,18 +13,18 @@ const RecommendationSearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-container">
-      <h3 className="recommendation-searchbar">MUSIC</h3>
-      <div className="content"></div>
     <form onSubmit={handleSubmit} autoComplete="off" className="recommendation-searchbar">
-      <div className="search-container">
-        <FiSearch aria-hidden="true"  />
+       <label htmlFor="search-field" className="sr-only">
+        Search all files
+      </label>
+      <div className="flex flex-row justify-start items-center">
+        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4" />
         <input
           name="search-field"
-          autoComplete="off"
+          autoComplete="on"
           id="search-field"
-          className="search-input"
-          placeholder="Enter a song name"
+          className="flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base text-white p-4"
+          placeholder="Search"
           type="search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -32,7 +32,6 @@ const RecommendationSearchBar = ({ onSearch }) => {
       </div>
       <button type="submit" className="search-button">Search</button>
     </form>
-    </div>
   );
 };
 

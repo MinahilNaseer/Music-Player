@@ -1,34 +1,4 @@
 
-.search-form {
-  text-align: center;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.search-form input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #0c0a0a;
-  border-radius: 4px;
-  color: rgb(15, 2, 2);
-  margin-right: 10px;
-}
-
-.search-form button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #07213d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-form button:hover {
-  background-color: #768799;
-}
 
 .recommendation-list {
   padding: 20px;
@@ -37,61 +7,295 @@
   justify-content: center;
 }
 
-.recommendation-item {
-  background-color: rgb(32, 32, 38);
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  text-align: center;
+/* Ensure input text is visible */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: black; 
+  background-color: white; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
-.artist-cover {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
+
+input::placeholder {
+  color: #888; 
+}
+
+input:focus {
+  border-color: #0056b3; 
+  outline: none; 
+}
+
+.recomm-start {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 800px;
+    border: 1px solid white
+  }
+  .recomm-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .recomm-info h2 {
+    color: white;
+    top: 0%;
+    margin: 0 auto;
+    font-style: italic;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  .recomm-info p{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .recomm-info button{
+    margin-right: 70px;
+    
+  }
+  .button-container {
+    margin-top: 20px;
+  }
+  
+  .recomm-start img {
+    height: 70vh;
+    width: 50%;
+    margin-right: -40px;
+    margin-top: 20px;
+    
+  }
+
+.account-sec {
+  width: 80%;
+  height: 60%;
+  background-color: rgb(23, 23, 27);
+  border: 1px solid grey;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
-  border-radius: 10px;
-  overflow: hidden;
+  margin-left: 10%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-image: url('../assets/abstract_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.artist-cover img {
-  max-width: 100%;
-  max-height: 100%;
+.user-img {
+  width: 300px;
+  height: 300px;
+  margin-right: 180px; 
 }
 
-.track-details {
+.form-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.artist-song {
-  font-size: 18px;
+.account-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+  width: 300px; 
+}
+
+.account-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-actions {
+  
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.account-form p{
+  text-align: center;
+  font-size: large;
+  
+}
+.form-actions span {
+  color: white;
+  font-size: large;
+}
+.moving-icon{
+  position: relative;
+  margin-left: 10px;
+  animation: moveIcon 4s infinite;
+}
+@keyframes moveIcon {
+  0% {
+    left: 0;
+    color: red;
+  }
+  50% {
+    left: 20px;
+    color: blue;
+  }
+  100% {
+    left: 0;
+    color: red;
+  }
+}
+.account-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  width: 80px;
   font-weight: bold;
-  margin: 5px 0;
-  color: #fff;
-}
-
-.artist-name {
-  font-size: 16px;
-  margin: 5px 0;
-  color: #aaa;
-}
-
-.linktolyrics {
-  color: #007bff;
-  text-decoration: none;
+  margin-bottom: 20px;
   margin-top: 10px;
 }
 
-.linktolyrics:hover {
-  text-decoration: underline;
+.account-button:hover {
+  background-color: red;
+}
+.circle-container-bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.circle-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+  position: relative;
+  z-index: 1;
+}
+
+.circle1-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 180px; 
+  right: 0px;  
+  z-index: 2;
+}
+.circle2-img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 280px; 
+  right: 0px;  
+  z-index: 3;
+}
+.circle-container-above{
+  position: absolute;
+  top: 120px;
+  right: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.circle3-img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 150px; 
+  right: 0px;  
+  z-index: 2;
+}
+.fav-container{
+  position: relative;
+  width: 75%;
+  height: 70%;
+  margin-left: 30px;
+  padding: 10px; 
+  box-sizing: border-box;
+}
+.fav-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(32, 32, 38);
+  width: 100%;
+  padding: 10px; 
+  box-sizing: border-box;
+  border-radius: 8px
+
+
+}
+.fav-content {
+  display: flex;
+  align-items: center;
+}
+.fav-card img{
+  width: 8%;
+  height: 8%;
+  border-radius: 50%; 
+  margin-left: 30px;
+}
+.fav-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: small;
+  margin-left: 30px;
+  gap: 20px;
+}
+.fav-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; 
+}
+.fav-icons .fav-icon:hover{
+  color: white;
+  cursor: pointer;
+}
+.fav-icons .fav-play-icon:hover{
+  cursor: pointer;
+}
+
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input input {
+  padding-right: 40px; 
+}
+
+.password-input .MuiIconButton-root {
+  position: absolute;
+  right: 10px;
+  bottom: 50%;
+  transform: translateY(50%);
 }
