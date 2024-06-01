@@ -32,8 +32,8 @@ const TrackDetails = () => {
   if (!song) {
     return <Error />;
   }
-  const lyricsId = Object.keys(resources.lyrics)[0];
-  const lyrics = resources.lyrics[lyricsId].attributes.text;
+  const lyricsId = resources.lyrics ? Object.keys(resources.lyrics)[0] : null;
+  const lyrics = lyricsId ? resources.lyrics[lyricsId].attributes.text : null;
   const title = song.attributes.title;
   const artist = song.attributes.artist;
   const genre = song.attributes.genres.primary;
@@ -64,14 +64,18 @@ const TrackDetails = () => {
         </section>
         <h1 className="Lyrics-head">Lyrics</h1>
         <div className="scrollable-content">
-          <p className="track-lyrics">
-            {lyrics.map((line, index) => (
-              <span key={index}>
-                {line}
-                <br />
-              </span>
-            ))}
-          </p>
+        {lyrics ? (
+            <p className="track-lyrics">
+              {lyrics.map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+            </p>
+          ) : (
+            <p className="track-lyrics">Lyrics Not Available</p>
+          )}
         </div>
       </main>
     </div>
