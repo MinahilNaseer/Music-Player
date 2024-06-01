@@ -531,10 +531,6 @@ input[type="range"] {
     margin:0;
     margin-top: 125%;
   }
-  .timeline{
-    margin-right: -20px;
-  }
-
   .playButton {
     top: 0%; 
     left: -20%;
