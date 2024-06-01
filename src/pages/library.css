@@ -20,6 +20,37 @@ input:focus {
   outline: none; 
 }
 
+
+.recommendation-list {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Ensure input text is visible */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: black; 
+  background-color: white; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+
+input::placeholder {
+  color: #888; 
+}
+
+input:focus {
+  border-color: #0056b3; 
+  outline: none; 
+}
+
 .recomm-start {
     display: flex;
     align-items: center;
@@ -31,7 +62,8 @@ input:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 800px;
-    border: 1px solid white
+    border: 1px solid white;
+    margin-top: 60px;
   }
   .recomm-info {
     display: flex;

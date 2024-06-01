@@ -1,49 +1,57 @@
-import React from "react";
-import DashboardTopNav from "../components/dashboardtopnav";
-import Sidenavbar from "../components/sidenavbar";
+import React, { useState } from 'react';
+import axios from 'axios';
+import SongCard from '../components/recommendcard';
+import RecommendationSearchBar from '../components/recommendsearcbar'; 
+import './library.css'; 
+import Sidenavbar from '../components/sidenavbar';
 import note from "../assets/colorful-music.png";
-import "./library.css";
-import LibraryTopNav from "../components/librarytopnav";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import { useNavigate } from "react-router-dom";
 
 const Recommendation = () => {
-  const navigate = useNavigate();
-  const handleBackClick=()=>{
-    navigate("/dashboard")
-  }
+  const [recommendations, setRecommendations] = useState([]);
+  const [searchInitiated, setSearchInitiated] = useState(false);
+
+  const handleSearch = async (song) => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:5000/recommend/${song}`);
+      setRecommendations(response.data);
+      setSearchInitiated(true);
+    } catch (error) {
+      console.error('Error fetching recommendations:', error);
+    }
+  };
+
   return (
     <div className="dashboard">
-      <Sidenavbar activePage="/recommendation" />
+      <Sidenavbar />
       <main>
-        <LibraryTopNav />
-        <div className="back-title">
-          <ArrowBackIosNewIcon className="arrow-icon" onClick={handleBackClick}/>
-          <h1 className="heading-track-det">Your Recommendation</h1>
-        </div>
-        <section className="recomm-start">
-          <div className="recomm-info">
-            <h2>Welcome </h2>
-            <p>
-              Discover Your Perfect Soundtrack: Listen to Songs Tailored to Your
-              Tastes!
-            </p>
-            <div className="button-container">
-            <button
-              type="button"
-              className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
-              style={{ width: "100px",fontSize:"medium" }}
-            >
-              <span 
-              className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-              style={{ width: "100px" }}>
-                Start
-              </span>
-            </button>
+        <RecommendationSearchBar onSearch={handleSearch} />
+        {!searchInitiated && (
+          <section className="recomm-start">
+            <div className="recomm-info">
+              <h2>Welcome</h2>
+              <p>
+                Discover Your Perfect Soundtrack: Listen to Songs Tailored to Your
+                Tastes!
+              </p>
             </div>
+            <img src={note} alt="color-notes" />
+          </section>
+        )}
+        <div className={`content ${!searchInitiated && 'hidden'}`}>
+        <div className="scrollable-content">
+          <div className="recommendation-list">
+            {recommendations.map((rec, index) => (
+              <SongCard 
+                key={index} 
+                song={rec.song} 
+                artist={rec.artist} 
+                link={rec.link} 
+                text={rec.text} 
+              />
+            ))}
           </div>
-          <img src={note} alt="color-notes" />
-        </section>
+          </div>
+        </div>
       </main>
     </div>
   );

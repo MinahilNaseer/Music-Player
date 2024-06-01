@@ -5,6 +5,7 @@
     display: flex;
     color: white;
     overflow-y: hidden;
+    height: 100vh;
 }
 main{
   width: 100%;
@@ -385,4 +386,156 @@ input[type="range"] {
   border-radius: 10%; 
   margin: 10px auto; 
   display: block;
+}
+.search-form{
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.dis-song-artist-container{
+  display: flex;
+  gap: 10px;
+}
+@media only screen and (max-width: 480px) {
+  .dashboard {
+    width: 100%; /* Set width to fill the entire viewport */
+    height: 160vh;
+    background: rgb(8,8,9);
+  }
+  main{
+    width: 100%; /* Set width to fill the entire viewport */
+    height: 100%;
+  }
+  .dash-logo{
+    width: 130%;
+    height: 130%;
+  }
+  .nav-head-ing{
+    margin-left: 20px;
+  }
+  .discover-top-heading{
+    display: none;
+  }
+  .discover-top-heading-container{
+    width: 90%;
+  } 
+  .search-form{
+    width: 40%;
+    margin-left: 70px;
+
+  }
+  .discover-account h4{
+    display: none;
+  }
+  .CC{
+    display: none;
+  }
+  .trending-info{
+    width: 70%;
+  }
+  .trending-info h5{
+    display: flex;
+    flex-direction: row;
+    font-size: xx-large;
+    text-align: center;
+    margin: 20px;
+  }
+  .trending-info p{
+    margin: 0;
+  }
+  .trending-info button{
+    margin:0;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .top-artist{
+    width: 70%; /* Adjust width as needed */
+    margin-top: 10px; /* Adjust margin as needed */
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-between;
+    overflow-y: hidden;
+    
+  }
+  .top-artist h4{
+    font-size: small;
+  }
+  .dis-song-artist-container {
+    gap: 20px; /* Adjust gap between artists as needed */
+    padding: 10px
+   
+  }
+  .artist-info .artist-image{
+    width: 70px;
+    height: 70px;
+  }
+  .top-charts{
+    width: 70%;
+    margin-top: 50%;
+    height: 35%;
+    overflow-y: auto;
+  }
+  .chart-grid {
+    grid-template-columns: 1fr; 
+  }
+  .chart-item {
+    padding: 10px;
+    width: 90%; 
+    margin: 10px auto; 
+  }
+  .chart-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #444; 
+    border-radius: 5px; 
+  }
+
+  .chart-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px; 
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .song-details {
+    margin-right: 10px;  
+    flex-grow: 1;
+  }
+
+  .song-details h6 {
+    font-size: small; 
+    max-width: 150px; 
+    max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+
+  .song-details p {
+    font-size: smaller; 
+    color: lightgray;
+  }
+
+  .playButton {
+    margin-right: 10px; 
+  }
+  .music-player{
+    width: 70%;
+    margin:0;
+    margin-top: 125%;
+  }
+  .playButton {
+    top: 0%; 
+    left: -20%;
+    padding: 0; 
+    margin: 10px;
+    transform: translate(200%, 30%); 
+  }
 }
