@@ -18,7 +18,7 @@ const SongCard = ({ song, artist, link, text }) => {
         src={icon}
         alt="icon"
         onClick={handleClick}
-        style={{ width: '100px', height: '100px' }}
+        style={{ width: '100px', height: '100px',cursor:"pointer" }}
       />
       <h2 className="artist-name">{artist}</h2>
       <h2 className="artist-song">{song}</h2>
