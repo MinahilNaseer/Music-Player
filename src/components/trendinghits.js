@@ -100,10 +100,13 @@ const Trendinghits = () => {
         </div>
       </section>
       <section className="top-artist">
+        <div className="top-artist-head">
         <h4>Top Artists</h4>
         <button onClick={handleSeeAllArtsitClick} className="see-all">
           See All
         </button>
+        </div>
+        <div className="dis-song-artist-container">
         {artistFetch ? (
           <DiscoverLoader title="loading.."/> 
         ) : (
@@ -117,6 +120,7 @@ const Trendinghits = () => {
               />
             ))
         )}
+        </div>
       </section>
       <section className="top-charts">
         <h4>Top Charts</h4>
