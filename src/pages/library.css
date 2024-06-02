@@ -402,12 +402,14 @@ input:focus {
     word-break: break-word; 
   }
   .account-button {
+
     padding: 8px;
     font-size: 14px;
     width: auto; /* Allow button width to adjust based on content */
   }
   
   .moving-icon {
+    display: flex;
     animation: moveIcon 4s infinite;
   }
   .account-form p {
@@ -420,7 +422,7 @@ input:focus {
   .heading-track-det {
     font-size: 20px;
     text-align: center; 
-    margin: 10px; 
+    margin: 30px; 
     word-break: break-word; 
   }
 }
