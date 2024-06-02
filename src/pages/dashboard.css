@@ -326,7 +326,7 @@ button{
   margin-top: -40px; 
   border-radius: 5px;
   position: absolute;
-  top: 50%; 
+  top: 49%; 
   right: 20px;
   overflow-y: hidden;
 }
@@ -352,6 +352,7 @@ button{
   flex-direction: column;
   text-align: center;
   height: 50px;
+  
 }
 .title{
   text-decoration: none;
@@ -375,6 +376,12 @@ button{
   width: 80%;
   background-color: #27ae60;
   margin-left: 40px;
+}
+.center-scroller-ser{
+  display: flex;
+  flex: 1;
+  margin-right: 40px;
+  margin-top: 60px;
 }
 
 input[type="range"] {
@@ -401,12 +408,12 @@ input[type="range"] {
 }
 @media only screen and (max-width: 480px) {
   .dashboard {
-    width: 100%; /* Set width to fill the entire viewport */
+    width: 100%; 
     height: 160vh;
     background: rgb(8,8,9);
   }
   main{
-    width: 100%; /* Set width to fill the entire viewport */
+    width: 100%; 
     height: 100%;
   }
   .dash-logo{
@@ -415,6 +422,7 @@ input[type="range"] {
   }
   .nav-head-ing{
     margin-left: 20px;
+    display: none;
   }
   .discover-top-heading{
     display: none;
@@ -452,8 +460,8 @@ input[type="range"] {
     margin-left: 40px;
   }
   .top-artist{
-    width: 70%; /* Adjust width as needed */
-    margin-top: 10px; /* Adjust margin as needed */
+    width: 70%; 
+    margin-top: 10px; 
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
@@ -465,7 +473,7 @@ input[type="range"] {
     font-size: small;
   }
   .dis-song-artist-container {
-    gap: 20px; /* Adjust gap between artists as needed */
+    gap: 20px; 
     padding: 10px
    
   }
@@ -529,7 +537,7 @@ input[type="range"] {
   .music-player{
     width: 70%;
     margin:0;
-    margin-top: 125%;
+    margin-top: 130%;
   }
   .playButton {
     top: 0%; 
@@ -547,5 +555,16 @@ input[type="range"] {
     width: 100%;
     height: 10%;
     box-sizing: border-box;
+  }
+  .center-scroller-ser{
+    margin-right: 50px;
+  }
+  .ser-current-ti{
+    margin-right: 150px;
+    margin-top: 8px;
+
+  }
+  .ser-duration-ti{
+    margin-top: 8px;
   }
 }

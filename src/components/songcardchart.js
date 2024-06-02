@@ -29,7 +29,7 @@ const SongCard = ({ song, onPlay }) => {
         title: name,
         artist: artistName,
         imageUrl: artwork.url,
-        audioUrl: previewURL, // Assuming previewURL is the audio URL
+        audioUrl: previewURL, 
         userId: userId,
       };
 

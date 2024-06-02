@@ -46,6 +46,9 @@ const Sidenavbar = () => {
   const handleSignOutClick=()=>{
     navigate("/")
   }
+  const handleGoBack=()=>{
+    navigate("/")
+  }
 
   return (
     <>
@@ -57,7 +60,7 @@ const Sidenavbar = () => {
       >
         <Menu>
           <div className="logo-container">
-            <img src='./assets/note-removebg.png' alt='logo' className='dash-logo'/>
+          <img src='/assets/note-removebg.png' alt='logo' className='dash-logo' onClick={handleGoBack}/>
             <h2 className='nav-head-ing'>Vibz</h2>
           </div>
           <SubMenu

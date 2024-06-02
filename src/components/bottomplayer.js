@@ -20,8 +20,12 @@ const BottomPlayer = ({ song, songs, currentSongIndex, setCurrentSongIndex }) =>
   const [isPlaying, setIsPlaying] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [currTime, setCurrTime] = useState({
-    min: "0",
-    sec: "0",
+    min: "00",
+    sec: "00",
+  });
+  const [duration, setDuration] = useState({
+    min: "00",
+    sec: "00",
   });
   const audioRef = useRef(null);
 
@@ -48,13 +52,26 @@ const BottomPlayer = ({ song, songs, currentSongIndex, setCurrentSongIndex }) =>
       }
     };
 
+    const updateDuration = () => {
+      if (audioRef.current) {
+        const min = Math.floor(audioRef.current.duration / 60);
+        const sec = Math.floor(audioRef.current.duration % 60);
+        setDuration({
+          min: min.toString().padStart(2, "0"),
+          sec: sec.toString().padStart(2, "0"),
+        });
+      }
+    };
+
     if (audioRef.current) {
       audioRef.current.addEventListener('timeupdate', updateTime);
+      audioRef.current.addEventListener('loadedmetadata', updateDuration);
     }
 
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener('timeupdate', updateTime);
+        audioRef.current.removeEventListener('loadedmetadata', updateDuration);
       }
     };
   }, []);
@@ -73,7 +90,7 @@ const BottomPlayer = ({ song, songs, currentSongIndex, setCurrentSongIndex }) =>
       audioRef.current.volume = parseFloat(e.target.value);
     }
   };
-  
+
   const handleSkipNext = () => {
     const nextIndex = (currentSongIndex + 1) % songs.length;
     setCurrentSongIndex(nextIndex);
@@ -126,7 +143,7 @@ const BottomPlayer = ({ song, songs, currentSongIndex, setCurrentSongIndex }) =>
         <audio ref={audioRef}></audio>
         <div className="center-scroller">
           <div className="player-time">
-            <p>
+            <p className='current-time-dis'>
               {currTime.min}:{currTime.sec}
             </p>
             <input
@@ -143,14 +160,8 @@ const BottomPlayer = ({ song, songs, currentSongIndex, setCurrentSongIndex }) =>
                 }
               }}
             />
-            <p>
-              {Math.floor(audioRef.current?.duration / 60)
-                .toString()
-                .padStart(2, "0")}
-              :
-              {Math.floor(audioRef.current?.duration % 60)
-                .toString()
-                .padStart(2, "0")}
+            <p className='duration-time-dis'>
+              {duration.min}:{duration.sec}
             </p>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Account = () => {
 
 
   const handleBackClick = () => {
-    navigate("/topcharts");
+    navigate(-1);
   };
   const [showPassword, setShowPassword] = useState(false);
 
