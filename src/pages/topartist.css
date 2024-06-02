@@ -211,26 +211,26 @@ main h1{
     height: auto;
     animation: rotate 2s linear infinite; 
   }
-  .player-details{
-    flex: 1;
-    display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  }
-  .player-details h2{
-    font-size: large;
-    font-weight: bold;
-    white-space: nowrap;
+  .player-details {
+    max-width: 150px; /* Adjust this value as needed */
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .player-details h3{
-    text-overflow: ellipsis;
-    font-size: small;
-    white-space: nowrap;
-    overflow: hidden;
-    text-decoration: none;
+  
+  .player-details h2, .player-details h3 {
+    font-size: 16px; /* Adjust the font size as needed */
     margin: 0;
+    padding: 0;
+  }
+  .marquee {
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
   
   @keyframes rotate {
@@ -428,8 +428,22 @@ main h1{
       padding: 0px; 
       font-size: medium; 
     }
+    .bottom-player{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    width: 200%;
+    height: 15%;
+    background-color: rgba(248, 242, 242, 0.39);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 99;
+  }
     .player-details {
-      margin-left: -20px; 
+      width:20%;
+      margin-left: -30px; 
     }
   
     .player-details h2,
@@ -437,14 +451,28 @@ main h1{
       text-align: left;
     }
     .bottom-player-buttons {
-      margin-left:-15px;
-      margin-top: -20px; 
+      width:50%;
+      margin-left: -90px;
+      margin-top: -10px; 
     }
+    
     .player-timeline {
-      margin-left:25px;
+      width: 50%;
+      margin-left: -100px;
       margin-top: 10px; 
     }
+    
     .player-time {
-      margin-top: 20px;
+    display: none;
+    }
+    .volume-timeline{
+      display: none;
+    }
+    .circular-image-container {
+      display: none;
+    }
+    
+    .circular-image {
+      display: none; 
     }
   }
