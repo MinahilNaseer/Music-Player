@@ -346,3 +346,105 @@ main h1{
   padding: 10px;
   border: 1px solid white;
   }
+  @media only screen and (max-width: 480px) {
+    .artist-container {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: space-between; 
+      width: 90%; 
+      margin-left: 1%; 
+    }
+  
+    .top-artist-sec {
+      width: 40%; 
+      margin: 10px auto; 
+    }
+    .top-artist-cover {
+      width: 100px; 
+      height: 100px; 
+    }
+    .drop-down-align {
+      display: flex;
+      align-items: center; 
+      margin-right: 80px; 
+    }
+    .around-you-sec {
+      width: 40%; 
+      margin: 10px auto; 
+    }
+    
+    .art-option {
+      margin-top: 20px; 
+    }
+    
+    .back-title {
+      margin-left: 0; 
+    }
+    
+    .heading-track-det {
+      margin-left: 10px; 
+      font-size: large; 
+    }
+    
+    .gen-drop-down select {
+      width: auto; 
+      margin-top: 0; 
+      margin-left: -20px; 
+    }
+    .track-details-sec {
+      width: 90%; 
+      margin: 10px auto; 
+    }
+  
+    .track-details-sec .artist-cover {
+      width: 100px; 
+      height: 100px; 
+      margin-top: 20px; 
+    }
+  
+    .track-details {
+      margin-left: 0; 
+      text-align: center; 
+    }
+    .track-details .artist-song {
+      font-size: medium; 
+      margin: 10px; 
+    }
+  
+    .track-details .artist-name {
+      font-size: small; 
+    }
+  
+    .track-details .artist-genre {
+      font-size: x-small; 
+    }
+  
+    .Lyrics-head {
+      margin-top: 20px; 
+    }
+  
+    .track-lyrics {
+      margin-right:70px;
+      padding: 0px; 
+      font-size: medium; 
+    }
+    .player-details {
+      margin-left: -20px; 
+    }
+  
+    .player-details h2,
+    .player-details h3 {
+      text-align: left;
+    }
+    .bottom-player-buttons {
+      margin-left:-15px;
+      margin-top: -20px; 
+    }
+    .player-timeline {
+      margin-left:25px;
+      margin-top: 10px; 
+    }
+    .player-time {
+      margin-top: 20px;
+    }
+  }

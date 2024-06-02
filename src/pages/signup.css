@@ -27,7 +27,7 @@
     align-items: center;
     height: 100%; 
     width: 50%; 
-    background-image: url('D:\React Project\Music-Player\public\assets\The-smith-cover.jpg');
+    background-image: url('C:\Users\GTS\OneDrive\Desktop\MusicPlayerProject\musicplayer\Music-Player\public\assets\Cover 2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,7 +41,7 @@
     align-items: center;
     height: 100%; 
     width: 60%; 
-    background-image: url('D:\React Project\Music-Player\public\assets\Cover 2.jpg');
+    background-image: url('C:\Users\GTS\OneDrive\Desktop\MusicPlayerProject\musicplayer\Music-Player\public\assets\The-smith-cover.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
