@@ -7,7 +7,7 @@ const NameAccount = ({ username }) => {
   const handleAccountClick = () => {
     navigate("/account");
   };
-  console.log("NameAccount username:", username);
+  //console.log("NameAccount username:", username);
   return (
     <div className="discover-account" onClick={handleAccountClick}>
       <AccountCircleIcon />

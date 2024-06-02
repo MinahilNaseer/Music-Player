@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware and configurations
 app.use(cors({
-  origin: 'http://localhost:3000' && 'http://192.168.18.126:3000/', 
+  origin: 'http://localhost:3000', 
   credentials: true,
 }));
 
@@ -174,6 +174,42 @@ app.get('/api/favorites', async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 });
+
+// Get a single favorite song route
+app.get('/api/favorites/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const request = new sql.Request();
+    const query = `
+      SELECT * FROM LikedSongs WHERE id = @id
+    `;
+    request.input('id', sql.Int, id);
+    const result = await request.query(query);
+    if (result.recordset.length === 0) {
+      return res.status(404).send({ message: 'Favorite song not found' });
+    }
+    res.status(200).send(result.recordset[0]);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+// Delete a favorite song route
+app.delete('/api/favorites/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const request = new sql.Request();
+    const query = `
+      DELETE FROM LikedSongs
+      WHERE id = @id
+    `;
+    request.input('id', sql.Int, id);
+    const result = await request.query(query);
+    res.status(200).send({ message: 'Song deleted successfully' });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

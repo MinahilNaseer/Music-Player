@@ -32,13 +32,14 @@ const Favorite = () => {
   const handleBackClick = () => {
     navigate("/dashboard");
   };
-
-  const handlePlay = (audioUrl) => {
-    if (audioUrl) {
-      const audio = new Audio(audioUrl);
-      audio.play();
-    } else {
-      console.error("Invalid audio URL:", audioUrl);
+  const handleRemoveClick = async (id) => {
+    try {
+      console.log("All IDs before deletion:", favorites.map(song => song.id));
+      const response = await axios.delete(`http://localhost:3001/api/favorites/${id}`);
+      console.log('Delete response:', response);
+      setFavorites(favorites.filter(song => song.id !== id));
+    } catch (error) {
+      console.error("Error deleting the song:", error);
     }
   };
 
@@ -81,12 +82,10 @@ const Favorite = () => {
                     className="fav-icon"
                   />
                   
-                  <RemoveCircleIcon/>
-                  <PlayCircle
-                    style={{ width: "25px", height: "25px", cursor: "pointer" }}
-                    className="fav-play-icon"
-                    onClick={() => handlePlay(song.audioUrl)}
-                  />
+                  <RemoveCircleIcon 
+                  style={{ width: "25px", height: "25px", cursor: "pointer" }}
+                  onClick={() => handleRemoveClick(song.id)}/>
+                  
                 </div>
               </div>
             ))}
