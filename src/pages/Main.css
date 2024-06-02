@@ -116,8 +116,8 @@
   position: absolute; 
 }
 .center-container .image-square {
-  top: 30px; 
-  left: 180px; 
+  top: 60px; 
+  left: 170px; 
 }
 
 .center-container .image-square1 {
@@ -128,7 +128,7 @@
 
 .center-container .image-square2 {
   top: 30px; 
-  right: 160px; 
+  right: 170px; 
 }
 .image-square img,
 .image-square1 img,
@@ -266,8 +266,8 @@
     height: 250px;
   }
   .center-container .image-square {
-    top: 150%; 
-    left: 15%; 
+    top: 130%; 
+    left: 12%; 
   }
   
   .center-container .image-square1 {

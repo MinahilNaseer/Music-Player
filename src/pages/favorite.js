@@ -68,7 +68,7 @@ const Favorite = () => {
             {favorites.map((song, i) => (
               <div className="fav-card" key={i}>
                 <div className="fav-content">
-                  <p>{i + 1}</p>
+                  <p className="number">{i + 1}</p>
                   <img src={song.imageUrl} alt="pic-img" className="fav-img" />
                   <div className="fav-info">
                     <h2>{song.title}</h2>

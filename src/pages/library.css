@@ -165,7 +165,8 @@ input:focus {
 }
 .moving-icon{
   position: relative;
-  margin-left: 10px;
+  margin-top: -50px;
+  margin-left: 150px;
   animation: moveIcon 4s infinite;
 }
 @keyframes moveIcon {
@@ -351,11 +352,11 @@ input:focus {
     font-size: 14px;
   }
   .account-sec {
-    width: 75%; /* Adjust width for smaller screens */
-    height: auto; /* Allow height to adjust automatically */
-    margin: 20px auto; /* Center the section horizontally and add margin for spacing */
-    margin-left: 20px; /* Move the section to the left */
-    padding: 10px; /* Reduce padding */
+    width: 90%; 
+    height: auto; 
+    margin: 20px auto; 
+    margin-left: 20px; 
+    padding: 10px; 
     border: 1px solid grey;
     border-radius: 10px;
     background-color: rgb(23, 23, 27);
@@ -368,49 +369,50 @@ input:focus {
 
   .form-inputs {
     margin-top:50px;
-    width: 100%; /* Ensure form inputs take full width */
-    padding: 0 10px; /* Add padding to the sides */
+    width: 100%; 
+    padding: 0 10px; 
   }
 
   .account-form {
-    width: 100%; /* Ensure form takes full width */
-    gap: 10px; /* Reduce gap between inputs */
+    width: 100%; 
+    gap: 10px; 
   }
 
   .account-form input {
-    padding: 8px; /* Reduce padding */
-    font-size: 14px; /* Adjust font size */
-    width: 100%; /* Ensure inputs take full width */
+    padding: 8px; 
+    font-size: 14px;
+    width: 100%; 
   }
 
   .password-input {
-    width: 100%; /* Ensure password input takes full width */
+    width: 100%; 
   }
 
   .password-input .MuiIconButton-root {
-    right: 5px; /* Adjust position of the icon button */
+    right: 5px; 
   }
 
   .form-actions {
-    display: flex; /* Ensure buttons are displayed in a row */
-    justify-content: space-between; /* Distribute space between the buttons */
-    align-items: center; /* Align buttons vertically */
-    gap: 10px; /* Add gap between buttons */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 10px; 
   }
   .form-actions span{
     font-size: 12px;
     word-break: break-word; 
   }
   .account-button {
-
     padding: 8px;
     font-size: 14px;
-    width: auto; /* Allow button width to adjust based on content */
+    width: auto; 
   }
   
   .moving-icon {
-    display: flex;
+    margin: 0;
     animation: moveIcon 4s infinite;
+    margin-left: 85px;
+    margin-top: -40px;
   }
   .account-form p {
     text-align: center; 
@@ -424,5 +426,39 @@ input:focus {
     text-align: center; 
     margin: 30px; 
     word-break: break-word; 
+  }
+  .circle-container-bottom{
+    display: none;
+  }
+  .circle-container-above{
+    display: none;
+  }
+  .fav-container{
+    width: 100%;
+    height: 70%;
+    margin-left: 10px;
+  }
+  .fav-scrollable-content{
+    margin-right: 20px;
+  }
+  .fav-img{
+    width: 10%;
+  }
+  .fav-content{
+    margin-left: -20px;
+  }
+  .fav-info h2{
+    max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: small;
+  }
+  .fav-icons{
+    gap: 4px;
+    margin:0;
+  }
+  .number{
+    display: none;
   }
 }

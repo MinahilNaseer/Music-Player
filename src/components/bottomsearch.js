@@ -39,12 +39,35 @@ const BottomPlayerSearch = ({ song }) => {
     min: "00",
     sec: "00",
   });
+  const [duration, setDuration] = useState({
+    min: "00",
+    sec: "00",
+  });
   const audioRef = useRef(null);
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.src = previewUrl;
       audioRef.current.load();
+
+      // Update the duration when the metadata is loaded
+      const handleLoadedMetadata = () => {
+        const duration = audioRef.current.duration;
+        const min = Math.floor(duration / 60);
+        const sec = Math.floor(duration % 60);
+        setDuration({
+          min: min.toString().padStart(2, "0"),
+          sec: sec.toString().padStart(2, "0"),
+        });
+      };
+
+      audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        }
+      };
     }
   }, [previewUrl]);
 
@@ -94,7 +117,7 @@ const BottomPlayerSearch = ({ song }) => {
       <div className="circular-image-container">
         <img
           className="circular-image"
-          src={artwork}
+          src={artwork|| "/assets/default-img.jpeg"}
           alt="artist-img"
         />
       </div>
@@ -129,9 +152,9 @@ const BottomPlayerSearch = ({ song }) => {
           </button>
         </div>
         <audio ref={audioRef}></audio>
-        <div className="center-scroller">
+        <div className="center-scroller-ser">
           <div className="player-time">
-            <p>
+            <p className='ser-current-ti'>
               {currTime.min}:{currTime.sec}
             </p>
             <input
@@ -147,9 +170,8 @@ const BottomPlayerSearch = ({ song }) => {
                 }
               }}
             />
-            <p>
-              {Math.floor(audioRef.current?.duration / 60).toString().padStart(2, "0") || "00"}:
-              {Math.floor(audioRef.current?.duration % 60).toString().padStart(2, "0") || "00"}
+            <p className='ser-duration-ti'>
+              {duration.min}:{duration.sec}
             </p>
           </div>
         </div>
