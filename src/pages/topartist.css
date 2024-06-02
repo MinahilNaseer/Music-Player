@@ -428,8 +428,22 @@ main h1{
       padding: 0px; 
       font-size: medium; 
     }
+    .bottom-player{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    width: 200%;
+    height: 15%;
+    background-color: rgba(248, 242, 242, 0.39);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 99;
+  }
     .player-details {
-      margin-left: -20px; 
+      width:20%;
+      margin-left: -30px; 
     }
   
     .player-details h2,
@@ -437,14 +451,28 @@ main h1{
       text-align: left;
     }
     .bottom-player-buttons {
-      margin-left:-15px;
-      margin-top: -20px; 
+      width:50%;
+      margin-left: -90px;
+      margin-top: -10px; 
     }
+    
     .player-timeline {
-      margin-left:25px;
+      width: 50%;
+      margin-left: -100px;
       margin-top: 10px; 
     }
+    
     .player-time {
-      margin-top: 20px;
+    display: none;
+    }
+    .volume-timeline{
+      display: none;
+    }
+    .circular-image-container {
+      display: none;
+    }
+    
+    .circular-image {
+      display: none; 
     }
   }
