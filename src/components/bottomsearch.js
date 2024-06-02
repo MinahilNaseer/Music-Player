@@ -99,8 +99,8 @@ const BottomPlayerSearch = ({ song }) => {
         />
       </div>
       <div className="player-details">
-        <h2>{name}</h2>
-        <h3>{artistName}</h3>
+        <h2 className="marquee">{name}</h2>
+        <h3 className="marquee">{artistName}</h3>
       </div>
       <div className="buttons-timeline">
         <div className="bottom-player-buttons">

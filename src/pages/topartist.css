@@ -211,26 +211,26 @@ main h1{
     height: auto;
     animation: rotate 2s linear infinite; 
   }
-  .player-details{
-    flex: 1;
-    display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  }
-  .player-details h2{
-    font-size: large;
-    font-weight: bold;
-    white-space: nowrap;
+  .player-details {
+    max-width: 150px; /* Adjust this value as needed */
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .player-details h3{
-    text-overflow: ellipsis;
-    font-size: small;
-    white-space: nowrap;
-    overflow: hidden;
-    text-decoration: none;
+  
+  .player-details h2, .player-details h3 {
+    font-size: 16px; /* Adjust the font size as needed */
     margin: 0;
+    padding: 0;
+  }
+  .marquee {
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
   
   @keyframes rotate {
