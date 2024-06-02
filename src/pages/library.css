@@ -350,4 +350,77 @@ input:focus {
   .recomm-info p {
     font-size: 14px;
   }
+  .account-sec {
+    width: 75%; /* Adjust width for smaller screens */
+    height: auto; /* Allow height to adjust automatically */
+    margin: 20px auto; /* Center the section horizontally and add margin for spacing */
+    margin-left: 20px; /* Move the section to the left */
+    padding: 10px; /* Reduce padding */
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: rgb(23, 23, 27);
+    box-sizing: border-box;
+  }
+
+  .user-img {
+   display: none;
+  }
+
+  .form-inputs {
+    margin-top:50px;
+    width: 100%; /* Ensure form inputs take full width */
+    padding: 0 10px; /* Add padding to the sides */
+  }
+
+  .account-form {
+    width: 100%; /* Ensure form takes full width */
+    gap: 10px; /* Reduce gap between inputs */
+  }
+
+  .account-form input {
+    padding: 8px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+    width: 100%; /* Ensure inputs take full width */
+  }
+
+  .password-input {
+    width: 100%; /* Ensure password input takes full width */
+  }
+
+  .password-input .MuiIconButton-root {
+    right: 5px; /* Adjust position of the icon button */
+  }
+
+  .form-actions {
+    display: flex; /* Ensure buttons are displayed in a row */
+    justify-content: space-between; /* Distribute space between the buttons */
+    align-items: center; /* Align buttons vertically */
+    gap: 10px; /* Add gap between buttons */
+  }
+  .form-actions span{
+    font-size: 12px;
+    word-break: break-word; 
+  }
+  .account-button {
+    padding: 8px;
+    font-size: 14px;
+    width: auto; /* Allow button width to adjust based on content */
+  }
+  
+  .moving-icon {
+    animation: moveIcon 4s infinite;
+  }
+  .account-form p {
+    text-align: center; 
+    font-size: 14px; 
+    margin-left: 20px ; 
+    word-break: break-word; 
+  }
+
+  .heading-track-det {
+    font-size: 20px;
+    text-align: center; 
+    margin: 10px; 
+    word-break: break-word; 
+  }
 }
