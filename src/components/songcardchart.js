@@ -34,6 +34,11 @@ const SongCard = ({ song, onPlay }) => {
       };
 
       const response = await axios.post('http://localhost:3001/api/favorites', favoriteSong);
+      if (response.ok) {
+        alert("Failed to Add!");
+      } else {
+        alert("Added To Favorites!");
+      }
       if (response.status === 201) {
         console.log('Song added to favorites');
       } else {

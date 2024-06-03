@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware and configurations
 app.use(cors({
-  origin: 'http://localhost:3000' && 'http://192.168.18.126:3000/', 
+  origin: 'http://localhost:3000', 
   credentials: true,
 }));
 
@@ -174,6 +174,27 @@ app.get('/api/favorites', async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 });
+// Delete favorite song route
+app.delete('/api/favorites/:name', async (req, res) => {
+  const { name } = req.params;
+
+  try {
+    const request = new sql.Request();
+    const query = 'DELETE FROM LikedSongs WHERE title = @name';
+    request.input('name', sql.NVarChar, name);
+    const result = await request.query(query);
+
+    if (result.rowsAffected && result.rowsAffected[0] === 1) {
+      res.status(200).send({ message: 'Favorite song removed successfully' });
+    } else {
+      res.status(404).send({ message: 'Favorite song not found' });
+    }
+  } catch (err) {
+    console.error('Error deleting favorite song:', err);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
