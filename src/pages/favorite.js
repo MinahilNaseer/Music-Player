@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-//import DashboardTopNav from "../components/dashboardtopnav";
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import Sidenavbar from "../components/sidenavbar";
 import LibraryTopNav from "../components/librarytopnav";
@@ -7,7 +6,6 @@ import kpopfav from "../assets/k-pop-fav.jpg";
 import musicnote from "../assets/music-note.jpg";
 import music3 from "../assets/music-3.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import PlayCircle from "@mui/icons-material/PlayCircle";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -33,12 +31,28 @@ const Favorite = () => {
     navigate("/dashboard");
   };
 
-  const handlePlay = (audioUrl) => {
-    if (audioUrl) {
-      const audio = new Audio(audioUrl);
-      audio.play();
-    } else {
-      console.error("Invalid audio URL:", audioUrl);
+
+  const handleRemove = async (name) => {
+    try {
+      const response = await axios.delete(`http://localhost:3001/api/favorites/${name}`);
+      console.log('Song removed:', response.data);
+      setFavorites(favorites.filter(song => song.title !== name));
+      if (response.ok) {
+        alert("Failed to remove the song");
+      } else {
+        alert("Successfully removed !");
+      }
+    } catch (error) {
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+        console.error('Error response status:', error.response.status);
+        console.error('Error response headers:', error.response.headers);
+      } else if (error.request) {
+        console.error('Error request:', error.request);
+      } else {
+        console.error('Error message:', error.message);
+      }
+      console.error('Error config:', error.config);
     }
   };
 
@@ -81,11 +95,9 @@ const Favorite = () => {
                     className="fav-icon"
                   />
                   
-                  <RemoveCircleIcon/>
-                  <PlayCircle
+                  <RemoveCircleIcon
                     style={{ width: "25px", height: "25px", cursor: "pointer" }}
-                    className="fav-play-icon"
-                    onClick={() => handlePlay(song.audioUrl)}
+                    onClick={() => handleRemove(song.title)}
                   />
                 </div>
               </div>

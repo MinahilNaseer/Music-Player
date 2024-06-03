@@ -60,7 +60,7 @@ const Sidenavbar = () => {
       >
         <Menu>
           <div className="logo-container">
-          <img src='/assets/note-removebg.png' alt='logo' className='dash-logo' onClick={handleGoBack}/>
+          <img src='/assets/note-removebg.png' alt='logo' className='dash-logo' onClick={handleGoBack} style={{cursor:"pointer"}}/>
             <h2 className='nav-head-ing'>Vibz</h2>
           </div>
           <SubMenu
