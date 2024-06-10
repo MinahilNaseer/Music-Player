@@ -12,3 +12,5 @@
   <li>**AI-Powered Recommendations**: Enjoy personalized song recommendations using content filtering.</li>
   <li>**Responsive Design**: Experience seamless music enjoyment on any device, with a user-friendly interface optimized for both desktop and mobile platforms.</li>
 </ul>
+<h3>Interfaces</h3>
+<img src="C:\Users\pak\Downloads\m.jpg" alt="Music player screenshot" style="width:100%; max-width:600px;">
