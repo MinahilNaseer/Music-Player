@@ -13,12 +13,12 @@
   <li>**Responsive Design**: Experience seamless music enjoyment on any device, with a user-friendly interface optimized for both desktop and mobile platforms.</li>
 </ul>
 <h3>Interfaces</h3>
-<img src="/assets/Music-player-SS.png"  alt="Music player screenshot" style="width:80%">
+<img src="src/assets/Music-player-SS.png"  alt="Music player screenshot" style="width:80%">
 
 <img src="src/assets/Main-SS.png"  alt="Music player screenshot" style="width:80%">
 
-<img src="/assets/Search-SS.png"  alt="Music player screenshot" style="width:80%">
+<img src="src/assets/Search-SS.png"  alt="Music player screenshot" style="width:80%">
 
-<img src="/assets/Top-Artist SS.png"  alt="Music player screenshot" style="width:80%">
+<img src="src/assets/Top-Artist SS.png"  alt="Music player screenshot" style="width:80%">
 
-<img src="/assets/Top-charts.png"  alt="Music player screenshot" style="width:80%">
+<img src="src/assets/Top-charts.png"  alt="Music player screenshot" style="width:80%">
