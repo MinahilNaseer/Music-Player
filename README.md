@@ -15,7 +15,7 @@
 <h3>Interfaces</h3>
 <img src="/assets/Music-player-SS.png"  alt="Music player screenshot" style="width:80%">
 
-<img src="/assets/Main-SS.png"  alt="Music player screenshot" style="width:80%">
+<img src="src/assets/Main-SS.png"  alt="Music player screenshot" style="width:80%">
 
 <img src="/assets/Search-SS.png"  alt="Music player screenshot" style="width:80%">
 
